@@ -22,8 +22,8 @@
 
     <li><a class="app-menu__item <?php if(Request::segment(1) == "data_element") echo "active"; ?>" href="{{url('/data_element')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Data Element')}}</span></a></li>
     <li><a class="app-menu__item <?php if(Request::segment(1) == "login_img_settings") echo "active"; ?>" href="{{url('/login_img_settings')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Logo Settings')}}</span></a></li>
-    <li><a class="app-menu__item <?php if(Request::segment(1) == "login_img_settings") echo "active"; ?>" href="{{url('/data-classification')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Data Classification')}}</span></a></li>
-    <li><a class="app-menu__item <?php if(Request::segment(1) == "login_img_settings") echo "active"; ?>" href="{{url('/impact')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Impact')}}</span></a></li>
+    <li><a class="app-menu__item <?php if(Request::segment(1) == "data-classification") echo "active"; ?>" href="{{url('/data-classification')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Data Classification')}}</span></a></li>
+    <li><a class="app-menu__item <?php if(Request::segment(1) == "impact") echo "active"; ?>" href="{{url('/impact')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">{{ __('Impact')}}</span></a></li>
     <?php 
       $expanded = '';
       if (strpos(url()->current(), 'AssetsReports') !== false || strpos(url()->current(), 'DataInvReports') !== false){
