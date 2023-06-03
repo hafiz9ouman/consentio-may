@@ -1,0 +1,1749 @@
+<style>
+        .set_heading {
+      text-align: center;
+      font-size: 15px;
+      color: gray;
+    }
+    .table-responsive {
+      background: #fff;
+    }
+    .set_heading {
+        border-right: 9px solid #fff !important;
+    }
+    .table td, .table th {
+    /*border-left: 9px solid #fff !important;*/
+    /*border: none !important;*/
+    border-bottom: 0 !important;
+    /*border-bottom-color: rgba(110, 111, 115, 0.51);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;*/
+    }
+    .table td, .table th {
+      border-top:  0 !important;
+    }
+    .set_heading , .set_bg {
+        background: #dfdfdfb3;
+        border-radius: 11px;
+        /*color: #fff;*/
+    }
+    .styling {
+      font-size: 18px !important;
+      color: #1cc88a !important;
+    }
+    .table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+    border-radius: 14px;
+    filter: drop-shadow;
+    font-size: 15px;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        font-size: 16px;
+    }
+    .table-responsive {
+        min-height: 200px;
+      }
+      .add_color {
+        color: #1cc88a;
+      }
+      .coloring span {
+         color: #1cc88a;
+         font-weight: 600;
+      }
+      .table-sm {
+        font-size: 14px;
+      }
+      .print_exp {
+        margin-bottom: .5rem;
+      }
+  </style>
+
+ <table class="table table table-responsive-sm text-center" id="tab">
+        <thead>
+          
+         
+          <tr>
+          
+
+          
+
+            
+                <td class="coloring fixed"> <!-- <span> User </span> |  Option --> </td>
+                                     
+                    <td  id="Antécédents criminels" class="table-sm">Antécédents criminels</td>        
+                       
+                    <td  id="citations de conduite" class="table-sm">citations de conduite</td>        
+                       
+                    <td  id="vérification des références ou des antécédents" class="table-sm">vérification des références ou des antécédents</td>        
+                       
+                    <td  id="casiers judiciaires" class="table-sm">casiers judiciaires</td>        
+                       
+                    <td  id="Empreinte digitale" class="table-sm">Empreinte digitale</td>        
+                       
+                    <td  id="balayage de la rétine" class="table-sm">balayage de la rétine</td>        
+                       
+                    <td  id="reconnaissance faciale" class="table-sm">reconnaissance faciale</td>        
+                       
+                    <td  id="adresse IP" class="table-sm">adresse IP</td>        
+                       
+                    <td  id="historique du site Web" class="table-sm">historique du site Web</td>        
+                       
+                    <td  id="cookies" class="table-sm">cookies</td>        
+                       
+                    <td  id="Temps de navigation" class="table-sm">Temps de navigation</td>        
+                       
+                    <td  id="courriel personnel" class="table-sm">courriel personnel</td>        
+                       
+                    <td  id="numéros de téléphone" class="table-sm">numéros de téléphone</td>        
+                       
+                    <td  id="adresse de résidence précédente" class="table-sm">adresse de résidence précédente</td>        
+                       
+                    <td  id="Relevés de notes académiques" class="table-sm">Relevés de notes académiques</td>        
+                       
+                    <td  id="langues" class="table-sm">langues</td>        
+                       
+                    <td  id="histoire de l&#039;éducation et de la formation" class="table-sm">histoire de l&#039;éducation et de la formation</td>        
+                       
+                    <td  id="notes" class="table-sm">notes</td>        
+                       
+                    <td  id="diplômes" class="table-sm">diplômes</td>        
+                       
+                    <td  id="Antécédents criminels" class="table-sm">Antécédents criminels</td>        
+                       
+                    <td  id="Informations sur le compte bancaire" class="table-sm">Informations sur le compte bancaire</td>        
+                       
+                    <td  id="relevés bancaires" class="table-sm">relevés bancaires</td>        
+                       
+                    <td  id="numéro de carte de crédit" class="table-sm">numéro de carte de crédit</td>        
+                       
+                    <td  id="date de naissance" class="table-sm">date de naissance</td>        
+                       
+                    <td  id="sexe" class="table-sm">sexe</td>        
+                       
+                    <td  id="poids" class="table-sm">poids</td>        
+                       
+                    <td  id="religion / croyances religieuses" class="table-sm">religion / croyances religieuses</td>        
+                       
+                    <td  id="Âge" class="table-sm">Âge</td>        
+                       
+                    <td  id="nom de famille" class="table-sm">nom de famille</td>        
+                       
+                    <td  id="Compte de médias sociaux" class="table-sm">Compte de médias sociaux</td>        
+                       
+                    <td  id="contact avec les médias sociaux" class="table-sm">contact avec les médias sociaux</td>        
+                       
+                    <td  id="historique des médias sociaux" class="table-sm">historique des médias sociaux</td>        
+                       
+                    <td  id="Âge du compte" class="table-sm">Âge du compte</td>        
+                       
+                    <td  id="Antécédents criminels" class="table-sm">Antécédents criminels</td>        
+                       
+                    <td  id="numéros de carte de crédit ou de débit d&#039;entreprise" class="table-sm">numéros de carte de crédit ou de débit d&#039;entreprise</td>        
+                       
+                    <td  id="informations et rapports liés à la santé et à la sécurité" class="table-sm">informations et rapports liés à la santé et à la sécurité</td>        
+                       
+                    <td  id="heures de travail" class="table-sm">heures de travail</td>        
+                       
+                    <td  id="évaluation des performances" class="table-sm">évaluation des performances</td>        
+                       
+                    <td  id="numéro du personnel" class="table-sm">numéro du personnel</td>        
+                       
+                    <td  id="Données sur les avantages et les droits" class="table-sm">Données sur les avantages et les droits</td>        
+                       
+                    <td  id="unité commerciale / division" class="table-sm">unité commerciale / division</td>        
+                       
+                    <td  id="type de contrat - durée déterminée / temporaire / permanent etc." class="table-sm">type de contrat - durée déterminée / temporaire / permanent etc.</td>        
+                       
+                    <td  id="date de fin et raison de la résiliation" class="table-sm">date de fin et raison de la résiliation</td>        
+                       
+                    <td  id="entretien de sortie et commentaires" class="table-sm">entretien de sortie et commentaires</td>        
+                       
+                    <td  id="griefs et plaintes" class="table-sm">griefs et plaintes</td>        
+                       
+                    <td  id="responsable hiérarchique / hiérarchique" class="table-sm">responsable hiérarchique / hiérarchique</td>        
+                       
+                    <td  id="Réclamations des accidents du travail" class="table-sm">Réclamations des accidents du travail</td>        
+                       
+                    <td  id="Nom des enfants" class="table-sm">Nom des enfants</td>        
+                       
+                    <td  id="noms des parents" class="table-sm">noms des parents</td>        
+                       
+                    <td  id="Séquence génétique" class="table-sm">Séquence génétique</td>        
+                       
+                    <td  id="numéro d&#039;identification national" class="table-sm">numéro d&#039;identification national</td>        
+                       
+                    <td  id="numéro de passeport" class="table-sm">numéro de passeport</td>        
+                       
+                    <td  id="Numéro de permis de conduire" class="table-sm">Numéro de permis de conduire</td>        
+                       
+                    <td  id="qualifications / certifications" class="table-sm">qualifications / certifications</td>        
+                       
+                    <td  id="Détails des dépenses" class="table-sm">Détails des dépenses</td>        
+                       
+                    <td  id="détails de réservation de voyage" class="table-sm">détails de réservation de voyage</td>        
+                       
+                    <td  id="Détails sur l&#039;intimidation et le harcèlement" class="table-sm">Détails sur l&#039;intimidation et le harcèlement</td>        
+                       
+                    <td  id="contact avec les médias sociaux" class="table-sm">contact avec les médias sociaux</td>        
+                       
+                    <td  id="historique des médias sociaux" class="table-sm">historique des médias sociaux</td>        
+                       
+                    <td  id="Âge du compte" class="table-sm">Âge du compte</td>        
+                       
+                    <td  id="numéro de compte" class="table-sm">numéro de compte</td>        
+                       
+                    <td  id="qualifications / certifications" class="table-sm">qualifications / certifications</td>        
+                       
+                    <td  id="Détails des dépenses" class="table-sm">Détails des dépenses</td>        
+                       
+                    <td  id="Détails sur l&#039;intimidation et le harcèlement" class="table-sm">Détails sur l&#039;intimidation et le harcèlement</td>        
+                       
+                    <td  id="web" class="table-sm">web</td>        
+                       
+                    <td  id="app" class="table-sm">app</td>        
+                       
+                    <td  id="androuid" class="table-sm">androuid</td>        
+                       
+                    <td  id="python" class="table-sm">python</td>        
+                       
+                    <td  id="cricket" class="table-sm">cricket</td>        
+                       
+                    <td  id="hockey" class="table-sm">hockey</td>        
+                       
+                    <td  id="fooball" class="table-sm">fooball</td>        
+                       
+                    <td  id="asdasd" class="table-sm">asdasd</td>        
+                       
+                    <td  id="sdadas" class="table-sm">sdadas</td>        
+                       
+                    <td  id="dffd" class="table-sm">dffd</td>        
+                       
+                    <td  id="ahmad" class="table-sm">ahmad</td>        
+                       
+                    <td  id="saeed" class="table-sm">saeed</td>        
+                       
+                    <td  id="saab" class="table-sm">saab</td>        
+                       
+                    <td  id="askdjh" class="table-sm">askdjh</td>        
+                       
+                    <td  id="asdlhk" class="table-sm">asdlhk</td>        
+                                      
+
+          </tr>
+        </thead>
+        <tbody>
+                    <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+(DDLJ Data Inv TEST)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+(DDLJ .test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">khayam4644@gmail.com
+(DDLJ Data Inv TEST)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmedraza1381@gmail.com
+(DDLJ  btn test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+(stepinn testing fr 1)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+(ENREGISTREMENT DU TRAITEMENT asd)
+</td>
+
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+(edit test fr)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+(ÉVALUATION DE IMPACT SUR LA VIE PRIVÉE (PIA))
+</td>
+
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+(dd etsty)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+<!-- options -->
+<td> <i class="fa fa-check-circle styling"></i> </td>
+
+</tr>
+                                            
+
+
+
+
+          
+
+
+        </tbody>
+
+
+      </table>

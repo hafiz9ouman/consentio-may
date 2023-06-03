@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="gb18030">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+            Consentio | We Manage Compliance
+        
+    </title>
+    <meta name="csrf-token" content="RSWB7YxMYXuM9HBTCyGXkDkrpbCYrPTywKsisYsr">
+    <link rel="icon" href=" https://dev.d3grc.com/newfavicon.png" type="image/png">
+    <script src="https://dev.d3grc.com/backend/js/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://dev.d3grc.com/backend/css/sweetalert.css">
+    <!--  -->
+    <!--  -->
+    <!-- Custom fonts for this template-->
+    <link href="https://dev.d3grc.com/frontend/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
+    <!-- Custom styles for this template-->
+    <link href="https://dev.d3grc.com/frontend/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <!--///////////////mycss////////-->
+    
+    <link href="https://dev.d3grc.com/frontend/css/table.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.css"/>
+      
+
+      <!-- BOXicon -->
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+      <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+</head>
+<body id="page-top">
+
+<div class="overlay_sidebar"></div>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" >
+      <!-- Sidebar - Brand -->
+      
+      <a class="sidebar-brand d-flex align-items-center justify-content-center " href="https://dev.d3grc.com/dashboard">
+        <div class="sidebar-brand-icon">
+          <!-- <img style="width: 100%; height: 30px;" src="https://dev.d3grc.com/image/D3GDPR41.png"> -->
+                    <img style="max-width: 100%; max-height: 30%; background-color: black;" src="https://dev.d3grc.com/_organisation.png">
+          
+        </div>
+      </a>
+      <!-- Heading -->
+<!--       <div class="sidebar-heading">
+        Interface
+      </div> -->
+      <!-- Nav Item - Pages Collapse Menu -->
+                   <li class="nav-item ">
+        <a class="nav-link collapsed active_clr" href="https://dev.d3grc.com/dashboard" >
+          <i class='bx bxs-dashboard' ></i>
+          <span>Dashboard</span>
+        </a>
+      </li> 
+       
+      
+      
+      <!--<li class="nav-item ">-->
+      <!--  <a class="nav-link collapsed" href="https://dev.d3grc.com/profile/318">-->
+      <!--    <i class="fas fa-user"></i>-->
+      <!--    <span>Profile </span>--> 
+      <!--  </a>-->
+      <!--</li> -->
+
+                
+                
+       <li class="nav-item ">
+          <a class="nav-link  collapsed" href="#" data-toggle="collapse" data-target="#collapseAssessment" aria-expanded="true" aria-controls="collapseAssessment">
+            <i class='bx bx-file'></i>
+            <span>Assessment Forms</span>
+          </a>
+
+
+
+           
+          <div id="collapseAssessment" class="collapse " aria-labelledby="headingAssessment" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Forms/FormsList">Manage Forms</a>
+                              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div> 
+          
+
+
+          <div id="collapseAssessment" class="collapse " aria-labelledby="headingAssessment" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               <!--<h6 class="collapse-header">Custom Components:</h6>--> 
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Forms/ClientUserFormsList">My Assigned Forms</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+
+
+           
+            
+          <div id="collapseAssessment" class="collapse " aria-labelledby="headingAssessment" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Forms/CompletedFormsList">Completed Forms</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+          
+
+
+
+          <div id="collapseAssessment" class="collapse " aria-labelledby="headingAssessment" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               <!--<h6 class="collapse-header">Custom Components:</h6>--> 
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Forms/All_Generated_Forms">Generated Forms</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+          <!-- Forms/All_Generated_Forms -->
+
+          
+        </li>     
+                       
+      
+   
+      
+       
+     
+
+      <!-- Previous Assessment Forms Links -->
+      
+<!--       <li class="nav-item ">
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/Forms/ClientUserFormsList" >
+          <i class="fas fa-fw fa-file"></i>
+          <span>My Assigned Forms</span>
+        </a>
+      </li>        -->
+      
+<!--      <li class="nav-item ">
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/Forms/FormsList" >
+          <i class="fas fa-fw fa-file-alt"></i>
+          <span>Assessment Forms</span>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/Forms/CompletedFormsList" >
+          <i class="fa fa-files-o"></i>
+          <span>Completed Forms</span>
+        </a>
+      </li>-->
+      
+      <!-- Previous Assessment Forms Links -->
+      
+                
+        <!-- Previous SAR Forms Links -->
+
+<!--        <li class="nav-item ">
+          <a class="nav-link collapsed" href="https://dev.d3grc.com/Forms/ShowSARAssignees/14" >
+            <i class="fa fa-file-code-o"></i>
+            <span>SAR Form</span>
+          </a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link collapsed" href="https://dev.d3grc.com/Forms/SARCompletedFormsList" >
+            <i class="fa fa-stack-exchange"></i>
+            <span>SAR Completed Form</span>
+          </a>
+        </li>		
+
+        <li class="nav-item ">
+          <a class="nav-link collapsed" href="https://dev.d3grc.com/SARExpirySettings" >
+            <i class="fa fa-stack-exchange"></i>
+            <span>SAR Expiry Settings</span>
+          </a>
+        </li>-->
+        
+        <!-- Previous SAR Forms Links -->        
+               
+        <li class="nav-item ">
+          <a class="nav-link  collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa fa-file-text-o"></i>
+            <span>SAR</span>
+          </a>
+                    
+           
+          <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/SAR/ShowSARAssignees/14">SAR Forms</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+              
+                
+              <a class="collapse-item " href="https://dev.d3grc.com/SAR/SARCompletedFormsList">SAR Forms Submitted</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div> 
+         <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                 
+              <a class="collapse-item " href="https://dev.d3grc.com/SAR/SARInCompletedFormsList">SAR Forms pending</a>
+              
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div> 
+         
+                  </li> 
+              
+
+
+        	
+                
+        
+               
+            <!-- Nav Item -  -->
+      
+      <li class="nav-item  ">
+            <a class="nav-link collapsed" href="https://dev.d3grc.com/users_management" >
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users Management </span>
+        </a>
+      
+      </li>
+
+            <!-- Divider -->
+      <!-- Nav Item -  -->
+            <!--<li class="nav-item">-->
+		        <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportsRegUsers" aria-expanded="true" aria-controls="collapseTwo">-->
+
+        <!--  <i class="fas fa-server"></i>-->
+
+        <!--  <span>Org. User Reports</span>-->
+
+        <!--</a>-->
+
+        <!--<div id="collapseReportsRegUsers" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">-->
+
+        <!--  <div class="bg-white py-2 collapse-inner rounded">-->
+
+            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+
+        <!--    <a class="collapse-item" href="https://dev.d3grc.com/Reports/AssetsReportsReg/1">Asset Reports</a>-->
+
+            <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+
+        <!--  </div>-->
+
+        <!--  <div class="bg-white py-2 collapse-inner rounded">-->
+
+            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+
+        <!--    <a class="collapse-item" href="https://dev.d3grc.com/Reports/AssetsReportsReg/2">Data Inventory Reports</a>-->
+
+            <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+
+        <!--  </div>		  -->
+
+        <!--</div>-->
+
+      <!--</li>-->
+		      <!--<li class="nav-item">-->
+
+      <!--  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportsExUsers" aria-expanded="true" aria-controls="collapseTwo">-->
+
+      <!--    <i class="fas fa-server"></i>-->
+
+      <!--    <span>External User Reports</span>-->
+
+      <!--  </a>-->
+
+      <!--  <div id="collapseReportsExUsers" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">-->
+
+      <!--    <div class="bg-white py-2 collapse-inner rounded">-->
+
+      <!--       <h6 class="collapse-header">Custom Components:</h6> -->
+
+      <!--      <a class="collapse-item" href="https://dev.d3grc.com/Reports/AssetsReportsEx/1">Asset Reports</a>-->
+
+      <!--       <a class="collapse-item" href="cards.html">Cards</a> -->
+
+      <!--    </div>-->
+
+      <!--    <div class="bg-white py-2 collapse-inner rounded">-->
+
+      <!--       <h6 class="collapse-header">Custom Components:</h6> -->
+
+      <!--      <a class="collapse-item" href="https://dev.d3grc.com/Reports/AssetsReportsEx/2">Data Inventory Reports</a>-->
+
+      <!--       <a class="collapse-item" href="cards.html">Cards</a> -->
+
+      <!--    </div>		  -->
+
+      <!--  </div>-->
+
+      <!--</li>	-->
+
+      <!--<li class="nav-item">-->
+
+      <!--  <a class="nav-link collapsed" href="https://dev.d3grc.com/Reports/SummaryReports" >-->
+
+      <!--    <i class="fas fa-fw fa-database"></i>-->
+
+      <!--    <span>Data Inventory</span>-->
+
+      <!--  </a>-->
+
+
+      <!--</li>	-->
+      
+      <!--<li class="nav-item ">-->
+      <!--  <a class="nav-link collapsed" href="https://dev.d3grc.com/Reports/GlobalDataInventory" >-->
+      <!--    <i class="fas fa-fw fa-database"></i>-->
+      <!--    <span>Data Inventory</span>-->
+      <!--  </a>-->
+      <!--</li>-->
+      
+      
+      <!--  -->
+               
+          <li class="nav-item ">
+          <a class="nav-link  collapsed" href="#" data-toggle="collapse" data-target="#collapseSettingss" aria-expanded="true" aria-controls="collapseSettings">
+            <i class="fa fa-file"></i>
+            <span>Data Inventory</span>
+          </a>
+          <div id="collapseSettingss" class="collapse  " aria-labelledby="headingSetting" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+              
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Reports/GlobalDataInventory">Global Data Inventory</a>
+              
+
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>           
+          <div id="collapseSettingss" class="collapse " aria-labelledby="headingSetting" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+              
+               
+              <a class="collapse-item " href="https://dev.d3grc.com/Reports/DetailedDataInventory">Detailed Data Inventory</a>
+          
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+          
+            
+        </li>
+        
+
+<!--  -->
+      
+      <li class="nav-item ">
+        
+               
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/assets" >
+          <i class='bx bx-list-ul'></i>
+          <span>Assets List</span>
+              </a>
+      </li>
+
+      <li class="nav-item ">
+
+        
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/activities" >
+
+          <i class='bx bx-list-check' ></i>
+
+          <span>Activities List</span>
+
+        </a>
+      
+        
+      </li>
+      
+            
+      <li class="nav-item " style="border-bottom: 0;">
+        
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/incident" >
+          <i class='bx bx-id-card' ></i>
+          <span>Incident Register</span>
+        </a>
+           
+
+      </li>       
+
+                    
+      
+          
+       <li class="nav-item add_custom_margin_on_setting ">
+          <a class="nav-link  collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings">
+            <i class="fas fa-cogs"></i>
+            <span>Settings</span>
+          </a>
+          <div id="collapseSettings" class="collapse  " aria-labelledby="headingSetting" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+        
+              <a class="collapse-item " href="https://dev.d3grc.com/FormSettings/SubFormsExpirySettings">Sub Forms Expiry Settings</a>
+          
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>           
+          <div id="collapseSettings" class="collapse " aria-labelledby="headingSetting" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+        
+              <a class="collapse-item " href="https://dev.d3grc.com/FormSettings/SARExpirySettings">SAR Expiry Settings</a>
+          
+              <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+            </div>
+          </div>
+          
+            
+        </li>
+
+                       
+            
+    
+
+      <li class="nav-item">
+
+        <a class="nav-link collapsed" href="https://dev.d3grc.com/logout" >
+
+          <i class='bx bx-log-out-circle bx-rotate-180' ></i>
+
+          <span>Logout</span>
+
+        </a>
+
+
+      </li>
+
+
+
+      <!-- Divider -->
+
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+
+
+
+
+
+      <!-- Nav Item - Pages Collapse Menu -->
+
+
+
+
+
+      <!-- Nav Item - Charts -->
+
+
+
+
+
+      <!-- Divider -->
+
+
+
+
+
+      <!-- Sidebar Toggler (Sidebar) -->
+
+     <!--  <div class="text-center d-none d-md-inline">
+
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+
+      </div> -->
+
+
+
+    </ul>
+
+    <!-- End of Sidebar -->
+
+
+
+    <!-- Content Wrapper -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+
+
+      <!-- Main Content -->
+
+      <div id="content">
+
+
+
+        <!-- Topbar -->
+
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+
+          <!-- Sidebar Toggle (Topbar) -->
+
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+
+            <i class="fa fa-bars"></i>
+
+          </button>
+
+
+          <div class="beadcrumbs_topbar">
+            <h3 style="font-size: 18px">
+                                DATA INVENTORY
+                                
+          </h3>
+          </div>
+
+          <!-- Topbar Search -->
+     
+
+		  
+
+
+
+          <!-- Topbar Navbar -->
+
+          <ul class="navbar-nav ml-auto">
+
+
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+
+			
+
+            <li class="nav-item dropdown no-arrow d-sm-none">
+
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <i class="fas fa-search fa-fw"></i>
+
+              </a> 
+
+              <!-- Dropdown - Messages -->
+
+			  
+
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+
+                <form class="form-inline mr-auto w-100 navbar-search">
+
+                  <div class="input-group">
+
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+
+                    <div class="input-group-append">
+
+                      <button class="btn btn-primary" type="button">
+
+                        <i class="fas fa-search fa-sm"></i>
+
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                </form>
+
+              </div>
+
+            </li>
+
+			
+
+
+
+            <!-- Nav Item - Alerts -->
+
+              
+
+
+
+           <!-- <a class="dropdown-item d-flex align-items-center" href="#"> -->
+<li class="nav-item dropdown no-arrow">
+              
+                                <a class="btn btn-default btn-sm" style=" display:flex; align-items:center;" href="https://dev.d3grc.com/language/fr"><img src="https://dev.d3grc.com/img/fr.png" style=" width: 23px; margin-right: 5px;">Français</a>
+                              </li>
+
+                <!-- </a> -->
+
+            <!-- Nav Item - Messages -->
+
+             <!-- <li class="nav-item dropdown no-arrow mx-1">
+
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <i class="fas fa-envelope fa-fw"></i>
+
+
+                <span class="badge badge-danger badge-counter">7</span>
+
+              </a>
+
+
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+
+                <h6 class="dropdown-header">
+
+                  Message Center
+
+                </h6>
+
+                <a class="dropdown-item d-flex align-items-center" href="#">
+
+                  <div class="dropdown-list-image mr-3">
+
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+
+                    <div class="status-indicator bg-success"></div>
+
+                  </div>
+
+                  <div class="font-weight-bold">
+
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I have been having.</div>
+
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+
+                  </div>
+
+                </a>
+
+                
+
+                <a class="dropdown-item d-flex align-items-center" href="#">
+
+                  <div class="dropdown-list-image mr-3">
+
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+
+                    <div class="status-indicator bg-warning"></div>
+
+                  </div>
+
+                  <div>
+
+                    <div class="text-truncate">Last month&#039;s report looks great, I am very happy with the progress so far, keep up the good work!</div>
+
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+
+                  </div>
+
+                </a>
+
+                <a class="dropdown-item d-flex align-items-center" href="#">
+
+                  <div class="dropdown-list-image mr-3">
+
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+
+                    <div class="status-indicator bg-success"></div>
+
+                  </div>
+
+                  <div>
+
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren&#039;t good...</div>
+
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+
+                  </div>
+
+                </a>
+
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+
+              </div>
+
+            </li> -->
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown make_my_arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                
+                                <img class="img-profile rounded-circle"  src="https://dev.d3grc.com/_admin.png">
+                                <span class="ml-2 d-none d-lg-inline text-gray-600 small">admin@orga</span>
+              </a>
+
+              <!-- Dropdown - User Information -->
+
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                 
+                 <a class="dropdown-item" href="https://dev.d3grc.com/profile/318">
+
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                  Profile
+
+                </a>
+              
+
+<!--                <a class="dropdown-item" href="#">
+
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                  Settings
+
+                </a>
+
+                <a class="dropdown-item" href="#">
+
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                  Activity Log
+
+                </a> -->
+
+               <!--  <div class="dropdown-divider"></div> -->
+
+                <a class="dropdown-item" href="https://dev.d3grc.com/logout">
+
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                  Logout
+
+                </a>
+
+              </div>
+
+            </li>
+
+
+
+          </ul>
+
+
+
+        </nav>
+
+        <!-- End of Topbar -->
+
+
+
+        <!-- Begin Page Content -->
+
+
+
+  <!-- Bootstrap core JavaScript-->
+
+  <script src="https://dev.d3grc.com/frontend/js/jquery.min.js"></script>
+
+  <script src="https://dev.d3grc.com/frontend/js/bootstrap.bundle.min.js"></script>
+
+
+
+		<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Export-Table-Data-To-CSV-File-table2csv/src/table2csv.js"></script>
+
+
+  <style>
+        .set_heading {
+      text-align: center;
+      font-size: 15px;
+      color: gray;
+    }
+    .table-responsive {
+      background: #fff;
+    }
+    .set_heading {
+        border-right: 9px solid #fff !important;
+    }
+    .table td, .table th {
+    /*border-left: 9px solid #fff !important;*/
+    /*border: none !important;*/
+    border-bottom: 0 !important;
+    /*border-bottom-color: rgba(110, 111, 115, 0.51);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;*/
+    }
+    .table td, .table th {
+      border-top:  0 !important;
+    }
+    .set_heading , .set_bg {
+        background: #dfdfdfb3;
+        border-radius: 11px;
+        /*color: #fff;*/
+    }
+    .styling {
+      font-size: 18px !important;
+      color: #1cc88a !important;
+    }
+    .table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+    border-radius: 14px;
+    filter: drop-shadow;
+    font-size: 15px;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        font-size: 16px;
+    }
+    .table-responsive {
+        min-height: 200px;
+      }
+      .add_color {
+        color: #1cc88a;
+      }
+      .coloring span {
+         color: #1cc88a;
+         font-weight: 600;
+      }
+      .table-sm {
+        font-size: 14px;
+      }
+      .print_exp {
+        margin-bottom: .5rem;
+      }
+  </style>
+<div class="export_btn" style="    margin-left: 40px;
+    margin-bottom: 1rem;"> <a href="https://dev.d3grc.com/Reports/AssetsReportsEx/2" class="btn btn-sm btn-primary"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Export</a></div>
+
+      <div class="card" style="border-radius: 30px;;margin-left: 30px; margin-right: 30px">
+ 
+        <!-- <button id="dl" class="btn btn-primary">Download</button> -->
+
+                  
+   
+          <div class="card-body">
+            <div class="table-responsive">
+      <table class="table table table-responsive-sm text-center" id="tab">
+        <thead>
+          
+          <tr>
+                              <th class="set_heading fixed">  User </th> 
+                       
+                    <th class="set_heading" colspan="4" >
+
+
+      
+                            Background Checks
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            Biometric
+            
+
+        </th>
+                    <th class="set_heading" colspan="4" >
+
+
+      
+                            Browsing Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            Contact Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="5" >
+
+
+      
+                            Education &amp; Skills
+            
+
+        </th>
+                    <th class="set_heading" colspan="4" >
+
+
+      
+                            Financial
+            
+
+        </th>
+                    <th class="set_heading" colspan="6" >
+
+
+      
+                            Personal Identification
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            Social Media
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            User Account Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="14" >
+
+
+      
+                            Employment Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            Family Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            Genetic
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            Government Identifiers
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            Professional Experience &amp; Affiliations
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            Travel &amp; Expense
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            Workplace Welfare
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            	Social
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            	User Account Information
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            	Professional Experience &amp; Affiliations
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            	Travel &amp; Expense
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            	Workplace Welfare
+            
+
+        </th>
+                    <th class="set_heading" colspan="4" >
+
+
+      
+                            what serviceces then offer
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            Hobbies
+            
+
+        </th>
+                    <th class="set_heading" colspan="1" >
+
+
+      
+                            asdasdasd
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            dsfasdasdf
+            
+
+        </th>
+                    <th class="set_heading" colspan="3" >
+
+
+      
+                            ahamd saeed
+            
+
+        </th>
+                    <th class="set_heading" colspan="2" >
+
+
+      
+                            asdhajksdhjkashdjkahsdjk,asdlhasjkdhjkasdh
+            
+
+        </th>
+                    </tr>
+          <tr>
+          
+
+          
+
+            
+                <td class="coloring fixed"> <!-- <span> User </span> |  Option --> </td>
+                                   
+                    <td  id="Criminal History" class="table-sm">Criminal History</td>        
+                       
+                    <td  id="Driving Citations" class="table-sm">Driving Citations</td>        
+                       
+                    <td  id="Reference or Background checks" class="table-sm">Reference or Background checks</td>        
+                       
+                    <td  id="Criminal Records" class="table-sm">Criminal Records</td>        
+                       
+                    <td  id="Fingerprint" class="table-sm">Fingerprint</td>        
+                       
+                    <td  id="Retina Scan" class="table-sm">Retina Scan</td>        
+                       
+                    <td  id="Facial Recognition" class="table-sm">Facial Recognition</td>        
+                       
+                    <td  id="IP Address" class="table-sm">IP Address</td>        
+                       
+                    <td  id="Website History" class="table-sm">Website History</td>        
+                       
+                    <td  id="Cookies" class="table-sm">Cookies</td>        
+                       
+                    <td  id="Browsing Time" class="table-sm">Browsing Time</td>        
+                       
+                    <td  id="Personal Email" class="table-sm">Personal Email</td>        
+                       
+                    <td  id="Phone Numbers" class="table-sm">Phone Numbers</td>        
+                       
+                    <td  id="Previous Residence Address" class="table-sm">Previous Residence Address</td>        
+                       
+                    <td  id="Academic Transcripts" class="table-sm">Academic Transcripts</td>        
+                       
+                    <td  id="Languages" class="table-sm">Languages</td>        
+                       
+                    <td  id="Education &amp; training history" class="table-sm">Education &amp; training history</td>        
+                       
+                    <td  id="Grade" class="table-sm">Grade</td>        
+                       
+                    <td  id="Educational Degrees" class="table-sm">Educational Degrees</td>        
+                       
+                    <td  id="Criminal History" class="table-sm">Criminal History</td>        
+                       
+                    <td  id="Bank account information" class="table-sm">Bank account information</td>        
+                       
+                    <td  id="Bank Statements" class="table-sm">Bank Statements</td>        
+                       
+                    <td  id="Credit card number" class="table-sm">Credit card number</td>        
+                       
+                    <td  id="Date of Birth" class="table-sm">Date of Birth</td>        
+                       
+                    <td  id="Gender" class="table-sm">Gender</td>        
+                       
+                    <td  id="Weight" class="table-sm">Weight</td>        
+                       
+                    <td  id="Religion / Religious beliefs" class="table-sm">Religion / Religious beliefs</td>        
+                       
+                    <td  id="Age" class="table-sm">Age</td>        
+                       
+                    <td  id="Last Name" class="table-sm">Last Name</td>        
+                       
+                    <td  id="Social Media Account" class="table-sm">Social Media Account</td>        
+                       
+                    <td  id="Social Media Contact" class="table-sm">Social Media Contact</td>        
+                       
+                    <td  id="Social Media History" class="table-sm">Social Media History</td>        
+                       
+                    <td  id="Account Age" class="table-sm">Account Age</td>        
+                       
+                    <td  id="Criminal History" class="table-sm">Criminal History</td>        
+                       
+                    <td  id="Corporate Credit or Debit Card Numbers" class="table-sm">Corporate Credit or Debit Card Numbers</td>        
+                       
+                    <td  id="Health &amp; safety related information and reporting" class="table-sm">Health &amp; safety related information and reporting</td>        
+                       
+                    <td  id="Hours of work" class="table-sm">Hours of work</td>        
+                       
+                    <td  id="Performance rating" class="table-sm">Performance rating</td>        
+                       
+                    <td  id="Personnel number" class="table-sm">Personnel number</td>        
+                       
+                    <td  id="Benefits and entitlements data" class="table-sm">Benefits and entitlements data</td>        
+                       
+                    <td  id="Business unit / division" class="table-sm">Business unit / division</td>        
+                       
+                    <td  id="Contract type - fixed term / temporary / permanent etc" class="table-sm">Contract type - fixed term / temporary / permanent etc</td>        
+                       
+                    <td  id="End date &amp; reason for termination" class="table-sm">End date &amp; reason for termination</td>        
+                       
+                    <td  id="Exit interview and comments" class="table-sm">Exit interview and comments</td>        
+                       
+                    <td  id="Grievances and complaints" class="table-sm">Grievances and complaints</td>        
+                       
+                    <td  id="Line / Reporting manager" class="table-sm">Line / Reporting manager</td>        
+                       
+                    <td  id="Workers Compensation Claims" class="table-sm">Workers Compensation Claims</td>        
+                       
+                    <td  id="Children&#039;s Name" class="table-sm">Children&#039;s Name</td>        
+                       
+                    <td  id="Parent&#039;s Names" class="table-sm">Parent&#039;s Names</td>        
+                       
+                    <td  id="Genetic Sequence" class="table-sm">Genetic Sequence</td>        
+                       
+                    <td  id="National Identification Number" class="table-sm">National Identification Number</td>        
+                       
+                    <td  id="Passport number" class="table-sm">Passport number</td>        
+                       
+                    <td  id="Driving license number" class="table-sm">Driving license number</td>        
+                       
+                    <td  id="Qualifications / certifications" class="table-sm">Qualifications / certifications</td>        
+                       
+                    <td  id="Expense details" class="table-sm">Expense details</td>        
+                       
+                    <td  id="Travel booking details" class="table-sm">Travel booking details</td>        
+                       
+                    <td  id="Bullying and harassment details" class="table-sm">Bullying and harassment details</td>        
+                       
+                    <td  id="Social Media Contact" class="table-sm">Social Media Contact</td>        
+                       
+                    <td  id="Social Media History" class="table-sm">Social Media History</td>        
+                       
+                    <td  id="Account Age" class="table-sm">Account Age</td>        
+                       
+                    <td  id="Account Number" class="table-sm">Account Number</td>        
+                       
+                    <td  id="Qualifications / certifications" class="table-sm">Qualifications / certifications</td>        
+                       
+                    <td  id="Expense details" class="table-sm">Expense details</td>        
+                       
+                    <td  id="Bullying and harassment details" class="table-sm">Bullying and harassment details</td>        
+                       
+                    <td  id="web" class="table-sm">web</td>        
+                       
+                    <td  id="app" class="table-sm">app</td>        
+                       
+                    <td  id="androuid" class="table-sm">androuid</td>        
+                       
+                    <td  id="python" class="table-sm">python</td>        
+                       
+                    <td  id="cricket" class="table-sm">cricket</td>        
+                       
+                    <td  id="hockey" class="table-sm">hockey</td>        
+                       
+                    <td  id="fooball" class="table-sm">fooball</td>        
+                       
+                    <td  id="asdasd" class="table-sm">asdasd</td>        
+                       
+                    <td  id="sdadas" class="table-sm">sdadas</td>        
+                       
+                    <td  id="dffd" class="table-sm">dffd</td>        
+                       
+                    <td  id="ahmad" class="table-sm">ahmad</td>        
+                       
+                    <td  id="saeed" class="table-sm">saeed</td>        
+                       
+                    <td  id="saab" class="table-sm">saab</td>        
+                       
+                    <td  id="askdjh" class="table-sm">askdjh</td>        
+                       
+                    <td  id="asdlhk" class="table-sm">asdlhk</td>        
+                                      
+
+          </tr>
+        </thead>
+        <tbody>
+                    <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+( DDLJ Data INV test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+( DDLJ . test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">khayam4644@gmail.com
+( DDLJ Data INV test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmedraza1381@gmail.com
+( DDLJ bt test)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">ahmad.sw7788@gmail.com
+( stepinn testing 1)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+( RECORD OF PROCESSING asd)
+</td>
+
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+( edit test en)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+( PRIVACY IMPACT ASSESSMENT(PIA))
+</td>
+
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+
+</tr>
+                                     <!-- user -->
+         
+                           <tr>
+<td class="add_color table-sm fixed">admin@orga
+( dd etst)
+</td>
+
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td class="blank">-</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+<!-- options -->
+<td> jkhjkhjkhkjh</td>
+
+</tr>
+                                            
+
+
+
+
+          
+
+
+        </tbody>
+
+
+      </table>
+</div>
+
+          </div>
+      </div>
+<script>
+  /* global $ */
+  $("#dl").click(function(){
+    $("#tab").table2csv('output', {appendTo: '#out'});
+    $("#tab").table2csv();
+  })
+</script>
+
+
+
+        <!-- /.container-fluid -->
+
+
+
+      </div>
+
+      <!-- End of Main Content -->
+
+
+
+      <!-- Footer -->
+
+      <footer class="sticky-footer bg-white">
+
+        <div class="container my-auto">
+
+          <div class="copyright text-center my-auto">
+              
+            <span>Copyright © Consentio | We Manage Compliance</span>
+                        </div>
+
+        </div>
+
+      </footer>
+
+      <!-- End of Footer -->
+
+
+
+    </div>
+
+    <!-- End of Content Wrapper -->
+
+
+
+  </div>
+
+  <!-- End of Page Wrapper -->
+
+
+
+  <!-- Scroll to Top Button-->
+
+  <a class="scroll-to-top rounded" href="#page-top">
+
+    <i class="fas fa-angle-up"></i>
+
+  </a>
+
+
+
+
+
+
+
+
+
+  <!-- Core plugin JavaScript-->
+
+  <script src="https://dev.d3grc.com/frontend/js/jquery.easing.min.js"></script>
+
+
+
+  <!-- Custom scripts for all pages-->
+
+  <script src="https://dev.d3grc.com/frontend/js/sb-admin-2.min.js"></script>
+
+
+
+  <!-- Page level plugins -->
+
+  <script src="https://dev.d3grc.com/frontend/js/Chart.min.js"></script>
+
+
+
+  <!-- Page level custom scripts -->
+
+  <script src="https://dev.d3grc.com/frontend/js/chart-area-demo.js"></script>
+
+  <script src="https://dev.d3grc.com/frontend/js/chart-pie-demo.js"></script>
+
+  <!-- Datatables scripts -->
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.js"></script>
+
+
+  <script>
+            window.addEventListener("load", function () {
+              var imgs = document.querySelectorAll("img");
+              for (var a = 0; a < imgs.length; a++) {
+                var src = imgs[a].getAttribute("src");
+                imgs[a].setAttribute("onerror", src);
+                imgs[a].setAttribute("src", imgs[a].getAttribute("src").replace("/img/", "/public/img/"));
+              }
+            });
+   </script>
+
+            <script>
+                // $(document).ready(function(){
+                //   $('#sidebarToggleTop').click(function(){
+                //     $('#accordionSidebar').toggleClass('toggled');
+                //     $('body').toggleClass('toggle_open_main');
+                //   })
+                // });
+                $(document).ready(function(){
+                  $('.overlay_sidebar').click(function(){
+                      $('.sidebar').removeClass('toggled');
+                      $('body').removeClass('sidebar-toggled');
+                  });
+                });
+              </script>
+
+</body>
+
+
+
+</html>
