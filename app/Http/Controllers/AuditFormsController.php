@@ -37,7 +37,7 @@ class AuditFormsController extends Controller{
                 ->leftjoin('sub_forms', 'forms.id', '=', DB::raw('sub_forms.parent_form_id AND sub_forms.client_id = ' . $client_id))
                 ->where('client_forms.client_id', '=', $client_id)
                 ->where('type', 'audit')
-                ->selectRaw('audit_questions_groups.group_name_fr as group_name, forms.title_fr as title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.date_created')
+                ->selectRaw('audit_questions_groups.group_name_fr as group_name, forms.title_fr as title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.group_id as group_id, forms.date_created')
                 ->groupBy('forms.id')
                 ->orderBy('date_created')
                 ->get();
@@ -48,7 +48,7 @@ class AuditFormsController extends Controller{
                 ->leftjoin('sub_forms', 'forms.id', '=', DB::raw('sub_forms.parent_form_id AND sub_forms.client_id = ' . $client_id))
                 ->where('client_forms.client_id', '=', $client_id)
                 ->where('type', 'audit')
-                ->selectRaw('audit_questions_groups.group_name as group_name, forms.title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.date_created')
+                ->selectRaw('audit_questions_groups.group_name as group_name, forms.title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.group_id as group_id, forms.date_created')
                 ->groupBy('forms.id')
                 ->orderBy('date_created')
                 ->get();

@@ -53,16 +53,14 @@
                                 <td>
                                     <div class="add_plus_form">
                                         <div class="add_forms">
-                                            <a href="{{ route('audit.sub-form', ['id' => $form_info->form_id]) }}"><i
-                                                    class='bx bx-plus'></i> {{ __("Add") }}</a>
+                                            <a href="{{ route('report.audit', ['id' => $form_info->group_id]) }}">
+                                            <i class='bx bxs-report'></i> {{ __("Report") }}</a>
                                         </div>
                                         <div class="show_sub_forms">
-                                            <a href="{{ route('audit.sub-form', ['id' => $form_info->form_id]) }}"><i
-                                                    class='bx bx-list-ul'></i> {{ __('Show Sub Forms') }}</a>
+                                            <a href="{{ route('audit.sub-form', ['id' => $form_info->form_id]) }}">
+                                            <i class='bx bx-list-ul'></i> {{ __('Show Sub Forms') }}</a>
                                         </div>
                                     </div>
-
-
                                 </td>
                                 <?php endif;?>
                                 <?php if (Auth::user()->role == 2 || Auth::user()->user_type == 1): ?>

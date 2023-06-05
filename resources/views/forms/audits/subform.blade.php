@@ -561,6 +561,7 @@
 
       //Appending form to crate sub-form
       function append_subform(options, counter, asetscount){
+        $('#sub-form-area').html("");
         $('#sub-form-area').append( 
           '<div class="row">'+
             '<div class="col-lg-8 offset-lg-2 shadow-lg p-3 mb-3" >'+
