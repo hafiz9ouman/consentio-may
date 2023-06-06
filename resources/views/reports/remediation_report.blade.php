@@ -95,7 +95,7 @@
                             @endphp
                             <td style="color:{{$check->text_color}}; background-color:{{$check->color}};">{{$check->rating}}</td>
                         @else
-                            <td></td>
+                            <td style="color:#fff; background-color:#73726e;">--</td>
                             <!-- <td style="color:{{$plan->text_color}}; background-color:{{$plan->color}};">{{$plan->rating}}</td> -->
                         @endif
                     @endforeach
