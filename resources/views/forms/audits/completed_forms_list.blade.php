@@ -31,8 +31,6 @@
           <table class="table table-striped text-center paginated">
             <thead>
               <tr style = "text-transform:uppercase !important;">
-                <th scope="col">{{ __('OPEN AUDIT') }}</th>
-                <th scope="col">{{ __('USER EMAIL') }}</th>
                 <!-- <th scope="col">{{ __('USER TYPE') }}</th> -->
                 <th scope="col">{{ __('Audit Form Name') }}</th>
                 <th scope="col">{{ __('Group Name') }}</th>
@@ -46,24 +44,15 @@
                 <th scope="col">{{ __('Completed') }}</th> -->
                 @endif
                 <th scope="col">{{ __('Completed On') }}</th>
+                <th scope="col">{{ __('USER EMAIL') }}</th>
+                <th scope="col">{{ __('OPEN AUDIT') }}</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($completed_forms as $form_info)
               <tr>
-                <td>
-                  @php
-                      $form_link = ''; 
-                      if ($form_info->user_type == 'Internal')
-                          $form_link = url('/audit/internal/'.$form_info->form_link);
-                      if ($form_info->user_type == 'External')
-                          $form_link = url('/audit/external/'.$form_info->form_link);   
-                  @endphp
-                  <a class="btn rounded_button td_round_btn" href="<?php echo $form_link; ?>" target="_blank">{{ __('Open') }}</a>
-                </td>
-                <td>
-                  <?php echo $form_info->email;  ?>
-                </td>
+                
+                
                 <!-- <td>
                   {!! __($form_info->user_type) !!}
                 </td> -->
@@ -179,7 +168,20 @@
                     <?php
                         echo date('Y-m-d', strtotime($form_info->updated));
                     ?>
-                </td>        
+                </td> 
+                <td>
+                  <?php echo $form_info->email;  ?>
+                </td>
+                <td>
+                  @php
+                      $form_link = ''; 
+                      if ($form_info->user_type == 'Internal')
+                          $form_link = url('/audit/internal/'.$form_info->form_link);
+                      if ($form_info->user_type == 'External')
+                          $form_link = url('/audit/external/'.$form_info->form_link);   
+                  @endphp
+                  <a class="btn btn-primary td_round_btn" href="<?php echo $form_link; ?>" target="_blank">{{ __('Open') }}</a>
+                </td>       
               </tr>
               @endforeach
             </tbody>

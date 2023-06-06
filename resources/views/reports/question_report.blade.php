@@ -40,7 +40,7 @@
         <div class="col-md-3">
             <div id="chart"></div>
         </div>
-        <div class="col-md-2 p-4">
+        <!-- <div class="col-md-2 p-4">
             <h5><b>Data Classification</b></h5>
             @php
                 $existingUnits = [];
@@ -56,7 +56,7 @@
                 @endif
                 
             @endforeach
-        </div>
+        </div> -->
         <div class="col-md-3">
             <div id="chart-container"></div>
         </div>
@@ -201,7 +201,6 @@ $impData = [
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
           backgroundColor: 'transparent',
-          legend: 'none',
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -232,7 +231,6 @@ $impData = [
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
           backgroundColor: 'transparent',
-          legend: 'none',
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 

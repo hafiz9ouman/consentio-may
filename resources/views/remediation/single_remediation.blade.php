@@ -21,8 +21,9 @@
                 <h2 align="center">@if(session('locale') == 'fr') {{ $remediation_plans[0]->sub_form_title_fr }} @else {{ $remediation_plans[0]->sub_form_title }} @endif</h2>
             </div>
 
-            <div class="col-md-8 px-5 offset-2 py-2 d-flex justify-content-between">
+            <div class="col-md-10 px-5 offset-1 py-2 d-flex justify-content-between">
                 <h4>{{__("remediation_item_name")}} : @if($remediation_plans[0]->type == 'others') {{ $remediation_plans[0]->other_name }} @else {{ $remediation_plans[0]->assets_name }}@endif</h4>
+                <h4>{{__("Group Question")}} : {{ $remediation_plans[0]->group_name }}</h4>
                 <h4>{{__("remediation_item_number")}} : 
                     @if($remediation_plans[0]->type == 'others')
                         N-
@@ -50,7 +51,7 @@
                             <th>Remediation status</th>
                             <th> Initial Rating</th>
                             <th>POST Assessment</th>
-                            <th>POST Ratting</th>
+                            <th>POST Rating</th>
                         </tr>
                 </thead>
                     <tbody id="render_questions">

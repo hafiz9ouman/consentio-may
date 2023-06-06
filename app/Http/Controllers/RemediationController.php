@@ -135,12 +135,16 @@ class RemediationController extends Controller{
             if(Auth::user()->role == 2){
                 $remediation_plans  = DB::table("remediation_plans")
                         ->join("group_questions", "group_questions.id", "remediation_plans.control_id")
+                        ->join("group_section", "group_section.id", "group_questions.section_id")
+                        ->join("audit_questions_groups", "audit_questions_groups.id", "group_section.group_id")
                         ->join("user_responses", "user_responses.question_id", "group_questions.id") 
                         ->join("sub_forms","sub_forms.id", "remediation_plans.sub_form_id")
                         ->leftjoin("assets", "assets.id", "sub_forms.asset_id")
                         ->join("evaluation_rating", "evaluation_rating.id", "user_responses.rating") 
                         ->select(
                             "remediation_plans.*", 
+                            "audit_questions_groups.group_name", 
+                            "audit_questions_groups.group_name_fr", 
                             "group_questions.question_short as question_short",
                             "group_questions.question_short_fr as question_short_fr",
                             "group_questions.question as question",
@@ -170,7 +174,8 @@ class RemediationController extends Controller{
                         )
                         ->where('sub_forms.id', $sub_form_id)
                         ->where('user_responses.sub_form_id', $sub_form_id)
-                ->get();  
+                ->get();
+                // dd($remediation_plans);
                 foreach($remediation_plans as $plan){
                     if ($plan->type != "others") {
                         $sub_form                   = SubForm::find($plan->sub_form_id);
@@ -183,12 +188,16 @@ class RemediationController extends Controller{
             }else{
                 $remediation_plans  = DB::table("remediation_plans")
                         ->join("group_questions", "group_questions.id", "remediation_plans.control_id")
+                        ->join("group_section", "group_section.id", "group_questions.section_id")
+                        ->join("audit_questions_groups", "audit_questions_groups.id", "group_section.group_id")
                         ->join("user_responses", "user_responses.question_id", "group_questions.id") 
                         ->join("sub_forms","sub_forms.id", "remediation_plans.sub_form_id")
                         ->leftjoin("assets", "assets.id", "sub_forms.asset_id")
                         ->join("evaluation_rating", "evaluation_rating.id", "user_responses.rating") 
                         ->select(
                             "remediation_plans.*", 
+                            "audit_questions_groups.group_name", 
+                            "audit_questions_groups.group_name_fr",
                             "group_questions.question_short as question_short",
                             "group_questions.question_short_fr as question_short_fr",
                             "group_questions.question as question",

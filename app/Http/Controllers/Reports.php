@@ -101,6 +101,59 @@ class Reports extends Controller{
 
     }
 
+    public function get_postreme_report(){
+        // dd($id);
+        // $group_id=$id;
+
+        // $data = DB::table('group_section')
+        // ->join('group_questions', 'group_questions.section_id', 'group_section.id')
+        // ->select('group_questions.question_short', 'group_questions.question_short_fr')
+        // ->where('group_section.group_id', $group_id)
+        // ->get();
+        // dd($questions);
+
+        // $form = DB::table('forms')->where('group_id', $group_id)->select('id')->first();
+        // $form_id = $form->id;
+
+        // $subforms = DB::table('sub_forms')->where('parent_form_id', $form_id)->pluck('id');
+
+        $client_id=Auth::user()->client_id;
+        
+        
+        $remediation_plans = DB::table('remediation_plans')
+            ->join('user_responses', function ($join) {
+                $join->on('remediation_plans.control_id', '=', 'user_responses.question_id')
+                    ->whereColumn('remediation_plans.sub_form_id', '=', 'user_responses.sub_form_id');
+            })
+            ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
+            ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
+            ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
+            ->leftjoin('impact', 'impact.id', 'assets.impact_id')
+            ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
+            ->where('remediation_plans.client_id', '=', $client_id)
+            ->select('assets.name as asset_name', 
+            'sub_forms.other_id', 
+            'group_questions.control_id', 
+            'group_questions.question_short', 
+            'user_responses.rating', 
+            'users.name as user_name', 
+            'remediation_plans.proposed_remediation', 
+            'remediation_plans.completed_actions', 
+            'remediation_plans.eta', 
+            'remediation_plans.status', 
+            'remediation_plans.post_remediation_rating'
+            )
+            ->get();
+
+            
+        
+        // dd($remediation_plans);
+                
+        return view("reports.post_remediation_report", compact('remediation_plans'));
+
+    }
+
     public function __construct(){
 
         //  $fa=PasswordSecurity::where('user_id',Auth::user()->id)->first();
