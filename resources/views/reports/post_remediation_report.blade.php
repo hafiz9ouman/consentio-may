@@ -16,20 +16,26 @@
     <div class="row">
         <div class="col-md-2 p-4">
             <h5><b>Business Unit</b></h5>
-            
+            @php
+                $existingUnits = [];
+            @endphp
+            @foreach ($remediation_plans as $plans)
+                
+                    @if (!in_array($plans->business_unit, $existingUnits) && $plans->business_unit!=null)
+                        <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"> {{$plans->business_unit}}<br>
+                        @php
+                            $existingUnits[] = $plans->business_unit;
+                        @endphp
+                    @endif
+                
+                
+            @endforeach
         </div>
-        <div class="col-md-2 p-4" id="tier-section">
-            <h5><b>Tier</b></h5>
-            <input type="checkbox" name="tier[]" id="tier1" value="tier 1"> Tier 1<br>
-            <input type="checkbox" name="tier[]" id="tier2" value="tier 2"> Tier 2<br>
-            <input type="checkbox" name="tier[]" id="tier3" value="tier 3"> Tier 3
+        <div class="col-md-4">
+            <div id="chart-status"></div>
         </div>
         <div class="col-md-3">
             <div id="chart"></div>
-        </div>
-        <div class="col-md-2 p-4">
-            <h5><b>Data Classification</b></h5>
-            
         </div>
         <div class="col-md-3">
             <div id="chart-container"></div>
@@ -125,13 +131,134 @@
 <!-- counts -->
 <?php
 // Assuming you have an array of data in your Laravel controller
-$chartData = [
+$chartStatus = [
     ['Tier', 'Tier Value'],
 ];
+$chartData = [
+    ['Rating', 'Value'],
+];
 $impData = [
-    ['impact', 'Value'],
+    ['Postrat', 'Value'],
 ];
 ?>
+<!-- For Pre-Remediation -->
+@foreach ($remediation_plans as $plans)
+    @if (isset($plans->status))
+        @php
+            $name = ($plans->status === '0' || $plans->status === null) ? 'Blank' : $plans->status;
+            $datacount = 0;
+            $exists = false;
+        @endphp
+
+        @foreach ($chartStatus as $entry)
+            @if ($entry[0] == $name)
+                @php
+                    $exists = true;
+                    break;
+                @endphp
+            @endif
+        @endforeach
+
+        @if (!$exists)
+            @foreach ($chartData as $entry)
+                @if ($entry[0] == $name)
+                    @php
+                        $datacount = $entry[1];
+                        break;
+                    @endphp
+                @endif
+            @endforeach
+
+            @if ($datacount == 0)
+                @php
+                    $remediation_plans_count = $remediation_plans->where('status', $plans->status)->count();
+                    $chartStatus[] = [$name, $remediation_plans_count];
+                @endphp
+            @endif
+        @endif
+    @endif
+@endforeach
+
+
+@php
+    echo json_encode($chartStatus);
+@endphp
+
+<!-- For Pre-Remediation -->
+@foreach ($remediation_plans as $plans)
+    @if (isset($plans->rating))
+        @php
+            $check = DB::table('evaluation_rating')->where('id', $plans->rating)->first();
+        @endphp
+        @php
+            $name = $check->rating;
+            $datacount = 0;
+        @endphp
+
+        @foreach ($chartData as $entry)
+            @if ($entry[0] == $name)
+                @php
+                    $datacount = $entry[1];
+                    break;
+                @endphp
+            @endif
+        @endforeach
+
+        @if ($datacount == 0)
+            @php
+                $remediation_plans_count = $remediation_plans->where('rating', $plans->rating)->count();
+                $chartData[] = [$name, $remediation_plans_count];
+            @endphp
+        @endif
+    @endif
+@endforeach
+
+<!-- @php
+    echo json_encode($chartData);
+@endphp -->
+
+<!-- For Post-Remediation -->
+@foreach ($remediation_plans as $plans)
+    @php
+        $postRating = isset($plans->post_remediation_rating) ? $plans->post_remediation_rating : null;
+    @endphp
+
+    @php
+        $check = DB::table('evaluation_rating')->where('id', $postRating)->first();
+    @endphp
+
+    @php
+        $name = $check ? $check->rating : 'Blank';
+        $datacount = 0;
+        $exists = false;
+    @endphp
+
+    @foreach ($impData as $entry)
+        @if ($entry[0] == $name)
+            @php
+                $exists = true;
+                break;
+            @endphp
+        @endif
+    @endforeach
+
+    @if (!$exists)
+        @php
+            $datacount = $remediation_plans->where('post_remediation_rating', $postRating)->count();
+            $impData[] = [$name, $datacount];
+        @endphp
+    @endif
+@endforeach
+
+
+
+
+<!-- @php
+    echo json_encode($impData);
+@endphp -->
+
+
+
 
 
 
@@ -141,8 +268,39 @@ $impData = [
 
 <script type="text/javascript">
     
-    // First Chart 
+    // Status Chart 
       google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChartstatus);
+      function drawChartstatus() {
+        var chartData = @json($chartStatus);
+
+        // Create an empty array to hold the dynamic data
+        var dynamicData = [];
+
+        // Add each row of data to the dynamicData array using a foreach loop
+        chartData.forEach(function(row) {
+            dynamicData.push(row);
+        });
+
+        // Create the data table using the dynamicData array
+        var data = google.visualization.arrayToDataTable(dynamicData);
+
+        var options = {
+          title: 'Application by Evaluation Pre-Remediation',
+          titleTextStyle: { fontSize: 16 },
+          pieHole: 0.5,
+          is3D: true,
+          backgroundColor: 'transparent',
+          chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
+          margin: 0, // Add this line to remove margin
+          padding: 0 
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart-status'));
+        chart.draw(data, options);
+      }
+
+    // First Chart 
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var chartData = @json($chartData);
@@ -159,11 +317,11 @@ $impData = [
         var data = google.visualization.arrayToDataTable(dynamicData);
 
         var options = {
-          title: 'Assets by Data Classification',
+          title: 'Application by Evaluation Pre-Remediation',
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
+          is3D: true,
           backgroundColor: 'transparent',
-          legend: 'none',
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -190,11 +348,11 @@ $impData = [
         var data = google.visualization.arrayToDataTable(dynamicData);
 
         var options = {
-          title: 'Assets by Impact',
+          title: 'Application by Evaluation Post-Remediation',
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
+          is3D: true,
           backgroundColor: 'transparent',
-          legend: 'none',
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 

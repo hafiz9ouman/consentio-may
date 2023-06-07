@@ -23,6 +23,13 @@ class Reports extends Controller{
         
         $group_id=$id;
 
+        $group = DB::table('forms')
+        ->join('audit_questions_groups', 'audit_questions_groups.id', 'forms.group_id')
+        ->select('audit_questions_groups.group_name')
+        ->where('forms.group_id', $group_id)
+        ->get();
+        // dd($group);
+
         $data = DB::table('group_section')
         ->join('group_questions', 'group_questions.section_id', 'group_section.id')
         ->select('group_questions.question_short', 'group_questions.question_short_fr')
@@ -54,13 +61,20 @@ class Reports extends Controller{
         }
         // dd($remediation_plans);
                 
-        return view("reports.question_report", compact('group_id', 'data', 'remediation_plans'));
+        return view("reports.audit_report", compact('group', 'data', 'remediation_plans'));
 
     }
 
     public function get_reme_report($id){
         // dd($id);
         $group_id=$id;
+
+        $group = DB::table('forms')
+        ->join('audit_questions_groups', 'audit_questions_groups.id', 'forms.group_id')
+        ->select('audit_questions_groups.group_name')
+        ->where('forms.group_id', $group_id)
+        ->get();
+        // dd($group);
 
         $data = DB::table('group_section')
         ->join('group_questions', 'group_questions.section_id', 'group_section.id')
@@ -97,7 +111,7 @@ class Reports extends Controller{
         }
         // dd($remediation_plans);
                 
-        return view("reports.remediation_report", compact('group_id', 'data', 'remediation_plans'));
+        return view("reports.remediation_report", compact('group', 'data', 'remediation_plans'));
 
     }
 
@@ -133,6 +147,7 @@ class Reports extends Controller{
             ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
             ->where('remediation_plans.client_id', '=', $client_id)
             ->select('assets.name as asset_name', 
+            'assets.business_unit', 
             'sub_forms.other_id', 
             'group_questions.control_id', 
             'group_questions.question_short', 

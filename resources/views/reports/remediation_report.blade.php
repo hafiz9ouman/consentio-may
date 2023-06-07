@@ -1,6 +1,6 @@
 @extends('admin.client.client_app')
 @section('page_title')
-{{ __('Remediation Report') }}
+{{ __('Post Remediation Report') }}
 @endsection
 @section('content')
 <style>
@@ -9,9 +9,9 @@
     }
 </style>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <h4 style="color:black;"><b>Critical Assets by Cyber Security Assessment</b></h4>
+        <h4 style="color:black;"><b>{{$group[0]->group_name}} - Assessment</b></h4>
     </div>
     <div class="row">
         <div class="col-md-2 p-4">
@@ -62,7 +62,8 @@
         </div>
     </div>
     <div class="row mt-3">
-        <table class="table">
+        <table class="table table-bordered table-sm" cellspacing="0"
+        width="100%">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -209,7 +210,7 @@ $impData = [
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
           backgroundColor: 'transparent',
-          legend: 'none',
+          is3D: true,
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -240,7 +241,7 @@ $impData = [
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.5,
           backgroundColor: 'transparent',
-          legend: 'none',
+          is3D: true,
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 

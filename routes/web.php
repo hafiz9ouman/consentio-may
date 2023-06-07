@@ -10,8 +10,8 @@ Auth::routes();
 Route::get('/dummy', 'Reports@Dummywork')->name('dummy');
 // ----------------Reportssss----------------------
 Route::get('/report/audit/{id}', 'Reports@get_report')->name('report.audit');
-Route::get('/report/reme/{id}', 'Reports@get_reme_report')->name('report.reme');
-Route::get('/report/postreme', 'Reports@get_postreme_report')->name('postreport.reme');
+Route::get('/report/rem/{id}', 'Reports@get_reme_report')->name('report.reme');
+Route::get('/report/postrem', 'Reports@get_postreme_report')->name('postreport.reme');
 
 // -------------------------------------------------------------------
 
