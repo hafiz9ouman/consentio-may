@@ -169,6 +169,59 @@ class Reports extends Controller{
 
     }
 
+    public function get_asset_report($id){
+        
+        $group_id=$id;
+
+        $company_id= Auth::User()->client_id;
+        $company = DB::table('users')->where('id', $company_id)->select('name')->first();
+        // dd($company);
+
+        $group = DB::table('forms')
+        ->join('audit_questions_groups', 'audit_questions_groups.id', 'forms.group_id')
+        ->select('audit_questions_groups.group_name')
+        ->where('forms.group_id', $group_id)
+        ->get();
+        // dd($group);
+
+        $data = DB::table('group_section')
+        ->join('group_questions', 'group_questions.section_id', 'group_section.id')
+        ->select('group_questions.question_short', 'group_questions.question_short_fr')
+        ->where('group_section.group_id', $group_id)
+        ->get();
+        // dd($questions);
+
+        $form = DB::table('forms')->where('group_id', $group_id)->select('id')->first();
+        $form_id = $form->id;
+
+        $subforms = DB::table('sub_forms')->where('parent_form_id', $form_id)->pluck('id');
+
+        $remediation_plans = [];
+        $client_id=Auth::user()->client_id;
+        
+        foreach ($subforms as $subform) {
+            $plans = DB::table('user_responses')
+                ->join('evaluation_rating', 'evaluation_rating.rate_level', 'user_responses.rating')
+                ->join('sub_forms', 'sub_forms.id', 'user_responses.sub_form_id')
+                ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
+                ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
+                ->leftjoin('impact', 'impact.id', 'assets.impact_id')
+                ->where('user_responses.sub_form_id', $subform)->where('evaluation_rating.owner_id', $client_id)->where('sub_forms.item_type', 'assets')
+                ->select('evaluation_rating.rating', 'evaluation_rating.color', 'evaluation_rating.text_color', 'sub_forms.item_type', 'sub_forms.other_id', 'assets.name', 'assets.tier', 'assets.hosting_type', 'assets.country', 'assets.business_owner', 'data_classifications.classification_name_en', 'impact.impact_name_en', 'user_responses.question_response')
+                ->orderby('user_responses.question_id', 'ASC')
+                ->get();
+
+            $remediation_plans[$subform] = $plans;
+        }
+        // dd($remediation_plans);
+
+        
+                
+        return view("reports.asset_report", compact('group', 'data', 'remediation_plans', 'company'));
+
+    }
+
+    ///////////////////
     public function __construct(){
 
         //  $fa=PasswordSecurity::where('user_id',Auth::user()->id)->first();
