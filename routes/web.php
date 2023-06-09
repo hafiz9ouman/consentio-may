@@ -14,6 +14,7 @@ Route::get('/report/rem/{id}', 'Reports@get_reme_report')->name('report.reme');
 Route::get('/report/postrem', 'Reports@get_postreme_report')->name('postreport.reme');
 
 Route::get('/report/asset/{id}', 'Reports@get_asset_report')->name('report.asset');
+Route::get('/report/remediation', 'Reports@remediation_report')->name('report.remediation');
 
 // -------------------------------------------------------------------
 
