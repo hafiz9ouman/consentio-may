@@ -15,6 +15,10 @@ Route::get('/report/postrem', 'Reports@get_postreme_report')->name('postreport.r
 
 Route::get('/report/asset/{id}', 'Reports@get_asset_report')->name('report.asset');
 Route::get('/report/remediation', 'Reports@remediation_report')->name('report.remediation');
+Route::post('/your-ajax-endpoint', 'Reports@getRemediationByBusinessUnits');
+
+Route::post('/your-ajax-endpoints/{id}', 'Reports@getAssetsByFilters');
+
 
 // -------------------------------------------------------------------
 

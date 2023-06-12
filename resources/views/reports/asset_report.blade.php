@@ -13,6 +13,7 @@
     <div class="row">
         <h4 style="color:black;"><b>{{$company->name}} {{$group[0]->group_name}} - Security Assessment</b></h4>
     </div>
+    <input type="hidden" class="group_id"value="{{$group_id}}">
     <div class="row">
         <div class="col-md-3">
             <div id="chart"></div>
@@ -25,7 +26,7 @@
             @foreach ($remediation_plans as $subform => $plans)
                 @if (count($plans) > 0)
                     @if (!in_array($plans[0]->classification_name_en, $existingUnits) && $plans[0]->classification_name_en!=null)
-                        <input type="checkbox" class="checkbox-group" value="{{$plans[0]->classification_name_en}}"> {{$plans[0]->classification_name_en}}<br>
+                        <input type="checkbox" id="checkbox-group" class="class-group change" value="{{$plans[0]->classification_name_en}}"> {{$plans[0]->classification_name_en}}<br>
                         @php
                             $existingUnits[] = $plans[0]->classification_name_en;
                         @endphp
@@ -44,7 +45,7 @@
                 @if (count($plans) > 0)
                     @if($plans[0]->impact_name_en)
                         @if (!in_array($plans[0]->impact_name_en, $existingUnits) && $plans[0]->impact_name_en!=null)
-                            <input type="checkbox" class="checkbox-group" value="{{$plans[0]->impact_name_en}}"> {{$counter}} - {{$plans[0]->impact_name_en}}<br>
+                            <input type="checkbox" id="checkbox-group" class="impact-group change" value="{{$plans[0]->impact_name_en}}"> {{$counter}} - {{$plans[0]->impact_name_en}}<br>
                             @php
                                 $existingUnits[] = $plans[0]->impact_name_en;
                                 $counter++;
@@ -66,7 +67,7 @@
             @foreach ($remediation_plans as $subform => $plans)
                 @if (count($plans) > 0)
                     @if (!in_array($plans[0]->country, $existingUnits) && $plans[0]->country!=null)
-                        <input type="checkbox" class="checkbox-group" value="{{$plans[0]->country}}"> {{$plans[0]->country}}<br>
+                        <input type="checkbox" id="checkbox-group" class="country-group change" value="{{$plans[0]->country}}"> {{$plans[0]->country}}<br>
                         @php
                             $existingUnits[] = $plans[0]->country;
                         @endphp
@@ -83,7 +84,7 @@
             @foreach ($remediation_plans as $subform => $plans)
                 @if (count($plans) > 0)
                     @if (!in_array($plans[0]->business_owner, $existingUnits) && $plans[0]->business_owner!=null)
-                        <input type="checkbox" class="checkbox-group" value="{{$plans[0]->business_owner}}"> {{$plans[0]->business_owner}}<br>
+                        <input type="checkbox" id="checkbox-group" class="business-group change" value="{{$plans[0]->business_owner}}"> {{$plans[0]->business_owner}}<br>
                         @php
                             $existingUnits[] = $plans[0]->business_owner;
                         @endphp
@@ -268,6 +269,87 @@ $impData = [
         var chart = new google.visualization.PieChart(document.getElementById('chart-container'));
         chart.draw(data, options);
       }
+
+    //   Other JS Code
+$(document).ready(function() {
+    // Listen for change event on checkboxes with class "checkbox-group"
+    $(".change").change(function() {
+        var classUnits = [];
+        var impactUnits = [];
+        var countryUnits = [];
+        var businessUnits = [];
+        var id= $(".group_id").val();
+        // Iterate over each checkbox with class "checkbox-group" that is checked
+        $(".class-group:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            classUnits.push($(this).val());
+        });
+        $(".impact-group:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            impactUnits.push($(this).val());
+        });
+        $(".country-group:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            countryUnits.push($(this).val());
+        });
+        $(".business-group:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            businessUnits.push($(this).val());
+        });
+
+        // Retrieve CSRF token from meta tag
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        // Make the AJAX call
+        $.ajax({
+            url: "/your-ajax-endpoints/" + id,
+            method: "POST",
+            data: {
+                class: classUnits,
+                impact: impactUnits,
+                country: countryUnits,
+                business: businessUnits,
+                _token: token // Include the CSRF token in the data
+            },
+            dataType: "json",
+            success: function(response) {
+                // Handle the response from the server
+                console.log(response);
+
+
+                // Clear existing table rows except the first one (header row)
+                $("tbody tr:not(:first)").remove();
+                
+                // Iterate over the response and append data to the table
+                $.each(response, function(index, plan) {
+
+                    if (plan.length === 0) {
+                        return true; // Skip to the next iteration
+                    }
+                    // Create a new table row
+                    var newRow = $("<tr>");
+
+                    // Append table cells with data
+                    newRow.append("<td>" + plan[0].name + "</td>");
+                    newRow.append("<td>" + plan[0].tier + "</td>");
+
+                    $.each(plan, function(key, plans) {
+                        newRow.append("<td style='background:" + plans.color + "; color:" + plans.text_color + "'>" + plans.rating + "</td>");
+                    });
+
+
+                    // Append the new row to the tbody
+                    $("tbody").append(newRow);
+                });
+            },
+
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
+            }
+        });
+    });
+});
 
 
 </script>

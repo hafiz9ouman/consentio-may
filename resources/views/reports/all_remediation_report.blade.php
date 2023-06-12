@@ -28,7 +28,9 @@
             @foreach ($remediation_plans as $plans)
                 
                     @if (!in_array($plans->business_unit, $existingUnits) && $plans->business_unit!=null)
-                        <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"> {{$plans->business_unit}}<br>
+                        <div class="place">
+                            <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"> {{$plans->business_unit}}<br>
+                        </div>
                         @php
                             $existingUnits[] = $plans->business_unit;
                         @endphp
@@ -276,7 +278,13 @@ $impData = [
     
     // Status Chart 
       google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChartstatus);
+      google.charts.setOnLoadCallback(function() {
+            // Call drawChart with the chartData array as a parameter
+            drawChart(@json($chartData));
+            drawChartstatus(@json($chartStatus));
+            drawCharts(@json($impData));
+        });
+        
       function drawChartstatus() {
         var chartData = @json($chartStatus);
 
@@ -306,11 +314,9 @@ $impData = [
         chart.draw(data, options);
       }
 
-    // First Chart 
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var chartData = @json($chartData);
-
+    // First Chart function
+    
+      function drawChart(chartData) {
         // Create an empty array to hold the dynamic data
         var dynamicData = [];
 
@@ -337,8 +343,7 @@ $impData = [
         chart.draw(data, options);
       }
 
-    //   Second Charts
-    google.charts.setOnLoadCallback(drawCharts);
+    // Second Charts Function
       function drawCharts() {
         var chartData = @json($impData);
 
@@ -367,6 +372,92 @@ $impData = [
         var chart = new google.visualization.PieChart(document.getElementById('chart-container'));
         chart.draw(data, options);
       }
+
+
+      ///other js Code
+    
+$(document).ready(function() {
+    // Listen for change event on checkboxes with class "checkbox-group"
+    $(".checkbox-group").change(function() {
+        var selectedUnits = [];
+        // Iterate over each checkbox with class "checkbox-group" that is checked
+        $(".checkbox-group:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            selectedUnits.push($(this).val());
+        });
+
+        // Retrieve CSRF token from meta tag
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        // Make the AJAX call
+        $.ajax({
+            url: "/your-ajax-endpoint",
+            method: "POST",
+            data: {
+                units: selectedUnits,
+                _token: token // Include the CSRF token in the data
+            },
+            dataType: "json",
+            success: function(response)  {
+                // Handle the response from the server
+                console.log(response);
+
+                // Clear existing table rows except the first one (header row)
+                $("tbody tr:not(:first)").remove();
+
+                // Iterate over the response and append data to the table
+                $.each(response, function(index, plan) {
+                    // Create a new table row
+                    var newRow = $("<tr>");
+
+                    // Append table cells with data
+                    newRow.append("<td>" + (plan.asset_name ? plan.asset_name : plan.other_id) + "</td>");
+                    newRow.append("<td>" + plan.question_short + "</td>");
+
+                    
+                    newRow.append("<td style='background:" + plan.bg_icolor +"; color:" + plan.t_icolor + "'>" + (plan.irating ? plan.irating : '') + "</td>");
+
+                    newRow.append("<td style='background:" + plan.bg_pcolor + "; color:" + plan.t_pcolor + "'>" + (plan.prating ? plan.prating : '') + "</td>");
+
+                    newRow.append("<td>" + (plan.proposed_remediation ? plan.proposed_remediation : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                    newRow.append("<td>" + (plan.completed_actions ? plan.completed_actions : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                    newRow.append("<td>" + (plan.eta ? plan.eta : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                    newRow.append("<td>" + (plan.status == "0" ? "<span style='margin-left:47%;'>--</span>" : plan.status) + "</td>");
+                    newRow.append("<td>" + plan.user_name + "</td>");
+                    newRow.append("<td>" + (plan.business_unit ? plan.business_unit : "<span style='margin-left:47%;'>--</span>") + "</td>");
+
+                    // Append the new row to the tbody
+                    $("tbody").append(newRow);
+                });
+
+                var updatedSalesData = [
+                    ['Year', 'Sales'],
+                    ['2019', 1000],
+                    ['2020', 2000],
+                    ['2021', 3000]
+                ];
+
+                // $.each(response, function(index, plan){
+                //     if(plan.irating){
+
+                //     };
+                // });
+
+
+                // Redraw the charts
+                drawChartstatus();
+                drawChart(updatedSalesData);
+                drawCharts();
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
+            }
+        });
+    });
+});
+
+
 
 
 </script>
