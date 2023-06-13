@@ -137,18 +137,18 @@
 </div>
 
 <!-- counts -->
-<?php
-// Assuming you have an array of data in your Laravel controller
-$chartStatus = [
-    ['Tier', 'Tier Value'],
-];
-$chartData = [
-    ['Rating', 'Value'],
-];
-$impData = [
-    ['Postrat', 'Value'],
-];
-?>
+@php
+    // Assuming you have an array of data in your Laravel controller
+    $chartStatus = [
+        ['Tier', 'Tier Value'],
+    ];
+    $chartData = [
+        ['Rating', 'Value'],
+    ];
+    $impData = [
+        ['Postrat', 'Value'],
+    ];
+@endphp
 <!-- For Pre-Remediation -->
 @foreach ($remediation_plans as $plans)
     @if (isset($plans->status))
@@ -280,19 +280,20 @@ $impData = [
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(function() {
             // Call drawChart with the chartData array as a parameter
-            drawChart(@json($chartData));
+            
             drawChartstatus(@json($chartStatus));
+            drawChart(@json($chartData));
             drawCharts(@json($impData));
         });
         
-      function drawChartstatus() {
-        var chartData = @json($chartStatus);
+      function drawChartstatus(chartStatus) {
+        // var chartData = @json($chartStatus);
 
         // Create an empty array to hold the dynamic data
         var dynamicData = [];
 
         // Add each row of data to the dynamicData array using a foreach loop
-        chartData.forEach(function(row) {
+        chartStatus.forEach(function(row) {
             dynamicData.push(row);
         });
 
@@ -344,14 +345,14 @@ $impData = [
       }
 
     // Second Charts Function
-      function drawCharts() {
-        var chartData = @json($impData);
+      function drawCharts(impData) {
+        // var chartData = @json($impData);
 
         // Create an empty array to hold the dynamic data
         var dynamicData = [];
 
         // Add each row of data to the dynamicData array using a foreach loop
-        chartData.forEach(function(row) {
+        impData.forEach(function(row) {
             dynamicData.push(row);
         });
 
@@ -400,55 +401,106 @@ $(document).ready(function() {
             dataType: "json",
             success: function(response)  {
                 // Handle the response from the server
-                console.log(response);
+                // console.log(response);
 
                 // Clear existing table rows except the first one (header row)
-                $("tbody tr:not(:first)").remove();
-
+                $("tbody").html("");
                 // Iterate over the response and append data to the table
                 $.each(response, function(index, plan) {
                     // Create a new table row
                     var newRow = $("<tr>");
-
                     // Append table cells with data
                     newRow.append("<td>" + (plan.asset_name ? plan.asset_name : plan.other_id) + "</td>");
                     newRow.append("<td>" + plan.question_short + "</td>");
-
-                    
                     newRow.append("<td style='background:" + plan.bg_icolor +"; color:" + plan.t_icolor + "'>" + (plan.irating ? plan.irating : '') + "</td>");
-
                     newRow.append("<td style='background:" + plan.bg_pcolor + "; color:" + plan.t_pcolor + "'>" + (plan.prating ? plan.prating : '') + "</td>");
-
                     newRow.append("<td>" + (plan.proposed_remediation ? plan.proposed_remediation : "<span style='margin-left:47%;'>--</span>") + "</td>");
                     newRow.append("<td>" + (plan.completed_actions ? plan.completed_actions : "<span style='margin-left:47%;'>--</span>") + "</td>");
                     newRow.append("<td>" + (plan.eta ? plan.eta : "<span style='margin-left:47%;'>--</span>") + "</td>");
                     newRow.append("<td>" + (plan.status == "0" ? "<span style='margin-left:47%;'>--</span>" : plan.status) + "</td>");
                     newRow.append("<td>" + plan.user_name + "</td>");
                     newRow.append("<td>" + (plan.business_unit ? plan.business_unit : "<span style='margin-left:47%;'>--</span>") + "</td>");
-
                     // Append the new row to the tbody
                     $("tbody").append(newRow);
                 });
 
-                var updatedSalesData = [
-                    ['Year', 'Sales'],
-                    ['2019', 1000],
-                    ['2020', 2000],
-                    ['2021', 3000]
+        
+                // For initial Rating
+                var irating = [];
+                const ratings = {
+                    Marginal: 0,
+                    Weak: 0,
+                }
+                var preRatting = [
+                    ['Ratings', 'count'],
                 ];
 
-                // $.each(response, function(index, plan){
-                //     if(plan.irating){
+                $.each(response, function(key, value) {
+                    ratings[`${value.irating}`] += 1 
+                });
+                preRatting.push(['Marginal', ratings.Marginal]);
+                preRatting.push(['Weak', ratings.Weak]);
+                // console.log(preRatting);
 
-                //     };
-                // });
+                // For Post Rating
+                var prating = [];
+                const postratings = {
+                    Marginal: 0,
+                    Weak: 0,
+                    Good: 0,
+                    Satisfactory: 0,
+                    Blank: 0
+                }
+                var postRatting = [
+                    ['Ratings', 'count'],
+                ];
 
+                $.each(response, function(key, value) {
+                    const KeyVa = value.prating? value?.prating : 'Blank'
+                    postratings[`${KeyVa}`] += 1 
+                });
+                postRatting.push(['Marginal', postratings.Marginal]);
+                postRatting.push(['Weak', postratings.Weak]);
+                postRatting.push(['Good', postratings.Good]);
+                postRatting.push(['Satisfactory', postratings.Satisfactory]);
+                postRatting.push(['Blank', postratings.Blank]);
+                // console.log(postRatting);
 
+                // For Remediation Status
+                var status = [];
+                const remstatus = {
+                    RemediationinProgress: 0,
+                    RemediationApplied: 0,
+                    RiskAcceptance: 0,
+                    AnalysisinProgress: 0,
+                    Other: 0,
+                    Blank: 0,       
+                };
+                var rstatus = [
+                ['Status', 'Count'],
+                ];
+
+                $.each(response, function(key, value) {
+                    const updateStatuswithoutSpace =  value.status.replaceAll(' ', '')
+                    const keyValue = updateStatuswithoutSpace=="0" ? 'Blank' : updateStatuswithoutSpace
+                remstatus[keyValue] += 1;
+                });
+
+                rstatus.push(['Remediation in Progress', remstatus.RemediationinProgress]);
+                rstatus.push(['Remediation Applied', remstatus.RemediationApplied]);
+                rstatus.push(['Risk Acceptance', remstatus.RiskAcceptance]);
+                rstatus.push(['Analysis in Progress', remstatus.AnalysisinProgress]);
+                rstatus.push(['Other', remstatus.Other]);
+                rstatus.push(['Blank', remstatus.Blank]);
+                // console.log(rstatus);
+
+                
                 // Redraw the charts
-                drawChartstatus();
-                drawChart(updatedSalesData);
-                drawCharts();
+                drawChart(preRatting);
+                drawCharts(postRatting);    
+                drawChartstatus(rstatus);
             },
+            
             error: function(xhr, status, error) {
                 // Handle the error
                 console.error(error);
