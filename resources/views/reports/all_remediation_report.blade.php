@@ -424,7 +424,7 @@ $(document).ready(function() {
                     $("tbody").append(newRow);
                 });
 
-        
+                
                 // For initial Rating
                 var irating = [];
                 const ratings = {

@@ -209,9 +209,14 @@ $impData = [
     
     // First Chart 
       google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var chartData = @json($chartData);
+      google.charts.setOnLoadCallback(function() {
+            // Call drawChart with the chartData array as a parameter
+            
+            drawChart(@json($chartData));
+            drawCharts(@json($impData));
+      });
+      function drawChart(chartData) {
+        // var chartData = @json($chartData);
 
         // Create an empty array to hold the dynamic data
         var dynamicData = [];
@@ -241,14 +246,14 @@ $impData = [
 
     //   Second Charts
     google.charts.setOnLoadCallback(drawCharts);
-      function drawCharts() {
-        var chartData = @json($impData);
+      function drawCharts(impData) {
+        // var chartData = @json($impData);
 
         // Create an empty array to hold the dynamic data
         var dynamicData = [];
 
         // Add each row of data to the dynamicData array using a foreach loop
-        chartData.forEach(function(row) {
+        impData.forEach(function(row) {
             dynamicData.push(row);
         });
 
@@ -341,8 +346,101 @@ $(document).ready(function() {
                     // Append the new row to the tbody
                     $("tbody").append(newRow);
                 });
-            },
 
+                var updatedSales = [
+                    ['Years', 'Salesss'],
+                    ['2023', 3000],
+                    ['2024', 2000],
+                    ['2025', 1000]
+                ];
+
+                // For Tier
+                let tier1 = 0;
+                let tier2 = 0;
+                let tier3 = 0;
+             
+                var tierchart = [
+                ['Tier', 'Count'],
+                ];
+                const arrays = Object.values(response);
+                
+                arrays?.forEach((item) => {
+                    // console.log('jjjj', item)
+                    if(item?.length){
+                        console.log('tierrrrrrr', item[0].tier)
+                        if(item[0].tier == 'tier 1'){
+                            tier1 += 1;
+                            console.log("9---------", tier1)
+                        }
+                        if(item[0].tier == 'tier 2'){
+                            tier2 += 1;
+                        } 
+                        if(item[0].tier == 'tier 3'){
+                            tier3 += 1;
+                        }
+                    }
+                })
+                const tier = {
+                    tier1: tier1,
+                    tier2: tier2,
+                    tier3: tier3,        
+                };
+                // console.log('zetiertiertieree', tier)
+                
+                tierchart.push(['Tier 1', tier.tier1]);
+                tierchart.push(['Tier 2', tier.tier2]);
+                tierchart.push(['Tier 3', tier.tier3]);
+
+
+                //for hosting
+                
+                let cloud = 0;
+                let premise = 0;
+                let nsure = 0;
+                let hybrid = 0;
+             
+                var hostchart = [
+                ['Hosting', 'Count'],
+                ];
+                
+                arrays?.forEach((item) => {
+                    // console.log('jjjj', item)
+                    if(item?.length){
+                        console.log('tierrrrrrr', item[0].hosting_type)
+                        if(item[0].hosting_type == 'Cloud'){
+                            cloud += 1;
+                            // console.log("9---------", tier1)
+                        }
+                        if(item[0].hosting_type == 'On-Premise'){
+                            premise += 1;
+                        } 
+                        if(item[0].hosting_type == 'Not Sure'){
+                            nsure += 1;
+                        }
+                        if(item[0].hosting_type == 'Hybrid'){
+                            hybrid += 1;
+                        }
+                    }
+                })
+                const host = {
+                    cloud: cloud,
+                    premise: premise,
+                    nsure: nsure,        
+                    hybrid: hybrid,        
+                };
+                // console.log('zetiertiertieree', tier)
+                
+                hostchart.push(['Cloud', host.cloud]);
+                hostchart.push(['On-Premise', host.premise]);
+                hostchart.push(['Not Sure', host.nsure]);
+                hostchart.push(['Hybrid', host.hybrid]);
+
+
+
+                drawChart(tierchart);
+                drawCharts(hostchart);
+
+            },
             error: function(xhr, status, error) {
                 // Handle the error
                 console.error(error);
