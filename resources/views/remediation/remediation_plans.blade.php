@@ -12,6 +12,10 @@
     <section class="assets_list">
         <div class="row bg-white">
             <div class="col-12 overflow-auto p-3">
+                <div class="p-3">
+                        <a class="btn btn-primary" href="{{ route('report.remediation') }}">
+                        <i class='bx bxs-report'></i> {{ __("Remediation Report") }}</a>
+                </div>
                 <table class="table" id="remediation_plans" style="min-width:700px">
                     <thead class="back_blue">
                         <tr>

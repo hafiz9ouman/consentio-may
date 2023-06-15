@@ -53,7 +53,7 @@
                                 <td>
                                     <div class="add_plus_form">
                                         <div class="add_forms">
-                                            <a href="{{ route('report.audit', ['id' => $form_info->group_id]) }}">
+                                            <a href="{{ route('report.asset', ['id' => $form_info->group_id]) }}">
                                             <i class='bx bxs-report'></i> {{ __("Report") }}</a>
                                         </div>
                                         <div class="show_sub_forms">
