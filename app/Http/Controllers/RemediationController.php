@@ -21,20 +21,25 @@ class RemediationController extends Controller{
         if(Auth::user()->role == 2){
             $remediation_plans = DB::table("remediation_plans")
                 ->join("sub_forms","sub_forms.id", "remediation_plans.sub_form_id")
+                ->join("forms","forms.id", "sub_forms.parent_form_id")
+                ->join("audit_questions_groups","audit_questions_groups.id", "forms.group_id")
                 // ->join("assets", "assets.id", "sub_forms.asset_id")
                 ->select(
                     "remediation_plans.client_id", 
                     "remediation_plans.id as remediation_plan_id", 
                     "remediation_plans.person_in_charge", 
-                    "remediation_plans.sub_form_id as sub_form_id", 
+                    "remediation_plans.sub_form_id as sub_form_id",
                     "sub_forms.title as form_title",
                     "sub_forms.title_fr as form_title_fr",
                     "sub_forms.item_type as type",
                     "sub_forms.other_number as asset_number",
-                    "sub_forms.other_id as name"
+                    "sub_forms.other_id as name",
+                    "audit_questions_groups.group_name",
+                    "audit_questions_groups.group_name_fr"
                 )
                 ->groupby("remediation_plans.sub_form_id")
                 ->having("remediation_plans.client_id", Auth::user()->client_id)->get();  
+                // dd($remediation_plans);
 
                 foreach($remediation_plans as $plan){
                     if ($plan->type != "others") {
@@ -47,9 +52,26 @@ class RemediationController extends Controller{
         }
         else{
             $remediation_plans = DB::table("remediation_plans")
-                            ->groupby("sub_form_id")
-                            ->where("person_in_charge", Auth::user()->id)
-                            ->get();
+                ->join("sub_forms","sub_forms.id", "remediation_plans.sub_form_id")
+                ->join("forms","forms.id", "sub_forms.parent_form_id")
+                ->join("audit_questions_groups","audit_questions_groups.id", "forms.group_id")
+                // ->join("assets", "assets.id", "sub_forms.asset_id")
+                ->select(
+                    "remediation_plans.client_id", 
+                    "remediation_plans.id as remediation_plan_id", 
+                    "remediation_plans.person_in_charge", 
+                    "remediation_plans.sub_form_id as sub_form_id",
+                    "sub_forms.title as form_title",
+                    "sub_forms.title_fr as form_title_fr",
+                    "sub_forms.item_type as type",
+                    "sub_forms.other_number as asset_number",
+                    "sub_forms.other_id as name",
+                    "audit_questions_groups.group_name",
+                    "audit_questions_groups.group_name_fr"
+                )
+                ->groupby("remediation_plans.sub_form_id")
+                ->where("remediation_plans.person_in_charge", Auth::user()->id)->get();
+                // dd($remediation_plans);
             
             foreach($remediation_plans as $plan){
                 $sub_form = SubForm::find($plan->sub_form_id);

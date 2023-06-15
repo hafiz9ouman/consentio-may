@@ -349,7 +349,7 @@ class Reports extends Controller{
         
         // dd($remediation_plans);
                 
-        return view("reports.all_remediation_report", compact('remediation_plans'));
+        return view("reports.all_remediation_report", compact('remediation_plans', 'client_id'));
 
     }
 
@@ -392,7 +392,7 @@ class Reports extends Controller{
 
             foreach ($units as $data) {
                 if($data->rating){
-                    $color = DB::table('evaluation_rating')->where('id', $data->rating)->first();
+                    $color = DB::table('evaluation_rating')->where('rate_level', $data->rating)->where('owner_id', $client_id)->first();
                     $data->bg_icolor = $color->color;
                     $data->t_icolor = $color->text_color;
                     $data->irating = $color->rating;

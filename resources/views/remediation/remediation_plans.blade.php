@@ -14,13 +14,14 @@
             <div class="col-12 overflow-auto p-3">
                 <div class="p-3">
                         <a class="btn btn-primary" href="{{ route('report.remediation') }}">
-                        <i class='bx bxs-report'></i> {{ __("Remediation Report") }}</a>
+                        <i class='bx bxs-report'></i> {{ __("Global Remediation Report") }}</a>
                 </div>
                 <table class="table" id="remediation_plans" style="min-width:700px">
                     <thead class="back_blue">
                         <tr>
                             <th> # </th>
                             <th> Audit </th>
+                            <th> Question Group </th>
                             <th> ITEM # </th>
                             <th> AUDIT ITEM </th>
                             <th> Action </th>
@@ -31,6 +32,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td> @if(true == false) {{ $plan->form_title_fr }}  @else {{ $plan->form_title }} @endif </td>
+                                <td> @if(true == false) {{ $plan->group_name_fr }}  @else {{ $plan->group_name }} @endif </td>
                                 <td>
                                     @if($plan->type == "others")
                                         N-

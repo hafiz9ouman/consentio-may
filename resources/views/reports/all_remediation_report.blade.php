@@ -1,6 +1,6 @@
 @extends('admin.client.client_app')
 @section('page_title')
-{{ __('Remediation Report') }}
+{{ __('Global Remediation Report') }}
 @endsection
 @section('content')
 <style>
@@ -72,7 +72,7 @@
                         </td>
                         <td>{{$plan->question_short}}</td>
                         @php
-                            $check=DB::table('evaluation_rating')->where('id', $plan->rating)->first();
+                            $check=DB::table('evaluation_rating')->where('rate_level', $plan->rating)->where('owner_id', $client_id)->first();
                         @endphp
                         <td style="background:{{$check->color}};color:{{$check->text_color}}">
                             {{$check->rating}}
