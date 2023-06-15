@@ -208,7 +208,21 @@ class Reports extends Controller{
                 ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
                 ->leftjoin('impact', 'impact.id', 'assets.impact_id')
                 ->where('user_responses.sub_form_id', $subform)->where('evaluation_rating.owner_id', $client_id)->where('sub_forms.item_type', 'assets')
-                ->select('evaluation_rating.rating', 'evaluation_rating.color', 'evaluation_rating.text_color', 'sub_forms.item_type', 'sub_forms.other_id', 'assets.name', 'assets.tier', 'assets.hosting_type', 'assets.country', 'assets.business_owner', 'data_classifications.classification_name_en', 'impact.impact_name_en', 'user_responses.question_response')
+                ->select('evaluation_rating.rating',
+                  'evaluation_rating.color',
+                  'evaluation_rating.text_color',
+                  'sub_forms.item_type',
+                  'sub_forms.other_id', 
+                  'assets.name', 
+                  'assets.tier', 
+                  'assets.hosting_type', 
+                  'assets.country', 
+                  'assets.business_owner', 
+                  'assets.business_unit', 
+                  'data_classifications.classification_name_en', 
+                  'impact.impact_name_en', 
+                  'user_responses.question_response'
+                  )
                 ->orderby('user_responses.question_id', 'ASC')
                 ->get();
 
@@ -226,7 +240,6 @@ class Reports extends Controller{
 
         $class = $request->input('class');
         $impact = $request->input('impact');
-        $country = $request->input('country');
         $business = $request->input('business');
         // dd($class);
         
@@ -269,7 +282,19 @@ class Reports extends Controller{
                 ->where('user_responses.sub_form_id', $subform)
                 ->where('evaluation_rating.owner_id', $client_id)
                 ->where('sub_forms.item_type', 'assets')
-                ->select('evaluation_rating.rating', 'evaluation_rating.color', 'evaluation_rating.text_color', 'sub_forms.item_type', 'sub_forms.other_id', 'assets.name', 'assets.tier', 'assets.hosting_type', 'assets.country', 'assets.business_owner', 'data_classifications.classification_name_en', 'impact.impact_name_en', 'user_responses.question_response')
+                ->select('evaluation_rating.rating', 
+                'evaluation_rating.color', 
+                'evaluation_rating.text_color', 
+                'sub_forms.item_type', 
+                'sub_forms.other_id', 
+                'assets.name', 
+                'assets.tier', 
+                'assets.hosting_type', 
+                'assets.country', 
+                'assets.business_unit', 
+                'data_classifications.classification_name_en', 
+                'impact.impact_name_en', 
+                'user_responses.question_response')
                 ->orderBy('user_responses.question_id', 'ASC');
 
             if (!empty($class)) {
@@ -280,12 +305,8 @@ class Reports extends Controller{
                 $plans->whereIn('impact.impact_name_en', $impact);
             }
 
-            if (!empty($country)) {
-                $plans->whereIn('assets.country', $country);
-            }
-
             if (!empty($business)) {
-                $plans->whereIn('assets.business_owner', $business);
+                $plans->whereIn('assets.business_unit', $business);
             }
 
             $plans = $plans->get();

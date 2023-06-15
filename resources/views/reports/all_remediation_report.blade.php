@@ -8,10 +8,9 @@
         color:black;
     }
 </style>
-
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: white;">
     <div class="row">
-        <h4 style="color:black;"><b>Security Remediation Plan</b></h4>
+        <h4 class="mt-2" style="color:black;"><b>Security Remediation Plan</b></h4>
     </div>
     <div class="row">
         <div class="col-md-3">
@@ -45,9 +44,8 @@
         
         
     </div>
-    <div class="row mt-3">
-        <table class="table table-bordered table-sm" cellspacing="0"
-  width="100%">
+    <div class="row mt-3 overflow-auto">
+        <table class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
             <thead>
                     <th>Name</th>
                     <th>Control Name</th>
@@ -55,7 +53,7 @@
                     <th>POST Rating</th>
                     <th>Proposed Remediation</th>
                     <th>Completed Actions</th>
-                    <th>ETA(Date)</th>
+                    <th>ETA</th>
                     <th>Remediation status</th>
                     <th>Person In Charge</th>
                     <th>Business Unit</th>
@@ -303,8 +301,7 @@
         var options = {
           title: 'Remediation Status',
           titleTextStyle: { fontSize: 16 },
-          pieHole: 0.5,
-          is3D: true,
+          pieHole: 0.4,
           backgroundColor: 'transparent',
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
