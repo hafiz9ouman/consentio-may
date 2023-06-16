@@ -128,8 +128,8 @@ class HomeController extends Controller
         $emailExists = DB::table('users')->where('email',$request->email)->first();
 
         if(!$emailExists){
-            return redirect()->back()->with('status', 'Email address does not exist.');
-            $errors['email_not_exist'] = 'Email address does not exist.';
+            return redirect()->back()->with('status', 'Login Failed Wrong User Credentials');
+            $errors['email_not_exist'] = 'Login Failed Wrong User Credentials';
         }
 
         $emailBlocked = DB::table('users')->where('email',$request->email)->where('is_blocked','Yes')->first();
