@@ -18,7 +18,7 @@
         <div class="col-md-3">
             <div id="chart"></div>
         </div>
-        <div class="col-md-3 pt-4">
+        <div class="col-md-5 pt-4">
             <div class="row">
             <div class="col">
                 <h5><b>Data Classification</b></h5>
@@ -78,10 +78,10 @@
             </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div id="chart-container"></div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div id="bus-chart"></div>
         </div>
 
