@@ -306,6 +306,7 @@ $busData[] = [$name, $datacount];
             },
             pieHole: 0.5,
             backgroundColor: 'transparent',
+            colors: ['#6aa7f8', '#fdab89', '#3599b8', '#deee91', '#f6c7b6'],
             chartArea: {
                 left: 0,
                 top: 40,
@@ -342,6 +343,7 @@ $busData[] = [$name, $datacount];
             },
             pieHole: 0.5,
             backgroundColor: 'transparent',
+            colors: ['#3599b8', '#6aa7f8', '#bbd53b', '#fdab89', '#ff5500'],
             chartArea: {
                 left: 0,
                 top: 40,

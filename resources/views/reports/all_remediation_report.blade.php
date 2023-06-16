@@ -303,6 +303,7 @@
           titleTextStyle: { fontSize: 16 },
           pieHole: 0.4,
           backgroundColor: 'transparent',
+          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -332,6 +333,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
+          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -362,6 +364,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
+          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
