@@ -18,61 +18,65 @@
         <div class="col-md-3">
             <div id="chart"></div>
         </div>
-        <div class="col-md-2 pt-4">
-            <h5><b>Data Classification</b></h5>
-            @php
-            $existingUnits = [];
-            @endphp
-            @foreach ($remediation_plans as $subform => $plans)
-            @if (count($plans) > 0)
-            @if (!in_array($plans[0]->classification_name_en, $existingUnits) && $plans[0]->classification_name_en!=null)
-            <input type="checkbox" id="checkbox-group" class="class-group change" value="{{$plans[0]->classification_name_en}}"> {{$plans[0]->classification_name_en}}<br>
-            @php
-            $existingUnits[] = $plans[0]->classification_name_en;
-            @endphp
-            @endif
-            @endif
+        <div class="col-md-3 pt-4">
+            <div class="row">
+            <div class="col">
+                <h5><b>Data Classification</b></h5>
+                @php
+                $existingUnits = [];
+                @endphp
+                @foreach ($remediation_plans as $subform => $plans)
+                @if (count($plans) > 0)
+                @if (!in_array($plans[0]->classification_name_en, $existingUnits) && $plans[0]->classification_name_en!=null)
+                <input type="checkbox" id="checkbox-group" class="class-group change" value="{{$plans[0]->classification_name_en}}"> {{$plans[0]->classification_name_en}}<br>
+                @php
+                $existingUnits[] = $plans[0]->classification_name_en;
+                @endphp
+                @endif
+                @endif
 
-            @endforeach
-        </div>
-        <div class="col-md-2 pt-4">
-            <h5><b>Impact</b></h5>
-            @php
-            $existingUnits = [];
-            $counter = 1;
-            @endphp
-            @foreach ($remediation_plans as $subform => $plans)
-            @if (count($plans) > 0)
-            @if($plans[0]->impact_name_en)
-            @if (!in_array($plans[0]->impact_name_en, $existingUnits) && $plans[0]->impact_name_en!=null)
-            <input type="checkbox" id="checkbox-group" class="impact-group change" value="{{$plans[0]->impact_name_en}}"> {{$counter}} - {{$plans[0]->impact_name_en}}<br>
-            @php
-            $existingUnits[] = $plans[0]->impact_name_en;
-            $counter++;
-            @endphp
-            @endif
-            @endif
-            @endif
+                @endforeach
+            </div>
+            <div class="col">
+                <h5><b>Impact</b></h5>
+                @php
+                $existingUnits = [];
+                $counter = 1;
+                @endphp
+                @foreach ($remediation_plans as $subform => $plans)
+                @if (count($plans) > 0)
+                @if($plans[0]->impact_name_en)
+                @if (!in_array($plans[0]->impact_name_en, $existingUnits) && $plans[0]->impact_name_en!=null)
+                <input type="checkbox" id="checkbox-group" class="impact-group change" value="{{$plans[0]->impact_name_en}}"> {{$counter}} - {{$plans[0]->impact_name_en}}<br>
+                @php
+                $existingUnits[] = $plans[0]->impact_name_en;
+                $counter++;
+                @endphp
+                @endif
+                @endif
+                @endif
 
-            @endforeach
-        </div>
-        <div class="col-md-2 pt-4">
-            <h5><b>Business Unit</b></h5>
-            @php
-            $existingUnits = [];
-            @endphp
-            @foreach ($remediation_plans as $subform => $plans)
-            @if (count($plans) > 0)
-            @if($plans[0]->business_unit)
-            @if (!in_array($plans[0]->business_unit, $existingUnits) && $plans[0]->business_unit!=null)
-            <input type="checkbox" id="checkbox-group" class="business-group change" value="{{$plans[0]->business_unit}}"> {{$plans[0]->business_unit}}<br>
-            @php
-            $existingUnits[] = $plans[0]->business_unit;
-            @endphp
-            @endif
-            @endif
-            @endif
-            @endforeach
+                @endforeach
+            </div>
+            <div class="col">
+                <h5><b>Business Unit</b></h5>
+                @php
+                $existingUnits = [];
+                @endphp
+                @foreach ($remediation_plans as $subform => $plans)
+                @if (count($plans) > 0)
+                @if($plans[0]->business_unit)
+                @if (!in_array($plans[0]->business_unit, $existingUnits) && $plans[0]->business_unit!=null)
+                <input type="checkbox" id="checkbox-group" class="business-group change" value="{{$plans[0]->business_unit}}"> {{$plans[0]->business_unit}}<br>
+                @php
+                $existingUnits[] = $plans[0]->business_unit;
+                @endphp
+                @endif
+                @endif
+                @endif
+                @endforeach
+            </div>
+            </div>
         </div>
         <div class="col-md-3">
             <div id="chart-container"></div>
