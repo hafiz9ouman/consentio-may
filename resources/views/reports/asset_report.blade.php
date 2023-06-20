@@ -18,17 +18,17 @@
         <div class="col-md-3">
             <div id="chart"></div>
         </div>
-        <div class="col-md-5 pt-4">
+        <div class="col-md-5 pt-2">
             <div class="row">
             <div class="col">
-                <h5><b>Data Classification</b></h5>
+                <span style="font-size: 14px;"><b>Data Classification</b></span><br>
                 @php
-                $existingUnits = [];
+                    $existingUnits = [];
                 @endphp
                 @foreach ($remediation_plans as $subform => $plans)
                 @if (count($plans) > 0)
                 @if (!in_array($plans[0]->classification_name_en, $existingUnits) && $plans[0]->classification_name_en!=null)
-                <input type="checkbox" id="checkbox-group" class="class-group change" value="{{$plans[0]->classification_name_en}}"> {{$plans[0]->classification_name_en}}<br>
+                <input type="checkbox" id="checkbox-group" class="class-group change" value="{{$plans[0]->classification_name_en}}"><span style="font-size: 14px;"> {{$plans[0]->classification_name_en}}</span><br>
                 @php
                 $existingUnits[] = $plans[0]->classification_name_en;
                 @endphp
@@ -38,7 +38,7 @@
                 @endforeach
             </div>
             <div class="col">
-                <h5><b>Impact</b></h5>
+                <span style="font-size: 14px;"><b>Impact</b></span><br>
                 @php
                 $existingUnits = [];
                 $counter = 1;
@@ -47,7 +47,7 @@
                 @if (count($plans) > 0)
                 @if($plans[0]->impact_name_en)
                 @if (!in_array($plans[0]->impact_name_en, $existingUnits) && $plans[0]->impact_name_en!=null)
-                <input type="checkbox" id="checkbox-group" class="impact-group change" value="{{$plans[0]->impact_name_en}}"> {{$counter}} - {{$plans[0]->impact_name_en}}<br>
+                <input type="checkbox" id="checkbox-group" class="impact-group change" value="{{$plans[0]->impact_name_en}}"><span style="font-size: 14px;"> {{$counter}} - {{$plans[0]->impact_name_en}}</span><br>
                 @php
                 $existingUnits[] = $plans[0]->impact_name_en;
                 $counter++;
@@ -59,7 +59,7 @@
                 @endforeach
             </div>
             <div class="col">
-                <h5><b>Business Unit</b></h5>
+                <span style="font-size: 14px;"><b>Business Unit</b></span><br>
                 @php
                 $existingUnits = [];
                 @endphp
@@ -67,7 +67,7 @@
                 @if (count($plans) > 0)
                 @if($plans[0]->business_unit)
                 @if (!in_array($plans[0]->business_unit, $existingUnits) && $plans[0]->business_unit!=null)
-                <input type="checkbox" id="checkbox-group" class="business-group change" value="{{$plans[0]->business_unit}}"> {{$plans[0]->business_unit}}<br>
+                <input type="checkbox" id="checkbox-group" class="business-group change" value="{{$plans[0]->business_unit}}"><span style="font-size: 14px;"> {{$plans[0]->business_unit}}</span><br>
                 @php
                 $existingUnits[] = $plans[0]->business_unit;
                 @endphp
@@ -269,7 +269,7 @@ $busData[] = [$name, $datacount];
         var options = {
             title: 'Assets Tier',
             titleTextStyle: {
-                fontSize: 16
+                fontSize: 14
             },
             pieHole: 0.5,
             backgroundColor: 'transparent',
@@ -306,7 +306,7 @@ $busData[] = [$name, $datacount];
         var options = {
             title: 'Hosting Type',
             titleTextStyle: {
-                fontSize: 16
+                fontSize: 14
             },
             pieHole: 0.5,
             backgroundColor: 'transparent',
@@ -343,7 +343,7 @@ $busData[] = [$name, $datacount];
         var options = {
             title: 'Asset Hosting Location',
             titleTextStyle: {
-                fontSize: 16
+                fontSize: 14
             },
             pieHole: 0.5,
             backgroundColor: 'transparent',

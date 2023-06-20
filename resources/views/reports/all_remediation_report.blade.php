@@ -19,8 +19,8 @@
         <div class="col-md-3">
             <div id="chart-container"></div>
         </div>
-        <div class="col-md-2 p-4">
-            <h5><b>Business Unit</b></h5>
+        <div class="col-md-2 p-2">
+            <span style="font-size: 14px;"><b>Business Unit</b></span>
             @php
                 $existingUnits = [];
             @endphp
@@ -28,7 +28,7 @@
                 
                     @if (!in_array($plans->business_unit, $existingUnits) && $plans->business_unit!=null)
                         <div class="place">
-                            <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"> {{$plans->business_unit}}<br>
+                            <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"><span style="font-size: 14px;"> {{$plans->business_unit}}</span><br>
                         </div>
                         @php
                             $existingUnits[] = $plans->business_unit;
@@ -300,7 +300,7 @@
 
         var options = {
           title: 'Remediation Status',
-          titleTextStyle: { fontSize: 16 },
+          titleTextStyle: { fontSize: 14 },
           pieHole: 0.4,
           backgroundColor: 'transparent',
           colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
@@ -329,7 +329,7 @@
 
         var options = {
           title: 'Initial Rating',
-          titleTextStyle: { fontSize: 16 },
+          titleTextStyle: { fontSize: 14 },
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
@@ -360,7 +360,7 @@
 
         var options = {
           title: 'Post Remediation Rating',
-          titleTextStyle: { fontSize: 16 },
+          titleTextStyle: { fontSize: 14 },
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
