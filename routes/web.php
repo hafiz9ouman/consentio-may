@@ -14,10 +14,15 @@ Route::get('/report/rem/{id}', 'Reports@get_reme_report')->name('report.reme');
 Route::get('/report/postrem', 'Reports@get_postreme_report')->name('postreport.reme');
 
 Route::get('/report/asset/{id}', 'Reports@get_asset_report')->name('report.asset');
+Route::post('/your-ajax-endpoints/{id}', 'Reports@getAssetsByFilters');
+
+Route::get('/report/remediation/{id}', 'Reports@get_remediation_report')->name('report.onerem');
+Route::post('/your-ajax-endpointz', 'Reports@getoneRemediationByBusinessUnits');
+
 Route::get('/report/remediation', 'Reports@remediation_report')->name('report.remediation');
 Route::post('/your-ajax-endpoint', 'Reports@getRemediationByBusinessUnits');
 
-Route::post('/your-ajax-endpoints/{id}', 'Reports@getAssetsByFilters');
+
 
 
 // -------------------------------------------------------------------

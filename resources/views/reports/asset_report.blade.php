@@ -11,7 +11,12 @@
 
 <div class="container-fluid" style="background-color: white;">
     <div class="row">
-        <h4 class="mt-3" style="color:black;"><b>{{$company->name}} {{$group[0]->group_name}} - Security Assessment</b></h4>
+        <div class="col-9">
+            <h4 class="mt-3" style="color:black;"><b>{{$company->name}} {{$group[0]->group_name}} - Security Assessment</b></h4>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary mt-2" href="{{ url('/report/remediation/' . $group_id) }}">Remediation Report</a>
+        </div>
     </div>
     <input type="hidden" class="group_id" value="{{$group_id}}">
     <div class="row">

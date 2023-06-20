@@ -320,6 +320,173 @@ class Reports extends Controller{
         return response()->json($remediation_plans);
     }
 
+    public function get_remediation_report($id){
+        // dd($id);
+        $group_id=$id;
+
+        // $data = DB::table('group_section')
+        // ->join('group_questions', 'group_questions.section_id', 'group_section.id')
+        // ->select('group_questions.question_short', 'group_questions.question_short_fr')
+        // ->where('group_section.group_id', $group_id)
+        // ->get();
+        // dd($questions);
+
+        // $form = DB::table('forms')->where('group_id', $group_id)->select('id')->first();
+        // $form_id = $form->id;
+
+        // $subforms = DB::table('sub_forms')->where('parent_form_id', $form_id)->pluck('id');
+
+        $client_id=Auth::user()->client_id;
+
+        
+        $remediation_plans = DB::table('remediation_plans')
+            ->join('user_responses', function ($join) {
+                $join->on('remediation_plans.control_id', '=', 'user_responses.question_id')
+                    ->whereColumn('remediation_plans.sub_form_id', '=', 'user_responses.sub_form_id');
+            })
+            ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
+            ->join('forms', 'forms.id', 'sub_forms.parent_form_id')
+            ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
+            ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
+            ->leftjoin('impact', 'impact.id', 'assets.impact_id')
+            ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
+            ->where('remediation_plans.client_id', '=', $client_id)
+            ->where('forms.group_id', '=', $group_id)
+            ->select('assets.name as asset_name', 
+            'assets.business_unit', 
+            'forms.title', 
+            'sub_forms.other_id', 
+            'group_questions.control_id', 
+            'group_questions.question_short', 
+            'user_responses.rating', 
+            'users.name as user_name', 
+            'remediation_plans.proposed_remediation', 
+            'remediation_plans.completed_actions', 
+            'remediation_plans.eta', 
+            'remediation_plans.status', 
+            'remediation_plans.post_remediation_rating'
+            )
+            ->get();
+
+            
+        
+        // dd($remediation_plans);
+                
+        return view("reports.one_remediation_report", compact('remediation_plans', 'client_id', 'group_id'));
+
+    }
+
+    public function getoneRemediationByBusinessUnits(Request $request){
+        
+        $selectedUnits = $request->input('units');
+        $group_id = $request->input('group');
+        // dd($selectedUnits);
+
+        // Fetch assets from the database based on selected business units
+        $client_id=Auth::user()->client_id;
+
+        if($selectedUnits){
+            $units = DB::table('remediation_plans')
+            ->join('user_responses', function ($join) {
+                $join->on('remediation_plans.control_id', '=', 'user_responses.question_id')
+                    ->whereColumn('remediation_plans.sub_form_id', '=', 'user_responses.sub_form_id');
+            })
+            ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
+            ->join('forms', 'forms.id', 'sub_forms.parent_form_id')
+            ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->join('assets', 'assets.id', 'sub_forms.asset_id')
+            ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
+            ->leftjoin('impact', 'impact.id', 'assets.impact_id')
+            ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
+            ->where('remediation_plans.client_id', '=', $client_id)
+            ->where('forms.group_id', '=', $group_id)
+            ->whereIn('assets.business_unit', $selectedUnits)
+            ->select('assets.name as asset_name', 
+            'assets.business_unit', 
+            'forms.title', 
+            'sub_forms.other_id', 
+            'group_questions.control_id', 
+            'group_questions.question_short', 
+            'user_responses.rating', 
+            'users.name as user_name', 
+            'remediation_plans.proposed_remediation', 
+            'remediation_plans.completed_actions', 
+            'remediation_plans.eta', 
+            'remediation_plans.status', 
+            'remediation_plans.post_remediation_rating'
+            )
+            ->get();
+
+            foreach ($units as $data) {
+                if($data->rating){
+                    $color = DB::table('evaluation_rating')->where('rate_level', $data->rating)->where('owner_id', $client_id)->first();
+                    $data->bg_icolor = $color->color;
+                    $data->t_icolor = $color->text_color;
+                    $data->irating = $color->rating;
+                }
+
+                if($data->post_remediation_rating){
+                    $post = DB::table('evaluation_rating')->where('id', $data->post_remediation_rating)->first();
+                    $data->bg_pcolor = $post->color;
+                    $data->t_pcolor = $post->text_color;
+                    $data->prating = $post->rating; 
+                }  
+            }
+        }
+        else{
+            $units = DB::table('remediation_plans')
+            ->join('user_responses', function ($join) {
+                $join->on('remediation_plans.control_id', '=', 'user_responses.question_id')
+                    ->whereColumn('remediation_plans.sub_form_id', '=', 'user_responses.sub_form_id');
+            })
+            ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
+            ->join('forms', 'forms.id', 'sub_forms.parent_form_id')
+            ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
+            ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
+            ->leftjoin('impact', 'impact.id', 'assets.impact_id')
+            ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
+            ->where('remediation_plans.client_id', '=', $client_id)
+            ->where('forms.group_id', '=', $group_id)
+            ->select('assets.name as asset_name', 
+            'assets.business_unit', 
+            'forms.title', 
+            'sub_forms.other_id', 
+            'group_questions.control_id', 
+            'group_questions.question_short', 
+            'user_responses.rating', 
+            'users.name as user_name', 
+            'remediation_plans.proposed_remediation', 
+            'remediation_plans.completed_actions', 
+            'remediation_plans.eta', 
+            'remediation_plans.status', 
+            'remediation_plans.post_remediation_rating'
+            )
+            ->get();
+
+            foreach ($units as $data) {
+                if($data->rating){
+                    $color = DB::table('evaluation_rating')->where('id', $data->rating)->first();
+                    $data->bg_icolor = $color->color;
+                    $data->t_icolor = $color->text_color;
+                    $data->irating = $color->rating;
+                }
+
+                if($data->post_remediation_rating){
+                    $post = DB::table('evaluation_rating')->where('id', $data->post_remediation_rating)->first();
+                    $data->bg_pcolor = $post->color;
+                    $data->t_pcolor = $post->text_color;
+                    $data->prating = $post->rating; 
+                }  
+            }
+        }
+        
+
+        // Return the assets as a JSON response
+        return response()->json($units);
+    }
+
     public function remediation_report(){
         // dd($id);
         // $group_id=$id;
