@@ -39,7 +39,7 @@ class AuditFormsController extends Controller{
                 ->where('type', 'audit')
                 ->selectRaw('audit_questions_groups.group_name_fr as group_name, forms.title_fr as title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.group_id as group_id, forms.date_created')
                 ->groupBy('forms.id')
-                ->orderBy('date_created')
+                ->orderBy('date_created', 'DESC')
                 ->get();
         }else{
             $audit_forms = DB::table('forms')
@@ -50,7 +50,7 @@ class AuditFormsController extends Controller{
                 ->where('type', 'audit')
                 ->selectRaw('audit_questions_groups.group_name as group_name, forms.title, count(sub_forms.id) as subforms_count, user_id, forms.id as form_id, forms.group_id as group_id, forms.date_created')
                 ->groupBy('forms.id')
-                ->orderBy('date_created')
+                ->orderBy('date_created', 'DESC')
                 ->get();
         }
         // echo "<pre>";
@@ -92,7 +92,8 @@ class AuditFormsController extends Controller{
                 'assets.name as asset_name',
                 'user_form_links.form_link_id'
             )
-        ->get();
+            ->orderBy('date_created', 'DESC')
+            ->get();
 
         // print("<pre>");
         // print_r($sub_forms);
@@ -307,6 +308,7 @@ class AuditFormsController extends Controller{
                     audit_questions_groups.group_name_fr,
                     "External" as user_type'
                     ))
+                    ->orderby('sub_forms.id', 'DESC')
             ->get();
 
             $int_forms = DB::table('sub_forms')
@@ -336,7 +338,7 @@ class AuditFormsController extends Controller{
                     audit_questions_groups.group_name_fr, 
                     "Internal" as user_type'
                 ))
-                ->orderby('sub_forms.id')
+                ->orderby('sub_forms.id', 'DESC')
             ->get();
             
             $completed_forms = $int_forms->merge($ext_forms);
@@ -366,7 +368,8 @@ class AuditFormsController extends Controller{
                     assets.asset_number, 
                     assets.name as asset_name, 
                     "Internal" as user_type'))
-                ->get();
+                    ->orderby('sub_forms.id', 'DESC')
+                    ->get();
             $completed_forms = $int_forms;
         }
         if (Auth::user()->role == 1){
@@ -421,6 +424,7 @@ class AuditFormsController extends Controller{
                     audit_questions_groups.group_name_fr,
                     "External" as user_type'
                     ))
+                    ->orderby('sub_forms.id', 'DESC')
             ->get();
 
             $int_forms = DB::table('sub_forms')
@@ -451,7 +455,7 @@ class AuditFormsController extends Controller{
                     audit_questions_groups.group_name_fr, 
                     "Internal" as user_type'
                 ))
-                ->orderby('sub_forms.id')
+                ->orderby('sub_forms.id', 'DESC')
             ->get();
             
             $completed_forms = $int_forms->merge($ext_forms);
@@ -481,6 +485,7 @@ class AuditFormsController extends Controller{
                     assets.asset_number, 
                     assets.name as asset_name, 
                     "Internal" as user_type'))
+                    ->orderby('sub_forms.id', 'DESC')
                 ->get();
             $completed_forms = $int_forms;
         }
