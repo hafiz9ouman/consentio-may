@@ -223,7 +223,12 @@ class AssetsController extends Controller
                                 'data_classifications.classification_name_fr',
                                 'impact.impact_name_en',
                                 'impact.impact_name_fr',
-                                'assets.tier'
+                                'assets.tier',
+                                'assets.it_owner',
+                                'assets.business_owner',
+                                'assets.business_unit',
+                                'assets.internal_3rd_party',
+                                'assets.data_subject_volume'
                                 )
                             ->get();
 

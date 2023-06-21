@@ -28,7 +28,7 @@
       </div>
       <div class="main_table_redisign">
         <div class="over_main_div ">
-          <table class="table table-striped text-center paginated">
+          <table class="table table-striped text-center paginated" id="datatable">
             <thead>
               <tr style = "text-transform:uppercase !important;">
                 <!-- <th scope="col">{{ __('USER TYPE') }}</th> -->
@@ -191,18 +191,8 @@
     </div>
   </section>
   <script>
-      $(document).ready(function(){
-          var check_col_index = 9;
-          var table = $('#forms-table').DataTable({
-              "order": [[ 10, "desc" ]],
-              "rowCallback": function(row, data) {
-                  if (data[check_col_index] == "0") {
-                      $(row).hide();
-                  }
-              }
-          });
-          
-          table.column(check_col_index).visible(false);
-      })
-  </script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        });
+    </script>
 @endsection

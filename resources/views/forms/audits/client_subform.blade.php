@@ -37,7 +37,7 @@
       <div class="main_table_redisign">
         
         <div class="over_main_div no_scroll">
-          <table class="table table-striped text-center paginated main_responsive_table">
+          <table class="table table-striped text-center paginated main_responsive_table" id="datatable">
             <thead>
               <tr>
                 <th scope="col">Sr NO.</th>
@@ -92,4 +92,9 @@
       </div>
     </div>
   </section>
+  <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        });
+    </script>
 @endsection

@@ -214,7 +214,6 @@
                         <table class="table table-striped text-center paginated" id="datatable">
                             <thead>
                                 <tr>
-                                    <th scope="col">NO.</th>
                                     <th scope="col">{{ __('ASSET #') }}</th>
                                     <th scope="col">{{ __('ASSET TYPE') }}</th>
                                     <th scope="col">{{ __('ASSET NAME') }}</th>
@@ -225,6 +224,11 @@
                                     <th scope="col">{{ __('DATA CLASSIFICATION') }}</th>
                                     <th scope="col">{{ __('IMPACT') }}</th>
                                     <th scope="col">{{ __('TIER') }}</th>
+                                    <th scope="col">{{ __('IT OWNER') }}</th>
+                                    <th scope="col">{{ __('BUSINESS OWNER') }}</th>
+                                    <th scope="col">{{ __('BUSINESS UNIT') }}</th>
+                                    <th scope="col">{{ __('INTERNAL 3RD PARTY') }}</th>
+                                    <th scope="col">{{ __('DATA SUBJECT VOLUME') }}</th>
 
                                     <th scope="col">{{ __('ACTIONS') }}</th>
                                 </tr>
@@ -234,7 +238,6 @@
                             <tbody>
                                 @foreach ($asset_list as $asset)
                                 <tr>
-                                    <td scope="row" class="fix_width_td">{{ $loop->iteration }}</td>
                                     <td class='spocNames'>A-{{$asset->client_id}}-{{$asset->asset_number}}</td>
                                     <td class='spocNames'>{{ $asset->asset_type }}</td>
                                     <td class='spocNames'>{{ $asset->name }}</td>
@@ -242,6 +245,7 @@
                                     <td class='spocNames'>{{ $asset->hosting_provider }}</td>
                                     <td class='spocNames'>{{ $asset->country }}</td>
                                     <td class='spocNames'>{{ $asset->city }}</td>
+                                    
                                     <td class='spocNames'>
                                         @if(session('locale') == 'fr')
                                             {{ $asset->classification_name_fr }}
@@ -258,7 +262,6 @@
                                         @endif
                                     </td>
 
-
                                     <td class='spocNames'>
                                         @if(session('locale') == 'fr')
                                             {{ $asset->tier }}
@@ -266,6 +269,12 @@
                                             {{ $asset->tier }}
                                         @endif
                                     </td>
+
+                                    <td class='spocNames'>{{ $asset->it_owner }}</td>
+                                    <td class='spocNames'>{{ $asset->business_owner }}</td>
+                                    <td class='spocNames'>{{ $asset->business_unit }}</td>
+                                    <td class='spocNames'>{{ $asset->internal_3rd_party }}</td>
+                                    <td class='spocNames'>{{ $asset->data_subject_volume }}</td>
 
                                     <td>
                                         <div class="action_icons">
