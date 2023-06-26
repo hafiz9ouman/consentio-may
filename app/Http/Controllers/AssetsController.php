@@ -341,6 +341,12 @@ class AssetsController extends Controller
             'business_unit'         => $request->business_unit,
             'internal_3rd_party'    => $request->internal_3rd_party,
             'data_subject_volume'   => $request->data_subject_volume,
+            'supplier'              => $request->supplier,
+            'list_data_type'        => $request->data_type,
+            'data_retention'        => $request->data_retention,
+            'no_of_user'            => $request->no_users,
+            'notes'                 => $request->notes,
+            'description'           => $request->description,
             'asset_number'          => $latest_assigned_number + 1
             ]
         );
@@ -400,6 +406,12 @@ class AssetsController extends Controller
                 'it_owner'              => $request->it_owner,
                 'business_owner'        => $request->business_owner,
                 'internal_3rd_party'    => $request->internal_3rd_party,
+                'supplier'              => $request->supplier,
+                'list_data_type'        => $request->data_type,
+                'data_retention'        => $request->data_retention,
+                'no_of_user'            => $request->no_users,
+                'notes'                 => $request->notes,
+                'description'           => $request->description,
                 'data_subject_volume'   => $request->data_subject_volume
 
             ]))
@@ -461,6 +473,12 @@ class AssetsController extends Controller
             'business_unit' => $request->business_unit,
             'business_owner' => $request->business_owner,
             'internal_3rd_party' => $request->internal_3rd_party,
+            'supplier'              => $request->supplier,
+            'list_data_type'        => $request->data_type,
+            'data_retention'        => $request->data_retention,
+            'no_of_user'            => $request->no_users,
+            'notes'                 => $request->notes,
+            'description'           => $request->description,
             'data_subject_volume' => $request->data_subject_volume
         ]);
         $status = 'success';

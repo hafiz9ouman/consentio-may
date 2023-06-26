@@ -38,7 +38,7 @@
                     </div>
                     <input type="hidden" name="id" value="{{ $data->id }}" id="as_id_up">
                     <div class="form-group">
-                        <label>{{ __('Name') }}<span class="red">*</span></label>
+                        <label>{{ __('Asset  Name') }}<span class="red">*</span></label>
                         <input type="text" name="namez" value="{{ $data->name }}" class="form-control" required
                             disabled>
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <div class='input-field'>
-                            <label for='country'>{{ __('Country') }}<span class="red">*</span></label>
+                            <label for='country'>{{ __('Hosting Country') }}<span class="red">*</span></label>
                             <select id='country_selectz' class="form-control" required name='countryz'>
                                 @if (isset($cont[0]->country_name))
                                     <option value="{{ $cont[0]->country_name }}">{{ $cont[0]->country_name }}</option>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ __('City') }} </label>
+                        <label>{{ __('Hosting City') }} </label>
                         <input type="text" id="citiz" name="cityzz" value="{{ $data->city }}"
                             class="form-control">
                     </div>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="form-group">
                                 <div class='input-field'>
-                                    <label for='country'>{{ __('Tier') }}</label>
+                                    <label for='country'>{{ __('Category (Asset Tier)') }}</label>
                                     <select id='tier_sub_field_up' class="form-control" required name='tier_sub_filed'>
                                         <option value="crown jewels"> Crown Jewels</option>
                                         <option value="tier 1" {{ $data->tier == "tier 1" ? "selected" : "" }}> Tier 1</option>
@@ -132,7 +132,7 @@
                         <input type="text" id="business_owner" name="Business_owner" value="{{ $data->business_owner }}"
                             class="form-control">
                     </div>
-                    <div class="form-gourp">
+                    <div class="form-group">
                         <label for="">{{ __('Internal or 3rd party') }}</label>
                         
                         <select id='internal_3rd_party' class="form-control" required name='internal_3rd_party'>
@@ -140,11 +140,36 @@
                             <option value="3rd Party" {{ $data->internal_3rd_party === "3rd Party" ? "selected" : "" }}>3rd Party</option>
                         </select>
                     </div>
-                    <div class="form-gourp">
-                        <label for="">{{ __('Data Subject volume') }}</label>
+                    <div class="form-group">
+                        <label for="">{{ __('Volume of Sensitive Data') }}</label>
                         <input type="text" id="data_subject_volume" name="data_subject_volume"
                             value="{{ $data->data_subject_volume }}" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Supplier') }}</label>
+                        <input type="text" id="supplier" name="supplier" class="form-control" value="{{ $data->supplier }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Data Retention') }}</label>
+                        <input type="text" id="data_retention" name="data_retention" class="form-control" value="{{ $data->data_retention }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Number of Users') }}</label>
+                        <input type="text" id="no_users" name="no_users" class="form-control" value="{{ $data->no_of_user }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('List of Data Type') }}</label>
+                        <input type="text" id="data_type" name="data_type" class="form-control" value="{{ $data->list_data_type }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Notes') }}</label>
+                        <input type="text" id="notes" name="notes" class="form-control" value="{{ $data->notes }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Description') }}</label>
+                        <textarea id="description" name="description" class="form-control">{{ $data->description }}</textarea>
+                    </div>
+
                     <input type="hidden" id="latituedez" name="latz" class="form-control">
                     <input type="hidden" id="langutitudez" name="lngz" class="form-control">
                     <input type="hidden" id="tier_matrix_up" name="tier_matrix" class="form-control">
@@ -302,130 +327,161 @@
         </section>
 
         <div class="modal" id="myModal">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content" style="border-radius: 30px;">
 
                     <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">{{ __('Add Asset') }}</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-header text-center bg-primary">
+                        <h4 class="modal-title w-100 text-light">{{ __('Add Asset') }}</h4>
+                        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form action="{{ route('asset_add') }}" onsubmit="return get_location_assets();" method="POST" enctype="multipart/form-data" id="add_asset_loc">
                             {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="sel1">{{ __('Asset type') }}<span class="red">*</span></label>
-                                <select class="form-control" required id="sel1" name="asset_type">
-                                    <option>{{ __('Server') }}</option>
-                                    <option>{{ __('Application') }}</option>
-                                    <option>{{ __('Database') }}</option>
-                                    <option>{{ __('Physical Storage') }}</option>
-                                    <option>{{ __('Website') }}</option>
-                                    <option>{{ __('Other') }}</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>{{ __('Name') }}<span class="red">*</span></label>
-                                <input type="text" id="name1" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <div class='input-field'>
-                                    <label>{{ __('Hosting Type') }}<span class="red">*</span></label>
-                                    <select class="form-control" required id="hosting_type1" name='hosting_type'>
-                                        <option value="Cloud">{{ __('Cloud') }}</option>
-                                        <option value="On-Premise">{{ __('On-Premise') }}</option>
-                                        <option value="Not Sure">{{ __('Not Sure') }}</option>
-                                        <option value="Hybrid">{{ __('Hybrid') }}</option>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sel1">{{ __('Asset Type') }}<span class="red">*</span></label>
+                                        <select class="form-control" required id="sel1" name="asset_type">
+                                            <option>{{ __('Server') }}</option>
+                                            <option>{{ __('Application') }}</option>
+                                            <option>{{ __('Database') }}</option>
+                                            <option>{{ __('Physical Storage') }}</option>
+                                            <option>{{ __('Website') }}</option>
+                                            <option>{{ __('Other') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='input-field'>
+                                            <label>{{ __('Hosting Type') }}<span class="red">*</span></label>
+                                            <select class="form-control" required id="hosting_type1" name='hosting_type'>
+                                                <option value="Cloud">{{ __('Cloud') }}</option>
+                                                <option value="On-Premise">{{ __('On-Premise') }}</option>
+                                                <option value="Not Sure">{{ __('Not Sure') }}</option>
+                                                <option value="Hybrid">{{ __('Hybrid') }}</option>
 
-                                    </select>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='input-field'>
+                                            <label for='country'>{{ __('Hosting Country') }}<span class="red">*</span></label>
+                                            <select id='country_select' class="form-control" required name='country'>
+                                                @foreach ($countries as $country)
+                                                    <option value="{{ $country->country_name }}">{{ $country->country_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __('State') }}/{{ __('Province') }} </label>
+                                        <input type="text" id="state1" name="state" class="form-control">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="">{{ __('Data Classification') }}</label>
+                                        <select name="data_classification" id="classification_name"
+                                            class="form-control for_change_triger">
+                                            @foreach ($dt_classification as $dc)
+                                                <option value="{{ $dc->id }}"> {{ $dc->classification_name_en }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('IT Owner') }}</label>
+                                        <input type="text" id="it_owner" name="it_owner" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Business Unit') }}</label>
+                                        <input type="text" id="business_unit" name="business_unit" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Volume of Sensitive Data') }}</label>
+                                        <input type="text" id="data_subject_volume" name="data_subject_volume"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Supplier') }}</label>
+                                        <input type="text" id="supplier" name="supplier" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Data Retention') }}</label>
+                                        <input type="text" id="data_retention" name="data_retention" class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{ __('Asset  Name') }}<span class="red">*</span></label>
+                                        <input type="text" id="name1" name="name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __('Hosting Provider') }} </label>
+                                        <input type="text" id="hosting_provider1" name="hosting_provider"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{ __('Hosting City') }} </label>
+                                        <input type="text" id="city1" name="city" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Impact') }}</label>
+                                        <select name="impact" id="impact_name" class="form-control for_change_triger">
+                                            @foreach ($impact as $imp)
+                                                <option value="{{ $imp->id }}"> {{ $imp->impact_name_en }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='input-field'>
+                                            <label for='country'>{{ __('Category (Asset Tier)') }}</label>
+                                            <select id='tier_sub_field' class="form-control" required name='tier_sub_filed'>
+                                                <option value="crown jewels"> Crown Jewels</option>
+                                                <option value="tier 1"> Tier 1</option>
+                                                <option value="tier 2"> Tier 2</option>
+                                                <option value="tier 3"> Tier 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Business Owner') }}</label>
+                                        <input type="text" id="business_owner" name="business_owner" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Internal or 3rd Party') }}</label>
+                                        <!-- <input type="text" id="internal_3rd_party" name="internal_3rd_party" class="form-control"> -->
+                                        <select id='internal_3rd_party' class="form-control" required name='internal_3rd_party'>
+                                                <option value="internal"> Internal</option>
+                                                <option value="3rd Party"> 3rd Party</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Number of Users') }}</label>
+                                        <input type="text" id="no_users" name="no_users" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('List of Data Type in Application') }}</label>
+                                        <input type="text" id="data_type" name="data_type" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">{{ __('Notes') }}</label>
+                                        <input type="text" id="notes" name="notes" class="form-control">
+                                    </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label>{{ __('Hosting Provider') }} </label>
-                                <input type="text" id="hosting_provider1" name="hosting_provider"
-                                    class="form-control" required>
+                                        <label for="description">{{ __('Description') }}</label>
+                                        <textarea id="description" name="description" class="form-control"></textarea>
                             </div>
-                            <div class="form-group">
-                                <div class='input-field'>
-                                    <label for='country'>{{ __('Country') }}<span class="red">*</span></label>
-                                    <select id='country_select' class="form-control" required name='country'>
-                                        @foreach ($countries as $country)
-                                            <option value="{{ $country->country_name }}">{{ $country->country_name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>{{ __('City') }} </label>
-                                <input type="text" id="city1" name="city" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>{{ __('State') }}/{{ __('Province') }} </label>
-                                <input type="text" id="state1" name="state" class="form-control">
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('Impact') }}</label>
-                                <select name="impact" id="impact_name" class="form-control for_change_triger">
-                                    @foreach ($impact as $imp)
-                                        <option value="{{ $imp->id }}"> {{ $imp->impact_name_en }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('Data Classification') }}</label>
-                                <select name="data_classification" id="classification_name"
-                                    class="form-control for_change_triger">
-                                    @foreach ($dt_classification as $dc)
-                                        <option value="{{ $dc->id }}"> {{ $dc->classification_name_en }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div class='input-field'>
-                                    <label for='country'>{{ __('Tier') }}</label>
-                                    <select id='tier_sub_field' class="form-control" required name='tier_sub_filed'>
-                                        <option value="crown jewels"> Crown Jewels</option>
-                                        <option value="tier 1"> Tier 1</option>
-                                        <option value="tier 2"> Tier 2</option>
-                                        <option value="tier 3"> Tier 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('IT Owner') }}</label>
-                                <input type="text" id="it_owner" name="it_owner" class="form-control">
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('Business Owner') }}</label>
-                                <input type="text" id="business_owner" name="business_owner" class="form-control">
-                            </div>
-
-                            <div class="form-gourp pt-2">
-                                <label for="">{{ __('Business Unit') }}</label>
-                                <input type="text" id="business_unit" name="business_unit" class="form-control">
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('Internal or 3rd party') }}</label>
-                                <!-- <input type="text" id="internal_3rd_party" name="internal_3rd_party" class="form-control"> -->
-                                <select id='internal_3rd_party' class="form-control" required name='internal_3rd_party'>
-                                        <option value="internal"> Internal</option>
-                                        <option value="3rd Party"> 3rd Party</option>
-                                </select>
-                            </div>
-                            <div class="form-gourp">
-                                <label for="">{{ __('Data Subject volume') }}</label>
-                                <input type="text" id="data_subject_volume" name="data_subject_volume"
-                                    class="form-control">
-                            </div>
+                            
                             <input type="hidden" id="latituede" name="lat" class="form-control">
                             <input type="hidden" id="langutitude" name="lng" class="form-control">
                             <input type="hidden" id="tier_matrix" name="tier_matrix" class="form-control">
-                            <div class="pt-4 d-flex justify-content-end">
+                            <div class="pt-4 d-flex justify-content-center">
                                 <button type="button" class="btn btn-danger mr-2"
                                     data-dismiss="modal">{{ __('Close') }}</button>
                                 <input class="btn btn-primary" type="submit" name="submit"
@@ -595,6 +651,12 @@
                                 "business_owner": document.getElementById("add_asset_loc").business_owner.value,
                                 "internal_3rd_party": document.getElementById("add_asset_loc").internal_3rd_party.value,
                                 "data_subject_volume": document.getElementById("add_asset_loc").data_subject_volume.value,
+                                "supplier": document.getElementById("add_asset_loc").supplier.value,
+                                "data_retention": document.getElementById("add_asset_loc").data_retention.value,
+                                "no_users": document.getElementById("add_asset_loc").no_users.value,
+                                "data_type": document.getElementById("add_asset_loc").data_type.value,
+                                "notes": document.getElementById("add_asset_loc").notes.value,
+                                "description": document.getElementById("add_asset_loc").description.value,
 
                                 "lat": document.getElementById("add_asset_loc").lat.value,
                                 "lng": document.getElementById("add_asset_loc").lng.value,
@@ -693,6 +755,12 @@
                             "business_owner": document.getElementById("update_asset_locz").business_owner.value,
                             "internal_3rd_party": document.getElementById("update_asset_locz").internal_3rd_party.value,
                             "data_subject_volume": document.getElementById("update_asset_locz").data_subject_volume.value,
+                            "supplier": document.getElementById("update_asset_locz").supplier.value,
+                            "data_retention": document.getElementById("update_asset_locz").data_retention.value,
+                            "no_users": document.getElementById("update_asset_locz").no_users.value,
+                            "data_type": document.getElementById("update_asset_locz").data_type.value,
+                            "notes": document.getElementById("update_asset_locz").notes.value,
+                            "description": document.getElementById("update_asset_locz").description.value,
 
                             "lat": document.getElementById("update_asset_locz").latz.value,
                             "lng": document.getElementById("update_asset_locz").lngz.value,
