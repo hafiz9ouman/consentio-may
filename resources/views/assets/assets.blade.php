@@ -142,8 +142,20 @@
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Volume of Sensitive Data') }}</label>
-                        <input type="text" id="data_subject_volume" name="data_subject_volume"
-                            value="{{ $data->data_subject_volume }}" class="form-control">
+                        <select class="form-control" required id="data_subject_volume" name='data_subject_volume'>
+                            <option value="0-100" {{ $data->data_subject_volume === "0-100" ? "selected" : "" }}>{{ __('0-100') }}</option>
+                            <option value="100-500" {{ $data->data_subject_volume === "100-500" ? "selected" : "" }}>{{ __('100-500') }}</option>
+                            <option value="500-1,000" {{ $data->data_subject_volume === "500-1,000" ? "selected" : "" }}>{{ __('500-1,000') }}</option>
+                            <option value="1,000-10,000" {{ $data->data_subject_volume === "1,000-10,000" ? "selected" : "" }}>{{ __('1,000-10,000') }}</option>
+                            <option value="10,000-100,000" {{ $data->data_subject_volume === "10,000-100,000" ? "selected" : "" }}>{{ __('10,000-100,000') }}</option>
+                            <option value="100,000-500,000" {{ $data->data_subject_volume === "100,000-500,000" ? "selected" : "" }}>{{ __('100,000-500,000') }}</option>
+                            <option value="500,000-1M" {{ $data->data_subject_volume === "500,000-1M" ? "selected" : "" }}>{{ __('500,000-1M') }}</option>
+                            <option value="1M - 5M" {{ $data->data_subject_volume === "1M - 5M" ? "selected" : "" }}>{{ __('1M - 5M') }}</option>
+                            <option value="5M - 10M" {{ $data->data_subject_volume === "5M - 10M" ? "selected" : "" }}>{{ __('5M - 10M') }}</option>
+                            <option value="10M - 50M" {{ $data->data_subject_volume === "10M - 50M" ? "selected" : "" }}>{{ __('10M - 50M') }}</option>
+                            <option value="50M - 100M" {{ $data->data_subject_volume === "50M - 100M" ? "selected" : "" }}>{{ __('50M - 100M') }}</option>
+                            <option value="100M+" {{ $data->data_subject_volume === "100M+" ? "selected" : "" }}>{{ __('100M+') }}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Supplier') }}</label>
@@ -151,11 +163,24 @@
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Data Retention') }}</label>
-                        <input type="text" id="data_retention" name="data_retention" class="form-control" value="{{ $data->data_retention }}">
+                        <select class="form-control" required id="data_retention" name='data_retention'>
+                            <option value="0-30 days" {{ $data->data_retention === "0-30 days" ? "selected" : "" }}>{{ __('0-30 days') }}</option>
+                            <option value="30-90 days" {{ $data->data_retention === "30-90 days" ? "selected" : "" }}>{{ __('30-90 days') }}</option>
+                            <option value="3-6 months" {{ $data->data_retention === "3-6 months" ? "selected" : "" }}>{{ __('3-6 months') }}</option>
+                            <option value="6-12 months" {{ $data->data_retention === "6-12 months" ? "selected" : "" }}>{{ __('6-12 months') }}</option>
+                            <option value="1-3 years" {{ $data->data_retention === "1-3 years" ? "selected" : "" }}>{{ __('1-3 years') }}</option>
+                            <option value="3-5 years" {{ $data->data_retention === "3-5 years" ? "selected" : "" }}>{{ __('3-5 years') }}</option>
+                            <option value="5-7 years" {{ $data->data_retention === "5-7 years" ? "selected" : "" }}>{{ __('5-7 years') }}</option>
+                            <option value="7-10 years" {{ $data->data_retention === "7-10 years" ? "selected" : "" }}>{{ __('7-10 years') }}</option>
+                            <option value="10-12 years" {{ $data->data_retention === "10-12 years" ? "selected" : "" }}>{{ __('10-12 years') }}</option>
+                            <option value="12-15 years" {{ $data->data_retention === "12-15 years" ? "selected" : "" }}>{{ __('12-15 years') }}</option>
+                            <option value="15-20 years" {{ $data->data_retention === "15-20 years" ? "selected" : "" }}>{{ __('15-20 years') }}</option>
+                            <option value="Over 20 years" {{ $data->data_retention === "Over 20 years" ? "selected" : "" }}>{{ __('Over 20 years') }}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Number of Users') }}</label>
-                        <input type="text" id="no_users" name="no_users" class="form-control" value="{{ $data->no_of_user }}">
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="no_users" name="no_users" class="form-control" value="{{ $data->no_of_user }}">
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('List of Data Type') }}</label>
@@ -400,8 +425,21 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">{{ __('Volume of Sensitive Data') }}</label>
-                                        <input type="text" id="data_subject_volume" name="data_subject_volume"
-                                            class="form-control">
+                                        <select class="form-control" required id="data_subject_volume" name='data_subject_volume'>
+                                            <option value="0-100">{{ __('0-100') }}</option>
+                                            <option value="100-500">{{ __('100-500') }}</option>
+                                            <option value="500-1,000">{{ __('500-1,000') }}</option>
+                                            <option value="1,000-10,000">{{ __('1,000-10,000') }}</option>
+                                            <option value="10,000-100,000">{{ __('10,000-100,000') }}</option>
+                                            <option value="100,000-500,000">{{ __('100,000-500,000') }}</option>
+                                            <option value="500,000-1M">{{ __('500,000-1M') }}</option>
+                                            <option value="1M - 5M">{{ __('1M - 5M') }}</option>
+                                            <option value="5M - 10M">{{ __('5M - 10M') }}</option>
+                                            <option value="10M - 50M">{{ __('10M - 50M') }}</option>
+                                            <option value="50M - 100M">{{ __('50M - 100M') }}</option>
+                                            <option value="100M+">{{ __('100M+') }}</option>
+
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="">{{ __('Supplier') }}</label>
@@ -409,10 +447,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">{{ __('Data Retention') }}</label>
-                                        <input type="text" id="data_retention" name="data_retention" class="form-control">
+                                        <select class="form-control" required id="data_retention" name='data_retention'>
+                                            <option value="0-30 days">{{ __('0-30 days') }}</option>
+                                            <option value="30-90 days">{{ __('30-90 days') }}</option>
+                                            <option value="3-6 months">{{ __('3-6 months') }}</option>
+                                            <option value="6-12 months">{{ __('6-12 months') }}</option>
+                                            <option value="1-3 years">{{ __('1-3 years') }}</option>
+                                            <option value="3-5 years">{{ __('3-5 years') }}</option>
+                                            <option value="5-7 years">{{ __('5-7 years') }}</option>
+                                            <option value="7-10 years">{{ __('7-10 years') }}</option>
+                                            <option value="10-12 years">{{ __('10-12 years') }}</option>
+                                            <option value="12-15 years">{{ __('12-15 years') }}</option>
+                                            <option value="15-20 years">{{ __('15-20 years') }}</option>
+                                            <option value="Over 20 years">{{ __('Over 20 years') }}</option>
+                                        </select>
                                     </div>
                                 </div>
-
 
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -461,7 +511,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">{{ __('Number of Users') }}</label>
-                                        <input type="text" id="no_users" name="no_users" class="form-control">
+                                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="no_users" name="no_users" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">{{ __('List of Data Type in Application') }}</label>
