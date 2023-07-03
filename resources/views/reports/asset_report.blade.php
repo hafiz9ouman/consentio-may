@@ -10,11 +10,11 @@
 </style>
 
 <div class="container-fluid" style="background-color: white;">
-    <div class="row">
+    <div class="row align-items-end">
         <div class="col-9">
             <h4 class="mt-3" style="color:black;"><b>{{$company->name}} {{$group[0]->group_name}} - Security Assessment</b></h4>
         </div>
-        <div class="col">
+        <div class="col d-flex justify-content-end">
             <a class="btn btn-primary mt-2" href="{{ url('/report/remediation/' . $group_id) }}">Remediation Report</a>
         </div>
     </div>

@@ -324,12 +324,12 @@ class Reports extends Controller{
         // dd($id);
         $group_id=$id;
 
-        // $data = DB::table('group_section')
-        // ->join('group_questions', 'group_questions.section_id', 'group_section.id')
-        // ->select('group_questions.question_short', 'group_questions.question_short_fr')
-        // ->where('group_section.group_id', $group_id)
-        // ->get();
-        // dd($questions);
+        $group = DB::table('forms')
+        ->join('audit_questions_groups', 'audit_questions_groups.id', 'forms.group_id')
+        ->select('audit_questions_groups.group_name')
+        ->where('forms.group_id', $group_id)
+        ->get();
+        // dd($group);
 
         // $form = DB::table('forms')->where('group_id', $group_id)->select('id')->first();
         // $form_id = $form->id;
@@ -373,7 +373,7 @@ class Reports extends Controller{
         
         // dd($remediation_plans);
                 
-        return view("reports.one_remediation_report", compact('remediation_plans', 'client_id', 'group_id'));
+        return view("reports.one_remediation_report", compact('remediation_plans', 'client_id', 'group_id', 'group'));
 
     }
 

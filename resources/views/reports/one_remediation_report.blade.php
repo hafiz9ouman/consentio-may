@@ -9,9 +9,13 @@
     }
 </style>
 <div class="container-fluid" style="background-color: white;">
-    <div class="row">
-        <input class="group" type="hidden" value="{{$group_id}}">
-        <h4 class="mt-2" style="color:black;"><b>{{$remediation_plans[0]->title}} - Security Remediation Plan</b></h4>
+    <div class="row align-items-end">
+        <div class="col-9">
+            <h4 class="mt-3" style="color:black;"><b>{{$group[0]->group_name}} - Security Remediation Plan</b></h4>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <a class="btn btn-primary mt-2" href="{{ url('/report/asset/' . $group_id) }}">Asset Report</a>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-3">
