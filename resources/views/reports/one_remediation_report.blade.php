@@ -10,6 +10,7 @@
 </style>
 <div class="container-fluid" style="background-color: white;">
     <div class="row align-items-end">
+        <input type="hidden" class="group" value="{{ $group_id }}">
         <div class="col-9">
             <h4 class="mt-3" style="color:black;"><b>{{$group[0]->group_name}} - Security Remediation Plan</b></h4>
         </div>

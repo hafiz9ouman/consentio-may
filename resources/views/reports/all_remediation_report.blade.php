@@ -19,7 +19,7 @@
         <div class="col-md-3">
             <div id="chart-container"></div>
         </div>
-        <div class="col-md-2 p-2">
+        <div class="col-md-1 p-2">
             <span style="font-size: 14px;"><b>Business Unit</b></span>
             @php
                 $existingUnits = [];
@@ -28,10 +28,29 @@
                 
                     @if (!in_array($plans->business_unit, $existingUnits) && $plans->business_unit!=null)
                         <div class="place">
-                            <input type="checkbox" class="checkbox-group" value="{{$plans->business_unit}}"><span style="font-size: 14px;"> {{$plans->business_unit}}</span><br>
+                            <input type="checkbox" class="checkbox-group units" value="{{$plans->business_unit}}"><span style="font-size: 14px;"> {{$plans->business_unit}}</span><br>
                         </div>
                         @php
                             $existingUnits[] = $plans->business_unit;
+                        @endphp
+                    @endif
+                
+                
+            @endforeach
+        </div>
+        <div class="col-md-1 p-2">
+            <span style="font-size: 14px;"><b>Question Group</b></span>
+            @php
+                $existingUnits = [];
+            @endphp
+            @foreach ($remediation_plans as $plans)
+                
+                    @if (!in_array($plans->group_name, $existingUnits) && $plans->group_name!=null)
+                        <div class="place">
+                            <input type="checkbox" class="checkbox-group groups" value="{{$plans->group_name}}"><span style="font-size: 14px;"> {{$plans->group_name}}</span><br>
+                        </div>
+                        @php
+                            $existingUnits[] = $plans->group_name;
                         @endphp
                     @endif
                 
@@ -381,10 +400,16 @@ $(document).ready(function() {
     // Listen for change event on checkboxes with class "checkbox-group"
     $(".checkbox-group").change(function() {
         var selectedUnits = [];
+        var selectedGroup = [];
         // Iterate over each checkbox with class "checkbox-group" that is checked
-        $(".checkbox-group:checked").each(function() {
+        $(".units:checked").each(function() {
             // Add the value (business unit) to the selectedUnits array
             selectedUnits.push($(this).val());
+        });
+
+        $(".groups:checked").each(function() {
+            // Add the value (business unit) to the selectedUnits array
+            selectedGroup.push($(this).val());
         });
 
         // Retrieve CSRF token from meta tag
@@ -396,6 +421,7 @@ $(document).ready(function() {
             method: "POST",
             data: {
                 units: selectedUnits,
+                groups: selectedGroup,
                 _token: token // Include the CSRF token in the data
             },
             dataType: "json",

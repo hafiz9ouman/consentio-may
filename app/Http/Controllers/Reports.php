@@ -513,6 +513,8 @@ class Reports extends Controller{
             })
             ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
             ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->join('group_section', 'group_section.id', 'group_questions.section_id')
+            ->join('audit_questions_groups', 'audit_questions_groups.id', 'group_section.group_id')
             ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
             ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
             ->leftjoin('impact', 'impact.id', 'assets.impact_id')
@@ -523,6 +525,7 @@ class Reports extends Controller{
             'sub_forms.other_id', 
             'group_questions.control_id', 
             'group_questions.question_short', 
+            'audit_questions_groups.group_name', 
             'user_responses.rating', 
             'users.name as user_name', 
             'remediation_plans.proposed_remediation', 
@@ -544,12 +547,14 @@ class Reports extends Controller{
     public function getRemediationByBusinessUnits(Request $request){
         
         $selectedUnits = $request->input('units');
+        $selectedGroup = $request->input('groups');
         // dd($selectedUnits);
 
         // Fetch assets from the database based on selected business units
         $client_id=Auth::user()->client_id;
 
-        if($selectedUnits){
+        if($selectedUnits || $selectedGroup){
+            // dd('ok');
             $units = DB::table('remediation_plans')
             ->join('user_responses', function ($join) {
                 $join->on('remediation_plans.control_id', '=', 'user_responses.question_id')
@@ -557,17 +562,19 @@ class Reports extends Controller{
             })
             ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
             ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
-            ->join('assets', 'assets.id', 'sub_forms.asset_id')
+            ->join('group_section', 'group_section.id', 'group_questions.section_id')
+            ->join('audit_questions_groups', 'audit_questions_groups.id', 'group_section.group_id')
+            ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
             ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
             ->leftjoin('impact', 'impact.id', 'assets.impact_id')
             ->leftjoin('users', 'users.id', 'remediation_plans.person_in_charge')
             ->where('remediation_plans.client_id', '=', $client_id)
-            ->whereIn('assets.business_unit', $selectedUnits)
             ->select('assets.name as asset_name', 
             'assets.business_unit', 
             'sub_forms.other_id', 
             'group_questions.control_id', 
             'group_questions.question_short', 
+            'audit_questions_groups.group_name', 
             'user_responses.rating', 
             'users.name as user_name', 
             'remediation_plans.proposed_remediation', 
@@ -576,7 +583,19 @@ class Reports extends Controller{
             'remediation_plans.status', 
             'remediation_plans.post_remediation_rating'
             )
-            ->get();
+            ->orderBy('remediation_plans.id', 'ASC');
+
+            if (!empty($selectedUnits)) {
+                $units->whereIn('assets.business_unit', $selectedUnits);
+            }
+
+            if (!empty($selectedGroup)) {
+                $units->whereIn('audit_questions_groups.group_name', $selectedGroup);
+            }
+
+            $units = $units->get();
+
+            // dd($units);
 
             foreach ($units as $data) {
                 if($data->rating){
@@ -602,6 +621,8 @@ class Reports extends Controller{
             })
             ->join('sub_forms', 'sub_forms.id', 'remediation_plans.sub_form_id')
             ->join('group_questions', 'group_questions.id', 'user_responses.question_id')
+            ->join('group_section', 'group_section.id', 'group_questions.section_id')
+            ->join('audit_questions_groups', 'audit_questions_groups.id', 'group_section.group_id')
             ->leftjoin('assets', 'assets.id', 'sub_forms.asset_id')
             ->leftjoin('data_classifications', 'data_classifications.id', 'assets.data_classification_id')
             ->leftjoin('impact', 'impact.id', 'assets.impact_id')
@@ -612,6 +633,7 @@ class Reports extends Controller{
             'sub_forms.other_id', 
             'group_questions.control_id', 
             'group_questions.question_short', 
+            'audit_questions_groups.group_name', 
             'user_responses.rating', 
             'users.name as user_name', 
             'remediation_plans.proposed_remediation', 
@@ -621,6 +643,8 @@ class Reports extends Controller{
             'remediation_plans.post_remediation_rating'
             )
             ->get();
+
+            // dd($units);
 
             foreach ($units as $data) {
                 if($data->rating){
