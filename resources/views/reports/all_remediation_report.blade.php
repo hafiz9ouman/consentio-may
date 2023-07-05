@@ -297,7 +297,6 @@ $(document).ready(function() {
     $('#datatable').DataTable({
         searching: false,
         lengthChange: false,
-        ordering: false,
     });
 });
 </script>
