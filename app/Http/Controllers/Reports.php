@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class Reports extends Controller{
 
@@ -226,14 +229,25 @@ class Reports extends Controller{
                 ->orderby('user_responses.question_id', 'ASC')
                 ->get();
 
-            $remediation_plans[$subform] = $plans;
+                if(count($plans) > 0){
+                    $remediation_plans[$subform] = $plans;
+                }
         }
+        // $remediation_plans = $remediation_plans->paginate(2);
+        // $remediation_plans = Paginate::paginate($remediation_plans,1);
+        // $remediation_plans = $this->paginate($remediation_plans);
         // dd($remediation_plans);
 
         
                 
         return view("reports.asset_report", compact('group','group_id', 'data', 'remediation_plans', 'company'));
 
+    }
+
+    public function paginate($items, $perPage = 2, $page = null, $options = []){
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
     
     public function getAssetsByFilters($id, Request $request){

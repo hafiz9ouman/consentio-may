@@ -51,7 +51,7 @@
         
     </div>
     <div class="row mt-3 overflow-auto">
-        <table class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
+        <table id="datatable" class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
             <thead>
                     <th>Name</th>
                     <th>Control Name</th>
@@ -278,6 +278,15 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<script>
+$(document).ready(function() {
+    $('#datatable').DataTable({
+        searching: false,
+        lengthChange: false,
+    });
+});
+</script>
+
 <script type="text/javascript">
     
     // Status Chart 
@@ -339,7 +348,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
+          colors: ['#FF8C01', '#ED2938'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -370,7 +379,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
+          colors: ['#037428', '#DEEE91', '#ED2938', '#FF8C01', '#808080'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 

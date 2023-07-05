@@ -8,6 +8,7 @@
         color:black;
     }
 </style>
+
 <div class="container-fluid" style="background-color: white;">
     <div class="row">
         <h4 class="mt-2" style="color:black;"><b>Security Remediation Plan</b></h4>
@@ -64,7 +65,7 @@
         
     </div>
     <div class="row mt-3 overflow-auto">
-        <table class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
+        <table id="datatable" class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
             <thead>
                     <th>Name</th>
                     <th>Control Name</th>
@@ -151,6 +152,7 @@
             </tbody>
         </table>
     </div>
+    
 </div>
 
 <!-- counts -->
@@ -290,6 +292,15 @@
 
 <!-- jQuery -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+$(document).ready(function() {
+    $('#datatable').DataTable({
+        searching: false,
+        lengthChange: false,
+        ordering: false,
+    });
+});
+</script>
 
 <script type="text/javascript">
     
@@ -352,7 +363,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
+          colors: ['#FF8C01', '#ED2938'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -383,7 +394,7 @@
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#deee91', '#ed2938', '#037428', '#ff8c01', '#f6c7b6'],
+          colors: ['#037428', '#DEEE91', '#ED2938', '#FF8C01', '#808080'],
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -478,19 +489,19 @@ $(document).ready(function() {
                     Blank: 0
                 }
                 var postRatting = [
-                    ['Ratings', 'count'],
+                    ['Ratings', 'count', { role: 'style' }],
                 ];
 
                 $.each(response, function(key, value) {
                     const KeyVa = value.prating? value?.prating : 'Blank'
                     postratings[`${KeyVa}`] += 1 
                 });
-                postRatting.push(['Marginal', postratings.Marginal]);
-                postRatting.push(['Weak', postratings.Weak]);
-                postRatting.push(['Good', postratings.Good]);
-                postRatting.push(['Satisfactory', postratings.Satisfactory]);
-                postRatting.push(['Blank', postratings.Blank]);
-                // console.log(postRatting);
+                postRatting.push(['Marginal', postratings.Marginal, 'color: #FF8C01']);
+                postRatting.push(['Weak', postratings.Weak, 'color: #ED2938']);
+                postRatting.push(['Good', postratings.Good, 'color: #037428']);
+                postRatting.push(['Satisfactory', postratings.Satisfactory, 'color: #DEEE91']);
+                postRatting.push(['Blank', postratings.Blank, 'color: #e3e6f0']);
+                console.log(postRatting);
 
                 // For Remediation Status
                 var status = [];

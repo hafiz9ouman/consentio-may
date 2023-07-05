@@ -92,7 +92,7 @@
 
     </div>
     <div class="row mt-3 overflow-auto">
-        <table class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
+        <table id="datatable" class="table table-striped table-sm text-dark" width="100%">
             <thead>
                 <tr>
                     <th>Asset Name</th>
@@ -243,6 +243,16 @@ $busData[] = [$name, $datacount];
 
 <!-- jQuery -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#datatable').DataTable({
+        searching: false,
+        lengthChange: false,
+        
+    });
+});
+</script>
 
 <script type="text/javascript">
     // First Chart 
