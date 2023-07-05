@@ -12,7 +12,7 @@
     <div class="main_custom_table">
       <div class="table_filter_section">
         <div class="select_tbl_filter">
-          <div class="main_filter_tbl">
+          <!-- <div class="main_filter_tbl">
             <p>{{ __('Show') }}</p>
             <select>
               <option>10</option>
@@ -20,7 +20,7 @@
               <option>30</option>
             </select>
             <p>{{ __('Entries') }}</p>
-          </div>
+          </div> -->
           {{-- <div class="add_more_tbl">
             <button type="button" class="btn rounded_button">ADD MORE</button>
           </div> --}}

@@ -23,7 +23,7 @@
   }
 </style>
 @section('page_title')
-  {{ __('GENERATED FORMS') }}
+  {{ __('PENDING FORMS') }}
 @endsection
   <link href="{{ url('frontend/css/jquery.mswitch.css')}}"  rel="stylesheet" type="text/css">
   <div class="container-fluid">
@@ -42,7 +42,7 @@
   <div class="main_custom_table">
     <div class="table_filter_section">
       <div class="select_tbl_filter">
-        <div class="main_filter_tbl">
+        <!-- <div class="main_filter_tbl">
           <p>{{ __('Show') }}</p>
           <select>
             <option>10</option>
@@ -50,7 +50,7 @@
             <option>30</option>
           </select>
           <p>{{ __('Entries') }}</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="main_table_redisign">
@@ -60,7 +60,7 @@
         </div> 
       @endif
       <div class="over_main_div">
-        <table class="table table-striped text-center paginated" >
+        <table id="datatable" class="table table-striped text-center paginated" >
           <thead>
             <tr>
               <th scope="col">{{ __('FORM LINKS') }}</th>
@@ -186,6 +186,11 @@
   </div><!-- /.modal -->
   <!-- </div> -->
   <script src="{{url('frontend/js/jquery.mswitch.js')}}"></script>
+  <script>
+    $(document).ready(function() {
+      $('#datatable').DataTable();
+    });
+</script>
   <script>
     function lock_unlock(val){
           $('#'+val).click();

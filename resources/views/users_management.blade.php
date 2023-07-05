@@ -47,7 +47,7 @@
       <div class="main_custom_table">
         <div class="table_filter_section">
           <div class="select_tbl_filter">
-            <div class="main_filter_tbl">
+            <!-- <div class="main_filter_tbl">
               <p>{{ __('Show') }}</p>
               <select>
                 <option>10</option>
@@ -55,7 +55,7 @@
                 <option>30</option>
               </select>
               <p>{{ __('Entries') }}</p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="main_table_redisign">
@@ -72,7 +72,7 @@
 
           <div class="over_main_div">
             <a href="{{url('add_user')}}" class="btn btn-sm btn-primary pull-right cust_color" style="margin-top: 15px; float: right; margin-right: 10px "><i class="fa fa-plus" ></i> {{ __('Add Organization User') }}</a>
-            <table class="table table-striped text-center paginated" >
+            <table id="datatable" class="table table-striped text-center paginated" >
             <thead>
             <tr style = "text-transform:uppercase;">
                          <th>{{ __('Name') }}</th>
@@ -136,14 +136,14 @@
                         @endforeach
         </tbody>
             </table>
-            <div class="table_footer">
-              <p>{{ __('Showing 1 to 9 of 9 entries')}}</p>
-              <div class="table_custom_pagination">
-                <p class="active_pagination">1</p>
-                <p>2</p>
-                <p>3</p>
-              </div>
-            </div>
+                <!-- <div class="table_footer">
+                <p>{{ __('Showing 1 to 9 of 9 entries')}}</p>
+                <div class="table_custom_pagination">
+                    <p class="active_pagination">1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+                </div> -->
         </div>
         </div>
       </div>
@@ -152,6 +152,11 @@
 
 
 <!-- </div> -->
+<script>
+    $(document).ready(function() {
+      $('#datatable').DataTable();
+    });
+</script>
 
 <script type="text/javascript">
     $(document).ready(function(){

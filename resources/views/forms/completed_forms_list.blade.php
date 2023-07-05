@@ -12,7 +12,7 @@
       <div class="main_custom_table">
         <div class="table_filter_section">
           <div class="select_tbl_filter">
-            <div class="main_filter_tbl">
+            <!-- <div class="main_filter_tbl">
               <p>{{ __('Show') }}</p>
               <select>
                 <option>10</option>
@@ -20,7 +20,7 @@
                 <option>30</option>
               </select>
               <p>{{ __('Entries') }}</p>
-            </div>
+            </div> -->
             {{-- <div class="add_more_tbl">
               <button type="button" class="btn rounded_button">ADD MORE</button>
             </div> --}}
@@ -34,7 +34,7 @@
             {{-- </h3> --}}
           @endsection
           <div class="over_main_div ">
-            <table class="table table-striped text-center paginated ">
+            <table id="datatable" class="table table-striped text-center paginated ">
               <thead>
           <tr style = "text-transform:uppercase !important;">
           <th scope="col">{{ __('ASSESSMENT FORM') }}</th>
@@ -192,26 +192,10 @@
       </div>
     </section>
 
-{{-- <script>
-    $(document).ready(function(){
-        $('#forms-table').DataTable({
-                "order": [[ 0, "desc" ]]
-        });
-    })
-</script> --}}
+
 <script>
-    $(document).ready(function(){
-        var check_col_index = 9;
-        var table = $('#forms-table').DataTable({
-            "order": [[ 10, "desc" ]],
-            "rowCallback": function(row, data) {
-                if (data[check_col_index] == "0") {
-                    $(row).hide();
-                }
-            }
-        });
-        
-        table.column(check_col_index).visible(false);
-    })
+    $(document).ready(function() {
+      $('#datatable').DataTable();
+    });
 </script>
 @endsection

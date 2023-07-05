@@ -231,7 +231,7 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="main_filter_tbl">
+                        <!-- <div class="main_filter_tbl">
                             <p>{{ __('Show') }}</p>
                             <select>
                                 <option>10</option>
@@ -239,7 +239,7 @@
                                 <option>30</option>
                             </select>
                             <p>{{ __('Entries') }}</p>
-                        </div>
+                        </div> -->
                         <div class="add_more_tbl">
                             <button type="button" data-toggle="modal" data-target="#myModal"
                                 class="btn rounded_button">{{ __('ADD MORE') }}</button>
@@ -338,14 +338,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="table_footer">
+                        <!-- <div class="table_footer">
                             <p>{{ __('Showing 1 to 9 of 9 entries') }}</p>
                             <div class="table_custom_pagination">
                                 <p class="active_pagination">1</p>
                                 <p>2</p>
                                 <p>3</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

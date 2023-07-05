@@ -23,7 +23,7 @@
     <div class="main_custom_table">
       <div class="table_filter_section">
         <div class="select_tbl_filter">
-          <div class="main_filter_tbl">
+          <!-- <div class="main_filter_tbl">
             <p>{{ __('Show') }}</p>
             <select>
               <option>10</option>
@@ -31,7 +31,7 @@
               <option>30</option>
             </select>
             <p>{{ __('Entries') }}</p>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="main_table_redisign">

@@ -32,7 +32,7 @@
                                 <th scope="col">{{ __('Sub Forms List') }}</th>
                                 <?php endif;?>
                                 <?php if (Auth::user()->role == 2 || Auth::user()->user_type == 1): ?>
-                                <th scope="col">{{ __('Number Of Subforms') }}</th>
+                                <th scope="col">{{ __('Reports') }}</th>
                                 <?php endif;?>
                             </tr>
                         </thead>
@@ -52,19 +52,26 @@
                                 <?php if (Auth::user()->role != 1): ?>
                                 <td>
                                     <div class="add_plus_form">
-                                        <div class="add_forms">
-                                            <a href="{{ route('report.asset', ['id' => $form_info->group_id]) }}">
-                                            <i class='bx bxs-report'></i> {{ __("Report") }}</a>
-                                        </div>
                                         <div class="show_sub_forms">
                                             <a href="{{ route('audit.sub-form', ['id' => $form_info->form_id]) }}">
-                                            <i class='bx bx-list-ul'></i> {{ __('Show Sub Forms') }}</a>
+                                            <i class='bx bx-list-ul'></i> {{ __('Show Sub Forms') }} ({{ $form_info->subforms_count }}) </a>
                                         </div>
                                     </div>
                                 </td>
                                 <?php endif;?>
                                 <?php if (Auth::user()->role == 2 || Auth::user()->user_type == 1): ?>
-                                <td>{{ $form_info->subforms_count }}</td>
+                                <td>
+                                <div class="add_plus_form">
+                                        <div class="add_forms">
+                                            <a href="{{ route('report.asset', ['id' => $form_info->group_id]) }}">
+                                            <i class='bx bxs-report'></i> {{ __("Audit Report") }}</a>
+                                        </div>
+                                        <div class="add_forms">
+                                            <a href="{{ route('report.onerem', ['id' => $form_info->group_id]) }}">
+                                            <i class='bx bxs-report'></i> {{ __("Remediation Report") }}</a>
+                                        </div>
+                                    </div>
+                                </td>
                                 <?php endif;?>
 
                             <tr>
