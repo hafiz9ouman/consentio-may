@@ -139,99 +139,98 @@ $busData = [
 
 <!-- For Tier Chart -->
 @foreach ($remediation_plans as $subform => $plans)
-@if (count($plans) > 0 && isset($plans[0]->tier))
-@php
-$name = $plans[0]->tier;
-$datacount = 0;
-@endphp
+    @if (count($plans) > 0 && isset($plans[0]->tier))
+        @php
+            $name = $plans[0]->tier;
+            $datacount = 0;
+        @endphp
 
-@foreach ($chartData as $entry)
-@if ($entry[0] == $name)
-@php
-$datacount = $entry[1];
-break;
-@endphp
-@endif
-@endforeach
+        @foreach ($chartData as $entry)
+            @if ($entry[0] == $name)
+                @php
+                    $datacount = $entry[1];
+                    break;
+                @endphp
+            @endif
+        @endforeach
 
-@if ($datacount == 0)
-@foreach ($remediation_plans as $count)
-@if (isset($count[0]->tier) && $name == $count[0]->tier)
-@php
-$datacount++;
-@endphp
-@endif
-@endforeach
-@php
-$chartData[] = [$name, $datacount];
-@endphp
-@endif
-@endif
+        @if ($datacount == 0)
+            @foreach ($remediation_plans as $count)
+                @if (isset($count[0]->tier) && $name == $count[0]->tier)
+                    @php
+                        $datacount++;
+                    @endphp
+                @endif
+            @endforeach
+            @php
+                $chartData[] = [$name, $datacount];
+            @endphp
+        @endif
+    @endif
 @endforeach
 
 <!-- For Hosting Type -->
 @foreach ($remediation_plans as $subform => $plans)
-@if (count($plans) > 0 && isset($plans[0]->hosting_type))
-@php
-$name = $plans[0]->hosting_type;
-$datacount = 0;
-@endphp
+    @if (count($plans) > 0 && isset($plans[0]->hosting_type))
+        @php
+            $name = $plans[0]->hosting_type;
+            $datacount = 0;
+        @endphp
 
-@foreach ($impData as $entry)
-@if ($entry[0] == $name)
-@php
-$datacount = $entry[1];
-break;
-@endphp
-@endif
-@endforeach
+        @foreach ($impData as $entry)
+            @if ($entry[0] == $name)
+                @php
+                    $datacount = $entry[1];
+                    break;
+                @endphp
+            @endif
+        @endforeach
 
-@if ($datacount == 0)
-@foreach ($remediation_plans as $count)
-@if (isset($count[0]->hosting_type) && $name == $count[0]->hosting_type)
-@php
-$datacount++;
-@endphp
-@endif
+        @if ($datacount == 0)
+            @foreach ($remediation_plans as $count)
+                @if (isset($count[0]->hosting_type) && $name == $count[0]->hosting_type)
+                    @php
+                        $datacount++;
+                    @endphp
+                @endif
+            @endforeach
+            @php
+                $impData[] = [$name, $datacount];
+            @endphp
+        @endif
+    @endif
 @endforeach
-@php
-$impData[] = [$name, $datacount];
-@endphp
-@endif
-@endif
-@endforeach
-
 
 <!-- For Business Location -->
 @foreach ($remediation_plans as $subform => $plans)
-@if (count($plans) > 0 && isset($plans[0]->country))
-@php
-$name = $plans[0]->country;
-$datacount = 0;
-@endphp
+    @if (count($plans) > 0 && isset($plans[0]->country))
+        @php
+            $name = $plans[0]->country;
+            $datacount = 0;
+        @endphp
 
-@foreach ($busData as $entry)
-@if ($entry[0] == $name)
-@php
-$datacount = $entry[1];
-break;
-@endphp
-@endif
-@endforeach
+        @foreach ($busData as $entry)
+            @if ($entry[0] == $name)
+                @php
+                    $datacount = $entry[1];
+                    break;
+                @endphp
+            @endif
+        @endforeach
 
-@if ($datacount == 0)
-@foreach ($remediation_plans as $count)
-@if (isset($count[0]->country) && $name == $count[0]->country)
-@php
-$datacount++;
-@endphp
-@endif
-@endforeach
-@php
-$busData[] = [$name, $datacount];
-@endphp
-@endif
-@endif
+        @if ($datacount == 0)
+            @foreach ($remediation_plans as $count)
+                @if (isset($count[0]->country) && $name == $count[0]->country)
+                    @php
+                        $datacount++;
+                    @endphp
+                @endif
+            @endforeach
+            @php
+                $busData[] = [$name, $datacount];
+            @endphp
+        @endif
+    @endif
 @endforeach
 
 
@@ -247,8 +246,6 @@ $busData[] = [$name, $datacount];
 <script>
 $(document).ready(function() {
     $('#datatable').DataTable({
-        searching: false,
-        lengthChange: false,
         
     });
 });
