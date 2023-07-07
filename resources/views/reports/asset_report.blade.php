@@ -92,34 +92,36 @@
 
     </div>
     <div class="row mt-3 overflow-auto">
-        <table id="datatable" class="table table-striped table-sm text-dark" width="100%">
-            <thead>
-                <tr>
-                    <th>Asset Name</th>
-                    <th>Asset Tier</th>
-                    @foreach($data as $question)
-                    <th>C{{$loop->iteration}} - {{$question->question_short}}</th>
+        <div class="col-12">
+            <table id="datatable" class="table table-striped table-sm text-dark" width="100%">
+                <thead>
+                    <tr>
+                        <th>Asset Name</th>
+                        <th>Asset Tier</th>
+                        @foreach($data as $question)
+                        <th>C{{$loop->iteration}} - {{$question->question_short}}</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($remediation_plans as $subform => $plans)
+                    @if (count($plans) == 0)
+                    @continue;
+                    @endif
+                    <tr>
+                        <td>{{$plans[0]->name}}</td>
+                        <td>{{$plans[0]->tier}}</td>
+                        @foreach ($plans as $plan)
+                        <td style="color:{{$plan->text_color}}; background-color:{{$plan->color}};">{{$plan->rating}}</td>
+                        @endforeach
+                    </tr>
                     @endforeach
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($remediation_plans as $subform => $plans)
-                @if (count($plans) == 0)
-                @continue;
-                @endif
-                <tr>
-                    <td>{{$plans[0]->name}}</td>
-                    <td>{{$plans[0]->tier}}</td>
-                    @foreach ($plans as $plan)
-                    <td style="color:{{$plan->text_color}}; background-color:{{$plan->color}};">{{$plan->rating}}</td>
-                    @endforeach
-                </tr>
-                @endforeach
-                <!-- @foreach($remediation_plans as $plan)
-                        {{-- <th style="color:{{$plan->text_color}}; background-color:{{$plan->color}};">{{$plan->rating}}</th> --}}
-                @endforeach -->
-            </tbody>
-        </table>
+                    <!-- @foreach($remediation_plans as $plan)
+                            {{-- <th style="color:{{$plan->text_color}}; background-color:{{$plan->color}};">{{$plan->rating}}</th> --}}
+                    @endforeach -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
