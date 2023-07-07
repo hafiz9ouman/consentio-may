@@ -342,13 +342,22 @@ $(document).ready(function() {
         // Create the data table using the dynamicData array
         var data = google.visualization.arrayToDataTable(dynamicData);
 
+        var colors = [];
+        var colorMap = {
+            'Weak': '#ED2938',
+            'Marginal': '#FF8C01'
+        }
+        for (var i = 0; i < data.getNumberOfRows(); i++) {
+            colors.push(colorMap[data.getValue(i, 0)]);
+        }
+
         var options = {
           title: 'Initial Rating',
           titleTextStyle: { fontSize: 14 },
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#FF8C01', '#ED2938'],
+          colors: colors,
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
@@ -373,13 +382,25 @@ $(document).ready(function() {
         // Create the data table using the dynamicData array
         var data = google.visualization.arrayToDataTable(dynamicData);
 
+        var colors = [];
+        var colorMap = {
+            'Good': '#037428',
+            'Satisfactory': '#DEEE91',
+            'Weak': '#ED2938',
+            'Marginal': '#FF8C01',
+            'Blank': '#808080'
+        }
+        for (var i = 0; i < data.getNumberOfRows(); i++) {
+            colors.push(colorMap[data.getValue(i, 0)]);
+        }
+
         var options = {
           title: 'Post Remediation Rating',
           titleTextStyle: { fontSize: 14 },
           pieHole: 0.5,
           is3D: true,
           backgroundColor: 'transparent',
-          colors: ['#037428', '#DEEE91', '#ED2938', '#FF8C01', '#808080'],
+          colors: colors,
           chartArea: { left: 0, top: 40, width: '100%', height: '100%' }, // Add this line to remove margin and padding
           margin: 0, // Add this line to remove margin
           padding: 0 
