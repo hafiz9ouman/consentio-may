@@ -186,6 +186,12 @@
                 $table->string('internal_3rd_party')->nullable();
                 $table->string('data_subject_volume')->nullable();
                 $table->string('business_unit')->nullable();
+                $table->string('description')->nullable();
+                $table->unsignedBigInteger('no_of_user')->nullable();
+                $table->string('supplier')->nullable();
+                $table->string('list_data_type')->nullable();
+                $table->string('data_retention')->nullable();
+                $table->string('notes')->nullable();
                 $table->timestamps();
             });
             return "Table <b>assets</b> Successfully Created";
@@ -374,6 +380,12 @@
                 $table->string('internal_3rd_party')->nullable();
                 $table->string('data_subject_volume')->nullable();
                 $table->string('business_unit')->nullable();
+                $table->string('description')->nullable();
+                $table->unsignedBigInteger('no_of_user')->nullable();
+                $table->string('supplier')->nullable();
+                $table->string('list_data_type')->nullable();
+                $table->string('data_retention')->nullable();
+                $table->string('notes')->nullable();
                 $table->timestamps();
             });
 
