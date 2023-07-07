@@ -143,7 +143,10 @@
   </section>
   <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+              // Disable auto-sort by name
+              "order": []
+            });
         });
     </script>
 @endsection
