@@ -404,146 +404,157 @@ $(document).ready(function() {
       }
 
 
-      ///other js Code
-    
-$(document).ready(function() {
-    // Listen for change event on checkboxes with class "checkbox-group"
-    $(".checkbox-group").change(function() {
-        var selectedUnits = [];
-        var selectedGroup = [];
-        // Iterate over each checkbox with class "checkbox-group" that is checked
-        $(".units:checked").each(function() {
-            // Add the value (business unit) to the selectedUnits array
-            selectedUnits.push($(this).val());
+
+
+///other js Code
+        
+    $(document).ready(function() {
+        if ($.fn.DataTable.isDataTable("#datatable")) {
+            $("#datatable").DataTable().destroy();
+        }
+        // Initialize DataTable
+        var dataTable = $("#datatable").DataTable({
+            // Configure DataTable options and settings here
         });
 
-        $(".groups:checked").each(function() {
-            // Add the value (business unit) to the selectedUnits array
-            selectedGroup.push($(this).val());
-        });
+        // Listen for change event on checkboxes with class "checkbox-group"
+        $(".checkbox-group").change(function() {
+            var selectedUnits = [];
+            var selectedGroup = [];
+            // Iterate over each checkbox with class "checkbox-group" that is checked
+            $(".units:checked").each(function() {
+                // Add the value (business unit) to the selectedUnits array
+                selectedUnits.push($(this).val());
+            });
 
-        // Retrieve CSRF token from meta tag
-        var token = $('meta[name="csrf-token"]').attr('content');
+            $(".groups:checked").each(function() {
+                // Add the value (business unit) to the selectedUnits array
+                selectedGroup.push($(this).val());
+            });
 
-        // Make the AJAX call
-        $.ajax({
-            url: "/your-ajax-endpoint",
-            method: "POST",
-            data: {
-                units: selectedUnits,
-                groups: selectedGroup,
-                _token: token // Include the CSRF token in the data
-            },
-            dataType: "json",
-            success: function(response)  {
-                // Handle the response from the server
-                // console.log(response);
+            // Retrieve CSRF token from meta tag
+            var token = $('meta[name="csrf-token"]').attr('content');
 
-                // Clear existing table rows except the first one (header row)
-                $("tbody").html("");
-                // Iterate over the response and append data to the table
-                $.each(response, function(index, plan) {
-                    // Create a new table row
-                    var newRow = $("<tr>");
-                    // Append table cells with data
-                    newRow.append("<td>" + (plan.asset_name ? plan.asset_name : plan.other_id) + "</td>");
-                    newRow.append("<td>" + plan.question_short + "</td>");
-                    newRow.append("<td style='background:" + plan.bg_icolor +"; color:" + plan.t_icolor + "'>" + (plan.irating ? plan.irating : '') + "</td>");
-                    newRow.append("<td style='background:" + plan.bg_pcolor + "; color:" + plan.t_pcolor + "'>" + (plan.prating ? plan.prating : '') + "</td>");
-                    newRow.append("<td>" + (plan.proposed_remediation ? plan.proposed_remediation : "<span style='margin-left:47%;'>--</span>") + "</td>");
-                    newRow.append("<td>" + (plan.completed_actions ? plan.completed_actions : "<span style='margin-left:47%;'>--</span>") + "</td>");
-                    newRow.append("<td>" + (plan.eta ? plan.eta : "<span style='margin-left:47%;'>--</span>") + "</td>");
-                    newRow.append("<td>" + (plan.status == "0" ? "<span style='margin-left:47%;'>--</span>" : plan.status) + "</td>");
-                    newRow.append("<td>" + plan.user_name + "</td>");
-                    newRow.append("<td>" + (plan.business_unit ? plan.business_unit : "<span style='margin-left:47%;'>--</span>") + "</td>");
-                    // Append the new row to the tbody
-                    $("tbody").append(newRow);
-                });
+            // Make the AJAX call
+            $.ajax({
+                url: "/your-ajax-endpoint",
+                method: "POST",
+                data: {
+                    units: selectedUnits,
+                    groups: selectedGroup,
+                    _token: token // Include the CSRF token in the data
+                },
+                dataType: "json",
+                success: function(response) {
+                    // Handle the response from the server
 
-                
-                // For initial Rating
-                var irating = [];
-                const ratings = {
-                    Marginal: 0,
-                    Weak: 0,
+                    // Clear existing table rows except the first one (header row)
+                    dataTable.clear().draw();
+
+                    // Iterate over the response and append data to the table
+                    $.each(response, function(index, plan) {
+                        // Create a new table row
+                        var newRow = $("<tr>");
+                        // Append table cells with data
+                        newRow.append("<td>" + (plan.asset_name ? plan.asset_name : plan.other_id) + "</td>");
+                        newRow.append("<td>" + plan.question_short + "</td>");
+                        newRow.append("<td style='background:" + plan.bg_icolor +"; color:" + plan.t_icolor + "'>" + (plan.irating ? plan.irating : '') + "</td>");
+                        newRow.append("<td style='background:" + plan.bg_pcolor + "; color:" + plan.t_pcolor + "'>" + (plan.prating ? plan.prating : '') + "</td>");
+                        newRow.append("<td>" + (plan.proposed_remediation ? plan.proposed_remediation : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                        newRow.append("<td>" + (plan.completed_actions ? plan.completed_actions : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                        newRow.append("<td>" + (plan.eta ? plan.eta : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                        newRow.append("<td>" + (plan.status == "0" ? "<span style='margin-left:47%;'>--</span>" : plan.status) + "</td>");
+                        newRow.append("<td>" + plan.user_name + "</td>");
+                        newRow.append("<td>" + (plan.business_unit ? plan.business_unit : "<span style='margin-left:47%;'>--</span>") + "</td>");
+                        // Append the new row to the DataTable
+                        dataTable.row.add(newRow).draw();
+                    });
+
+                    // Rest of your code...
+
+                    // For initial Rating
+                    var irating = [];
+                    const ratings = {
+                        Marginal: 0,
+                        Weak: 0,
+                    };
+                    var preRatting = [
+                        ['Ratings', 'count'],
+                    ];
+
+                    $.each(response, function(key, value) {
+                        ratings[`${value.irating}`] += 1;
+                    });
+                    preRatting.push(['Marginal', ratings.Marginal]);
+                    preRatting.push(['Weak', ratings.Weak]);
+                    // console.log(preRatting);
+
+                    // For Post Rating
+                    var prating = [];
+                    const postratings = {
+                        Marginal: 0,
+                        Weak: 0,
+                        Good: 0,
+                        Satisfactory: 0,
+                        Blank: 0
+                    };
+                    var postRatting = [
+                        ['Ratings', 'count', { role: 'style' }],
+                    ];
+
+                    $.each(response, function(key, value) {
+                        const KeyVa = value.prating ? value?.prating : 'Blank';
+                        postratings[`${KeyVa}`] += 1;
+                    });
+                    postRatting.push(['Marginal', postratings.Marginal, 'color: #FF8C01']);
+                    postRatting.push(['Weak', postratings.Weak, 'color: #ED2938']);
+                    postRatting.push(['Good', postratings.Good, 'color: #037428']);
+                    postRatting.push(['Satisfactory', postratings.Satisfactory, 'color: #DEEE91']);
+                    postRatting.push(['Blank', postratings.Blank, 'color: #e3e6f0']);
+                    console.log(postRatting);
+
+                    // For Remediation Status
+                    var status = [];
+                    const remstatus = {
+                        RemediationinProgress: 0,
+                        RemediationApplied: 0,
+                        RiskAcceptance: 0,
+                        AnalysisinProgress: 0,
+                        Other: 0,
+                        Blank: 0,
+                    };
+                    var rstatus = [
+                        ['Status', 'Count'],
+                    ];
+
+                    $.each(response, function(key, value) {
+                        const updateStatuswithoutSpace = value.status.replaceAll(' ', '');
+                        const keyValue = updateStatuswithoutSpace == "0" ? 'Blank' : updateStatuswithoutSpace;
+                        remstatus[keyValue] += 1;
+                    });
+
+                    rstatus.push(['Remediation in Progress', remstatus.RemediationinProgress]);
+                    rstatus.push(['Remediation Applied', remstatus.RemediationApplied]);
+                    rstatus.push(['Risk Acceptance', remstatus.RiskAcceptance]);
+                    rstatus.push(['Analysis in Progress', remstatus.AnalysisinProgress]);
+                    rstatus.push(['Other', remstatus.Other]);
+                    rstatus.push(['Blank', remstatus.Blank]);
+                    // console.log(rstatus);
+
+                    // Redraw the charts
+                    drawChart(preRatting);
+                    drawCharts(postRatting);
+                    drawChartstatus(rstatus);
+                },
+
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.error(error);
                 }
-                var preRatting = [
-                    ['Ratings', 'count'],
-                ];
-
-                $.each(response, function(key, value) {
-                    ratings[`${value.irating}`] += 1 
-                });
-                preRatting.push(['Marginal', ratings.Marginal]);
-                preRatting.push(['Weak', ratings.Weak]);
-                // console.log(preRatting);
-
-                // For Post Rating
-                var prating = [];
-                const postratings = {
-                    Marginal: 0,
-                    Weak: 0,
-                    Good: 0,
-                    Satisfactory: 0,
-                    Blank: 0
-                }
-                var postRatting = [
-                    ['Ratings', 'count', { role: 'style' }],
-                ];
-
-                $.each(response, function(key, value) {
-                    const KeyVa = value.prating? value?.prating : 'Blank'
-                    postratings[`${KeyVa}`] += 1 
-                });
-                postRatting.push(['Marginal', postratings.Marginal, 'color: #FF8C01']);
-                postRatting.push(['Weak', postratings.Weak, 'color: #ED2938']);
-                postRatting.push(['Good', postratings.Good, 'color: #037428']);
-                postRatting.push(['Satisfactory', postratings.Satisfactory, 'color: #DEEE91']);
-                postRatting.push(['Blank', postratings.Blank, 'color: #e3e6f0']);
-                console.log(postRatting);
-
-                // For Remediation Status
-                var status = [];
-                const remstatus = {
-                    RemediationinProgress: 0,
-                    RemediationApplied: 0,
-                    RiskAcceptance: 0,
-                    AnalysisinProgress: 0,
-                    Other: 0,
-                    Blank: 0,       
-                };
-                var rstatus = [
-                ['Status', 'Count'],
-                ];
-
-                $.each(response, function(key, value) {
-                    const updateStatuswithoutSpace =  value.status.replaceAll(' ', '')
-                    const keyValue = updateStatuswithoutSpace=="0" ? 'Blank' : updateStatuswithoutSpace
-                remstatus[keyValue] += 1;
-                });
-
-                rstatus.push(['Remediation in Progress', remstatus.RemediationinProgress]);
-                rstatus.push(['Remediation Applied', remstatus.RemediationApplied]);
-                rstatus.push(['Risk Acceptance', remstatus.RiskAcceptance]);
-                rstatus.push(['Analysis in Progress', remstatus.AnalysisinProgress]);
-                rstatus.push(['Other', remstatus.Other]);
-                rstatus.push(['Blank', remstatus.Blank]);
-                // console.log(rstatus);
-
-                
-                // Redraw the charts
-                drawChart(preRatting);
-                drawCharts(postRatting);    
-                drawChartstatus(rstatus);
-            },
-            
-            error: function(xhr, status, error) {
-                // Handle the error
-                console.error(error);
-            }
+            });
         });
     });
-});
+
 
 
 

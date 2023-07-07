@@ -323,7 +323,7 @@ $(document).ready(function() {
             titleTextStyle: {
                 fontSize: 14
             },
-            pieHole: 0.5,
+            pieHole: 0.4,
             backgroundColor: 'transparent',
             colors: ['#6aa7f8', '#fdab89', '#3599b8', '#deee91', '#f6c7b6'],
             chartArea: {
@@ -360,7 +360,7 @@ $(document).ready(function() {
             titleTextStyle: {
                 fontSize: 14
             },
-            pieHole: 0.5,
+            pieHole: 0.4,
             backgroundColor: 'transparent',
             colors: ['#3599b8', '#6aa7f8', '#bbd53b', '#fdab89', '#ff5500'],
             chartArea: {
@@ -379,6 +379,13 @@ $(document).ready(function() {
 
     //   Other JS Code
     $(document).ready(function() {
+        if ($.fn.DataTable.isDataTable("#datatable")) {
+            $("#datatable").DataTable().destroy();
+        }
+        // Initialize DataTable
+        var dataTable = $("#datatable").DataTable({
+            // Configure DataTable options and settings here
+        });
         // Listen for change event on checkboxes with class "checkbox-group"
         $(".change").change(function() {
             var classUnits = [];
@@ -417,9 +424,10 @@ $(document).ready(function() {
                     // Handle the response from the server
                     // console.log(response);
 
-
                     // Clear existing table rows except the first one (header row)
-                    $("tbody tr:not(:first)").remove();
+                    dataTable.clear().draw();
+                    // // Clear existing table rows except the first one (header row)
+                    // $("tbody tr:not(:first)").remove();
 
                     // Iterate over the response and append data to the table
                     $.each(response, function(index, plan) {
@@ -439,8 +447,8 @@ $(document).ready(function() {
                         });
 
 
-                        // Append the new row to the tbody
-                        $("tbody").append(newRow);
+                        // Append the new row to the DataTable
+                        dataTable.row.add(newRow).draw();
                     });
 
 

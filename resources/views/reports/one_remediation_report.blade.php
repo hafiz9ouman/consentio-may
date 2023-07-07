@@ -393,6 +393,14 @@ $(document).ready(function() {
       ///other js Code
     
 $(document).ready(function() {
+    if ($.fn.DataTable.isDataTable("#datatable")) {
+        $("#datatable").DataTable().destroy();
+    }
+    // Initialize DataTable
+    var dataTable = $("#datatable").DataTable({
+        // Configure DataTable options and settings here
+    });
+    
     // Listen for change event on checkboxes with class "checkbox-group"
     $(".checkbox-group").change(function() {
         var selectedUnits = [];
@@ -417,11 +425,11 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(response)  {
-                // Handle the response from the server
                 // console.log(response);
-
                 // Clear existing table rows except the first one (header row)
-                $("tbody").html("");
+                dataTable.clear().draw();
+                // Clear existing table rows except the first one (header row)
+                // $("tbody").html("");
                 // Iterate over the response and append data to the table
                 $.each(response, function(index, plan) {
                     // Create a new table row
@@ -437,8 +445,8 @@ $(document).ready(function() {
                     newRow.append("<td>" + (plan.status == "0" ? "<span style='margin-left:47%;'>--</span>" : plan.status) + "</td>");
                     newRow.append("<td>" + plan.user_name + "</td>");
                     newRow.append("<td>" + (plan.business_unit ? plan.business_unit : "<span style='margin-left:47%;'>--</span>") + "</td>");
-                    // Append the new row to the tbody
-                    $("tbody").append(newRow);
+                    // Append the new row to the DataTable
+                    dataTable.row.add(newRow).draw();
                 });
 
                 
