@@ -278,7 +278,7 @@
                                     <th scope="col">{{ __('BUSINESS OWNER') }}</th>
                                     <th scope="col">{{ __('BUSINESS UNIT') }}</th>
                                     <th scope="col">{{ __('INTERNAL 3RD PARTY') }}</th>
-                                    <th scope="col">{{ __('DATA SUBJECT VOLUME') }}</th>
+                                    <th scope="col">{{ __('VOLUME OF SENSITIVE DATA') }}</th>
 
                                     <th scope="col">{{ __('ACTIONS') }}</th>
                                 </tr>
