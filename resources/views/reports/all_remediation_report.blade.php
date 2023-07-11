@@ -10,8 +10,13 @@
 </style>
 
 <div class="container-fluid" style="background-color: white;">
-    <div class="row">
-        <h4 class="mt-2" style="color:black;"><b>Security Remediation Plan</b></h4>
+    <div class="row align-items-end">
+        <div class="col-9">
+            <h4 class="mt-2" style="color:black;"><b>Security Remediation Plan</b></h4>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button id="screenshotButton" class="btn btn-primary">Download Report</button>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-3">
@@ -151,6 +156,7 @@
                 @endforeach
             </tbody>
         </table>
+
     </div>
     
 </div>
@@ -284,10 +290,37 @@
     echo json_encode($impData);
 @endphp -->
 
+<!-- Google Charts library -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- html2pdf.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 
 
+<script>
+    document.getElementById('screenshotButton').addEventListener('click', captureScreenshot);
 
+    function captureScreenshot() {
+        // Get the screen dimensions
+        // const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        // const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        const screenWidth = 500;
+        const screenHeight = 650;
+        
+        // Convert the HTML content to PDF
+        const element = document.body;
+        const options = {
+            filename: 'Global_Rem_Report.pdf',
+            image: { type: 'jpeg', quality: 0.99 },
+            html2canvas: { scale: 1 },
+            jsPDF: { 
+                format: [screenWidth, screenHeight]  // Set the page size to the screen dimensions
+            }
+        };
 
+        html2pdf().set(options).from(element).save();
+    }
+</script>
 
 
 <!-- jQuery -->

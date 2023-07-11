@@ -15,7 +15,8 @@
             <h4 class="mt-3" style="color:black;"><b>{{$company->name}} {{$group[0]->group_name}} - Security Assessment</b></h4>
         </div>
         <div class="col d-flex justify-content-end">
-            <a class="btn btn-primary mt-2" href="{{ url('/report/remediation/' . $group_id) }}">Remediation Report</a>
+            <a class="btn btn-primary" href="{{ url('/report/remediation/' . $group_id) }}">Remediation Report</a>
+            <button id="screenshotButton" class="btn btn-secondary ml-2">Download Report</button>
         </div>
     </div>
     <input type="hidden" class="group_id" value="{{$group_id}}">
@@ -239,6 +240,38 @@ $busData = [
 <!-- @php
     echo json_encode($busData);
 @endphp -->
+
+<!-- Google Charts library -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- html2pdf.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+<script>
+    document.getElementById('screenshotButton').addEventListener('click', captureScreenshot);
+
+    function captureScreenshot() {
+        // Get the screen dimensions
+        // const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        // const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        const screenWidth = 500;
+        const screenHeight = 650;
+        
+        // Convert the HTML content to PDF
+        const element = document.body;
+        const options = {
+            filename: 'Audit_Report.pdf',
+            image: { type: 'jpeg', quality: 0.99 },
+            html2canvas: { scale: 1 },
+            jsPDF: { 
+                format: [screenWidth, screenHeight]  // Set the page size to the screen dimensions
+            }
+        };
+
+        html2pdf().set(options).from(element).save();
+    }
+</script>
 
 
 
