@@ -42,15 +42,7 @@
   <div class="main_custom_table">
     <div class="table_filter_section">
       <div class="select_tbl_filter">
-        <!-- <div class="main_filter_tbl">
-          <p>{{ __('Show') }}</p>
-          <select>
-            <option>10</option>
-            <option>20</option>
-            <option>30</option>
-          </select>
-          <p>{{ __('Entries') }}</p>
-        </div> -->
+        
       </div>
     </div>
     <div class="main_table_redisign">
@@ -60,7 +52,7 @@
         </div> 
       @endif
       <div class="over_main_div">
-        <table id="datatable" class="table table-striped text-center paginated" >
+        <table id="datatable" class="table table-striped text-center" >
           <thead>
             <tr>
               <th scope="col">{{ __('FORM LINKS') }}</th>

@@ -21,23 +21,9 @@
   </style>
   <section class="assets_list">
     <div class="main_custom_table">
-      <div class="table_filter_section">
-        <div class="select_tbl_filter">
-          <!-- <div class="main_filter_tbl">
-            <p>{{ __('Show') }}</p>
-            <select>
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-            </select>
-            <p>{{ __('Entries') }}</p>
-          </div> -->
-        </div>
-      </div>
       <div class="main_table_redisign">
-        
         <div class="over_main_div no_scroll">
-          <table class="table table-striped text-center paginated main_responsive_table" id="datatable">
+          <table class="table table-striped text-center main_responsive_table" id="datatable">
             <thead>
               <tr>
                 <th scope="col">Sr NO.</th>

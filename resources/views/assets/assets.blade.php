@@ -261,7 +261,7 @@
                         <h3>{{ __('ASSETS') }}</h3>
                     </div>
                     <div class="over_main_div">
-                        <table class="table table-striped text-center paginated" id="datatable">
+                        <table class="table table-striped text-center" id="datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">{{ __('ASSET #') }}</th>

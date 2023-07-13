@@ -64,11 +64,11 @@
                                 <div class="add_plus_form">
                                         <div class="add_forms">
                                             <a href="{{ route('report.asset', ['id' => $form_info->group_id]) }}">
-                                            <i class='bx bxs-report'></i> {{ __("Audit Report") }}</a>
+                                            <i class='bx bxs-report'></i> {{ __("Audit") }}</a>
                                         </div>
                                         <div class="add_forms">
                                             <a href="{{ route('report.onerem', ['id' => $form_info->group_id]) }}">
-                                            <i class='bx bxs-report'></i> {{ __("Remediation Report") }}</a>
+                                            <i class='bx bxs-report'></i> {{ __("Remediation") }}</a>
                                         </div>
                                     </div>
                                 </td>

@@ -12,15 +12,6 @@
     <div class="main_custom_table">
       <div class="table_filter_section">
         <div class="select_tbl_filter">
-          <!-- <div class="main_filter_tbl">
-            <p>{{ __('Show') }}</p>
-            <select>
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-            </select>
-            <p>{{ __('Entries') }}</p>
-          </div> -->
           {{-- <div class="add_more_tbl">
             <button type="button" class="btn rounded_button">ADD MORE</button>
           </div> --}}
@@ -28,7 +19,7 @@
       </div>
       <div class="main_table_redisign">
         <div class="over_main_div ">
-          <table class="table table-striped text-center paginated" id="datatable">
+          <table class="table table-striped text-center" id="datatable">
             <thead>
               <tr style = "text-transform:uppercase !important;">
                 
