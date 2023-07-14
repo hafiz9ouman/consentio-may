@@ -9,12 +9,12 @@
     }
 </style>
 
-<div class="container-fluid" style="background-color: white;">
+<div class="container-fluid" style="background-color: white;" id="myDiv">
     <div class="row align-items-end">
         <div class="col-9">
             <h4 class="mt-2" style="color:black;"><b>Security Remediation Plan</b></h4>
         </div>
-        <div class="col d-flex justify-content-end">
+        <div class="col d-flex justify-content-end download-btn">
             <button id="screenshotButton" class="btn btn-primary">Download Report</button>
         </div>
     </div>
@@ -300,29 +300,67 @@
 
 
 <script>
-    document.getElementById('screenshotButton').addEventListener('click', captureScreenshot);
+    document.getElementById('screenshotButton').addEventListener('click', function() {
+        // Destroy the DataTable
+        if ($.fn.DataTable.isDataTable("#datatable")) {
+            $("#datatable").DataTable().destroy();
+        }
+
+        // Add the d-none class to the button
+        $(this).addClass('d-none');
+
+        // Capture screenshot and download report
+        captureScreenshot();
+    });
 
     function captureScreenshot() {
         // Get the screen dimensions
-        // const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        // const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
         const screenWidth = 500;
         const screenHeight = 650;
-        
-        // Convert the HTML content to PDF
-        const element = document.body;
+
+        // Specify the ID of the div you want to capture
+        const divId = 'myDiv';
+
+        // Get the target div element
+        const targetDiv = document.getElementById(divId);
+
+        // Create a container element to hold the target div temporarily
+        const container = document.createElement('div');
+        container.appendChild(targetDiv.cloneNode(true));
+
+        // Convert the container element to PDF
         const options = {
             filename: 'Global_Rem_Report.pdf',
             image: { type: 'jpeg', quality: 0.99 },
             html2canvas: { scale: 1 },
-            jsPDF: { 
-                format: [screenWidth, screenHeight]  // Set the page size to the screen dimensions
+            jsPDF: {
+                format: [screenWidth, screenHeight] // Set the page size to the screen dimensions
             }
         };
 
-        html2pdf().set(options).from(element).save();
+        html2pdf().set(options).from(container).save().then(function() {
+
+            // Remove the d-none class from the button
+            $('#screenshotButton').removeClass('d-none');
+
+            // Reinitialize the DataTable after capturing the screenshot
+            initializeDataTable();
+        });
+    }
+
+    function initializeDataTable() {
+        $('#datatable').DataTable({
+            searching: false,
+            lengthChange: false,
+        });
     }
 </script>
+
+
+
+
+
+
 
 
 <!-- jQuery -->
