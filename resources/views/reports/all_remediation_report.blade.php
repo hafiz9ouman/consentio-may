@@ -329,7 +329,10 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 $(document).ready(function() {
-    $('#datatable').DataTable();
+    $('#datatable').DataTable({
+        searching: false,
+        lengthChange: false,
+    });
 });
 </script>
 
@@ -511,6 +514,7 @@ $(document).ready(function() {
                         var newRow = $("<tr>");
                         // Append table cells with data
                         newRow.append("<td>" + (plan.asset_name ? plan.asset_name : plan.other_id) + "</td>");
+                        newRow.append("<td>" + plan.group_name + "</td>");
                         newRow.append("<td>" + plan.question_short + "</td>");
                         newRow.append("<td style='background:" + plan.bg_icolor +"; color:" + plan.t_icolor + "'>" + (plan.irating ? plan.irating : '') + "</td>");
                         newRow.append("<td style='background:" + plan.bg_pcolor + "; color:" + plan.t_pcolor + "'>" + (plan.prating ? plan.prating : '') + "</td>");
