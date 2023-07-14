@@ -73,6 +73,7 @@
         <table id="datatable" class="table table-striped table-bordered table-sm text-dark" cellspacing="0" width="100%">
             <thead>
                     <th>Name</th>
+                    <th>Question Group</th>
                     <th>Control Name</th>
                     <th>Initial Rating</th>
                     <th>POST Rating</th>
@@ -93,6 +94,7 @@
                                 {{$plan->other_id}}
                             @endif
                         </td>
+                        <td>{{$plan->group_name}}</td>
                         <td>{{$plan->question_short}}</td>
                         @php
                             $check=DB::table('evaluation_rating')->where('rate_level', $plan->rating)->where('owner_id', $client_id)->first();
@@ -327,10 +329,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 $(document).ready(function() {
-    $('#datatable').DataTable({
-        searching: false,
-        lengthChange: false,
-    });
+    $('#datatable').DataTable();
 });
 </script>
 
